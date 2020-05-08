@@ -1,0 +1,460 @@
+/*
+
+Theme Name: mmm
+Author: mmm
+Version: 1.0.0
+
+*/
+
+*{
+    margin:0;
+    padding:0;
+    line-height:1;
+    box-sizing:border-box;
+    font-weight:normal;
+    letter-spacing:normal;
+    border:none;
+    outline:none;
+}
+
+html{
+    height:100%;
+    font-size:16px;
+}
+
+body{
+    height:100%;
+    font-family: "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック体", "YuGothic", "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", "Meiryo", "verdana", sans-serif;
+    font-size:1rem;
+    color:#222222;
+}
+
+img{
+    width:auto;
+    height:auto;
+    max-width:100%;
+}
+
+a,a:visited,a:hover,a:active{
+    color:inherit;
+    text-decoration:none;
+}
+
+ul{
+    list-style-type: none;
+}
+
+h1,h2,h3,h4,h5,h6{
+    font-size:1rem;
+    font-weight:normal;
+}
+
+.mmm-page-title{
+}
+
+.mmm-post{
+}
+
+.mmm-post-title{
+}
+
+.mmm-post-date{
+}
+
+.mmm-post-image{
+}
+
+.mmm-post-image img{
+}
+
+.mmm-post-content{
+}
+
+.mmm-post-terms{
+}
+
+.mmm-post-cat{
+}
+
+a.mmm-post-cat{
+}
+
+a.mmm-post-cat:hover{
+}
+
+.mmm-post-tag{
+}
+
+a.mmm-post-tag{
+}
+
+a.mmm-post-tag:hover{
+}
+
+.mmm-post-tag:before{
+	content:"#";
+}
+
+.mmm-post--archive{
+}
+
+.mmm-post--archive .mmm-post-title{
+}
+
+.mmm-post--archive .mmm-post-date{
+}
+
+.mmm-post--archive .mmm-post-image{
+}
+
+.mmm-post--archive .mmm-post-image img{
+}
+
+.mmm-post--archive .mmm-post-content{
+}
+
+.mmm-post--single{
+}
+
+.mmm-post--single .mmm-post-title{
+}
+
+.mmm-post--single .mmm-post-date{
+}
+
+.mmm-post--single .mmm-post-image{
+}
+
+.mmm-post--single .mmm-post-image img{
+}
+
+.mmm-post--single .mmm-post-content{
+}
+
+.mmm-post--single .mmm-post-content p{
+}
+
+.mmm-post-content img{
+}
+
+.mmm-post-content img.aligncenter{
+    display: block;
+    margin:1rem auto;
+}
+
+.mmm-post-content img.alignleft{
+    float:left;
+    margin-right:1rem;
+    margin-bottom:1rem;
+}
+
+.mmm-post-content img.alignright{
+    float:right;
+    margin-left:1rem;
+    margin-bottom:1rem;
+}
+
+.mmm-post-content h2,
+.mmm-post-content h3,
+.mmm-post-content h4,
+.mmm-post-content h5,
+.mmm-post-content h6{
+    clear:both;
+}
+
+.mmm-post-content h2{
+}
+
+.mmm-post-content h3{
+}
+
+.mmm-post-content h4{
+}
+
+.mmm-post-content h5{
+}
+
+.mmm-post-content h6{
+}
+
+.mmm-post-content strong{
+    font-weight:bold;
+}
+
+.mmm-post-content a{
+    text-decoration:underline;
+}
+
+.mmm-post-content small{
+}
+
+.mmm-post-content ul{
+}
+
+.mmm-post-content ul li{
+}
+
+.mmm-post-content table{
+    width:100%;
+    table-layout:fixed;
+    border-collapse:collapse;
+}
+
+.mmm-post-content table th,
+.mmm-post-content table td{
+    padding:1rem;
+    line-height:1.2;
+    border:1px solid lightgray;
+}
+
+.mmm-post-content table th{
+    font-weight:bold;
+}
+
+@media screen and (max-width:768px){
+    .mmm-post-content img.aligncenter,
+    .mmm-post-content img.alignleft,
+    .mmm-post-content img.alignright{
+        display:block;
+        width:100%;
+        max-width:none;
+        margin-left:0;
+        margin-right:0;
+        margin-bottom:1rem;
+    }
+}
+
+/*
+
+breadcrumb
+
+*/
+
+.mmm-breadcrumb{
+}
+
+.mmm-breadcrumb ul{
+    display:flex;
+    flex-wrap:wrap;
+	list-style-type:none;
+}
+
+.mmm-breadcrumb ul li{
+    margin-right:2px;
+}
+
+.mmm-breadcrumb ul li{
+    margin-left:5px;
+    margin-right:5px;
+}
+
+.mmm-breadcumb ul li a{
+}
+
+.mmm-breadcumb ul li span{
+}
+
+/*
+
+pagination
+
+*/
+
+.mmm-pagination ul{
+   width:100%;
+   display:flex;
+   justify-content:center;
+}
+
+.mmm-pagination ul li{
+   margin-right:5px;
+   margin-left:5px;
+}
+
+.mmm-pagination ul li.dots{
+   margin-left:0;
+   margin-right:0;
+}
+
+.mmm-pagination ul li a,
+.mmm-pagination ul li span{
+   display:flex;
+   justify-content:center;
+   align-items:center;
+   height:40px;
+   width:40px;
+   font-weight:bold;
+   border-width:1px;
+   border-style:solid;
+}
+
+.mmm-pagination ul li a{
+    color:#FFF;
+    border-color:lightgray;
+    background-color:lightgray;
+}
+
+.mmm-pagination ul li span{
+    color:lightgray;
+    border-color:lightgray;
+    background-color:#FFF;
+}
+
+.mmm-pagination ul li.dots span{
+    border-color:#FFF;
+}
+
+.mmm-pagination ul li a:hover{
+   color:lightgray;
+   background-color:#FFF;
+}
+
+.mmm-pagination ul li.prev a,
+.mmm-pagination ul li.prev span,
+.mmm-pagination ul li.next a,
+.mmm-pagination ul li.next span{
+   width:auto;
+   padding:0 1em;
+}
+
+@media screen and (max-width:992px){
+
+   .mmm-pagination ul li{
+       display: none;
+   }
+
+   .mmm-pagination ul li.next,
+   .mmm-pagination ul li.prev{
+       display: initial;
+   }
+
+   .mmm-pagination ul li.prev{
+       margin-right:auto;
+   }
+
+   .mmm-pagination ul li.next{
+       margin-left:auto;
+   }
+
+}
+
+/*
+
+related_posts
+
+ */
+
+.mmm-related-posts{
+	margin-bottom:1.5rem;
+}
+
+.mmm-related-posts-title{
+}
+
+.mmm-related-posts ul{
+	margin-left:1rem;
+}
+
+.mmm-related-posts li{
+}
+
+.mmm-related-posts li a{
+}
+
+.mmm-related-posts li a strong{
+    font-weight:bold;
+}
+
+/*
+
+menu
+
+*/
+
+.mmm-menu{
+}
+
+.mmm-submenu{
+	display:none;
+}
+
+.mmm-submenu-hover{
+}
+
+.mmm-submenu-click{
+    display:none;
+}
+
+.mmm-submenu-click:before{
+	content:"＋";
+}
+
+.mmm-menu.mmm-menu--global{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.hamburger{
+    display:none;
+    position:fixed;
+    z-index:9999;
+    top:0px;
+    right:0px;
+    width:40px;
+    height:40px;
+    background-color:lightgray;
+    opacity:.7;
+}
+
+.hamburger span{
+    position:absolute;
+    left:6px;
+    display:inline-block;
+    width:28px;
+    height:2px;
+    background-color:#FFF;
+    transition:all .4s;
+}
+
+.hamburger span:nth-of-type(1){
+    top:10px;
+}
+
+.hamburger span:nth-of-type(2){
+    top:19px;
+}
+
+.hamburger span:nth-of-type(3){
+    bottom:10px;
+}
+
+.hamburger.active span:nth-of-type(1){
+    -webkit-transform:translateY(9px) rotate(-45deg);
+    transform:translateY(9px) rotate(-45deg);
+}
+
+.hamburger.active span:nth-of-type(2){
+    opacity: 0;
+}
+
+.hamburger.active span:nth-of-type(3){
+    -webkit-transform: translateY(-9px) rotate(45deg);
+    transform: translateY(-9px) rotate(45deg);
+}
+
+@media screen and (max-width:768px){
+
+    .mmm-submenu-click{
+        display:initial;
+    }
+
+    .mmm-menu.mmm-menu--global{
+        display:none;
+    }
+
+    .hamburger{
+        display:initial;
+    }
+
+}
