@@ -7,22 +7,22 @@
 	$qo = $breadcrumb->qo;
 	$meta_title = "";
 	$meta_description = esc_html( get_bloginfo( 'description' ) );
-	$archive_title_after = "一覧";
+	$text_after_archive_title = "一覧";
 	if( is_category() ){
 		$breadcrumb->tax();
-		$meta_title = $qo->name.$archive_title_after;
+		$meta_title = $qo->name.$text_after_archive_title;
 		$meta_description = $meta_title."。".$meta_description;
 	}else if( is_tag() ){
 		$breadcrumb->tax();
-		$meta_title = $qo->name.$archive_title_after;
+		$meta_title = $qo->name.$text_after_archive_title;
 		$meta_description = $meta_title."。".$meta_description;
 	}else if( is_tax() ){
 		$breadcrumb->tax();
-		$meta_title = $qo->name.$archive_title_after;
+		$meta_title = $qo->name.$text_after_archive_title;
 		$meta_description = $meta_title."。".$meta_description;
 	}else if( is_post_type_archive() ){
 		$breadcrumb->post_type_archive();
-		$meta_title = $qo->label.$archive_title_after;
+		$meta_title = $qo->label.$text_after_archive_title;
 		$meta_description = $meta_title."。".$meta_description;
 	}else if( is_single() ){
 		$breadcrumb->single();
