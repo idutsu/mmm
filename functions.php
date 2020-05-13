@@ -53,11 +53,11 @@ class MMM_Walker_Nav_Menu extends Walker_Nav_Menu {
         $current = in_array('current-menu-item', $item->classes) ? "class='current'" : "" ;
         if (in_array('menu-item-has-children', $item->classes)) {
             $indent = " ";
-            $output .= "\n".'<li '.$current.'>';
+            $output .= "\n"."<li id='mmm-menu-".$item->ID."'".$current.">";
             $output .= "<a href='".$item->url."' class='mmm-submenu-hover'>".$item->title."<span class='mmm-submenu-click'></span></a>";
             $output .= "\n" . $indent . '<ul class="mmm-submenu">';
         } else {
-            $output .= '<li '.$current.'>';
+            $output .= "\n"."<li id='mmm-menu-".$item->ID."'".$current.">";
             $output .= "<a href='".$item->url."'>".$item->title."</a>";
         }
     }
