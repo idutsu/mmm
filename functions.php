@@ -326,8 +326,8 @@ function mmm_pagination( $query = null, $prev_text = null, $next_text = null ){
 */
 class MMM_Template{
     private $template_dir;
-    public function __construct(){
-        $this->template_dir = THEME_DIR."/template/";
+    public function __construct( $template_dir ){
+        $this->template_dir = THEME_DIR."/".$template_dir."/";
     }
     public function render( $name, $data = array() ){
         include $this->template_dir.$name.".php";
