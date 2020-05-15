@@ -38,6 +38,7 @@ add_action( 'wp_enqueue_scripts', function(){
 	wp_enqueue_script( 'anchorlink',THEME_URL.'/js/anchorlink.js', array('jquery'), filemtime(THEME_DIR.'/js/anchorlink.js'), true );
 	wp_enqueue_script( 'intersection-observer',THEME_URL.'/js/intersection-observer.js', array(), filemtime(THEME_DIR.'/js/intersection-observer.js'), true );
 	wp_enqueue_script( 'lazyload',THEME_URL.'/js/lazyload.js', array('intersection-observer'), filemtime(THEME_DIR.'/js/lazyload.js'), true );
+	wp_enqueue_script( 'objectfit',THEME_URL.'/js/ofi.min.js', array(), filemtime(THEME_DIR.'/js/ofi.min.js'), true );
 });
 
 
