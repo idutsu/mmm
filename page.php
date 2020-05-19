@@ -4,7 +4,7 @@
 		while(have_posts()){
 			the_post();
 			?>
-			<div class="mmm-post mmm-post--signle">
+			<div class="mmm-post mmm-post--single">
 				<h2 class="mmm-post-title"><?php the_title(); ?></h2>
 				<time class="mmm-post-date"><?php the_time('Y.m.d'); ?></time>
 				<?php if( has_post_thumbnail() ){ ?>
