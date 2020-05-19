@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-<div class="mmm-post mmm-post--signle">
+<div class="mmm-post mmm-post--single">
     <h2 class="mmm-post-title">ページが見つかりませんでした</h2>
     <div class="mmm-post-content">
         <a href="<?php home_url(); ?>">トップページに戻る</a>
