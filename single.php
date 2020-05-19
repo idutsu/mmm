@@ -15,7 +15,7 @@
 						<?php if( $terms['category'] ){ ?>
 							<?php foreach( $terms['category'] as $tax => $categories ){ ?>
 								<?php foreach( $categories as $category ){ ?>
-									<a href="<?php echo $category['link']; ?>" class="mmm-post-cat mmm-post-cat--<?php echo $tax; ?>"><?php echo $category['name']; ?></span>
+									<a href="<?php echo $category['link']; ?>" class="mmm-post-cat mmm-post-cat--<?php echo $tax; ?>"><?php echo $category['name']; ?></a>
 								<?php } ?>
 							<?php } ?>
 						<?php } ?>
