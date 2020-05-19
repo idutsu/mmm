@@ -22,7 +22,7 @@
 						<?php if( $terms['tag'] ){ ?>
 							<?php foreach( $terms['tag'] as $tax => $tags ){ ?>
 								<?php foreach( $tags as $tag ){ ?>
-									<a href="<?php echo $category['link']; ?>" class="mmm-post-tag mmm-post-tag--<?php echo $tax; ?>"><?php echo $tag['name']; ?></a>
+									<a href="<?php echo $tag['link']; ?>" class="mmm-post-tag mmm-post-tag--<?php echo $tax; ?>"><?php echo $tag['name']; ?></a>
 								<?php } ?>
 							<?php } ?>
 						<?php } ?>
