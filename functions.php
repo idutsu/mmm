@@ -373,14 +373,17 @@ function mmm_related_pages( $post_id ){
 	}
 
 	if( get_children( array('post_parent'=>$child_of) ) ){
-		echo "<ul class='mmm-related-posts'>";
+		echo "<div class='mmm-related-posts'>";
+		echo "<ul>";
 		echo "<p class='mmm-related-posts-title'>「<a href='".esc_url(get_the_permalink($child_of))."'>".$title_li."</a>」の関連記事</li>";
 		$walker = new MMM_Walker_Page();
 		wp_list_pages( array('title_li' => '', 'child_of' => $child_of, 'walker' => $walker ) );
 		echo "</ul>";
+		echo "</div>";
 	}
 
 }
+
 
 function mmm_related_posts( $post_id ){
 
