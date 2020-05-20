@@ -372,7 +372,7 @@ function mmm_related_pages( $post_id ){
 		$title_li = esc_html( get_the_title( $child_of ) );
 	}
 
-	if( get_children( array('post_parent'=>$child_of) ) ){
+	if( get_children( array('post_parent'=>$child_of,'post_type'=>'page') ) ){
 		echo "<div class='mmm-related-posts'>";
 		echo "<ul>";
 		echo "<p class='mmm-related-posts-title'>「<a href='".esc_url(get_the_permalink($child_of))."'>".$title_li."</a>」の関連記事</li>";
