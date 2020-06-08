@@ -263,6 +263,9 @@ pagination
 
 */
 
+.mmm-pagination{
+}
+
 .mmm-pagination ul{
    width:100%;
    display:flex;
