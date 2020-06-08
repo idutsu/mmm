@@ -246,14 +246,18 @@ breadcrumb
 }
 
 .mmm-breadcrumb ul li{
-    margin-left:5px;
-    margin-right:5px;
 }
 
 .mmm-breadcrumb ul li a{
+    text-decoration:underline;
 }
 
 .mmm-breadcrumb ul li span{
+}
+
+.mmm-breadcrumb ul .slash{
+    margin-left:5px;
+    margin-right:5px;
 }
 
 /*

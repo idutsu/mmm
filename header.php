@@ -72,7 +72,7 @@
 			<?php
 			foreach( $breadcrumb->breadcrumb as $bc ){
 				if( $bc['link'] ){
-					echo '<li><a href="'.$bc['link'].'">'.$bc['text'].'</a></li> /';
+					echo '<li><a href="'.$bc['link'].'">'.$bc['text'].'</a></li><span class="slash">/</span>';
 				}else{
 					echo '<li><span>'.$bc['text'].'</span></li>';
 				}
