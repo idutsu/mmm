@@ -43,6 +43,10 @@ ul{
     list-style-type: none;
 }
 
+section,header,footer,main,aside{
+    display:block;
+}
+
 h1,h2,h3,h4,h5,h6{
     font-size:1rem;
     font-weight:normal;
@@ -341,7 +345,7 @@ pagination
 
 related_posts
 
- */
+*/
 
 .mmm-related-posts{
 	margin-bottom:1.5rem;
