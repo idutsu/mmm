@@ -413,7 +413,7 @@ function mmm_related_posts( $post_id ){
 
 				if( $posts = get_posts( $args ) ){
 					echo '<div class="mmm-related-posts">';
-					echo '<h4 class="mmm-related-posts-title">「'.$term['name'].'」の関連記事</h4>';
+					echo '<p class="mmm-related-posts-title">「'.$term['name'].'」の関連記事</p>';
 					echo '<ul>';
 					foreach( $posts as $post ){
 						echo '<li><a href="'.esc_url( get_the_permalink( $post->ID ) ).'">'.esc_html( get_the_title( $post->ID ) ).'</a></li>';
