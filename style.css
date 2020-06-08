@@ -380,6 +380,12 @@ menu
 .mmm-menu{
 }
 
+.mmm-menu.mmm-menu--global{
+}
+
+.mmm-menu.mmm-menu--sidebar{
+}
+
 .mmm-submenu{
 	display:none;
 }
@@ -393,9 +399,6 @@ menu
 
 .mmm-submenu-click:before{
 	content:"＋";
-}
-
-.mmm-menu.mmm-menu--global{
 }
 
 .hamburger{
@@ -448,12 +451,16 @@ menu
 
 @media screen and (max-width:768px){
 
-    .mmm-submenu-click{
-        display:initial;
-    }
-
     .mmm-menu.mmm-menu--global{
         display:none;
+    }
+
+    .mmm-menu.mmm-menu--sidebar{
+        display:none;
+    }
+
+    .mmm-submenu-click{
+        display:initial;
     }
 
     .hamburger{
