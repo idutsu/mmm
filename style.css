@@ -393,9 +393,6 @@ menu
 }
 
 .mmm-menu.mmm-menu--global{
-    display:flex;
-    justify-content:center;
-    align-items:center;
 }
 
 .hamburger{
