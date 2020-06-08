@@ -1,3 +1,4 @@
+</main>
 <footer>
     <?php mmm_menu('footer'); ?>
 </footer>

@@ -64,20 +64,21 @@
 	<div class="hamburger"><span></span><span></span><span></span></div>
 <?php wp_head(); ?>
 </header>
-<?php if( ! $is_home ){ ?>
-	<h1 class="mmm-page-title"><?php echo $meta_title; ?></h1>
-	<div class="mmm-breadcrumb">
-		<ul>
-		<?php
-		foreach( $breadcrumb->breadcrumb as $bc ){
-			if( $bc['link'] ){
-				echo '<li><a href="'.$bc['link'].'">'.$bc['text'].'</a></li> /';
-			}else{
-				echo '<li><span>'.$bc['text'].'</span></li>';
+<main>
+	<?php if( ! $is_home ){ ?>
+		<h1 class="mmm-page-title"><?php echo $meta_title; ?></h1>
+		<div class="mmm-breadcrumb">
+			<ul>
+			<?php
+			foreach( $breadcrumb->breadcrumb as $bc ){
+				if( $bc['link'] ){
+					echo '<li><a href="'.$bc['link'].'">'.$bc['text'].'</a></li> /';
+				}else{
+					echo '<li><span>'.$bc['text'].'</span></li>';
+				}
 			}
-		}
-		?>
-		</ul>
-	</div>
-	<?php get_sidebar(); ?>
-<?php } ?>
+			?>
+			</ul>
+		</div>
+		<?php get_sidebar(); ?>
+	<?php } ?>
