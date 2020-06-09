@@ -326,6 +326,34 @@ pagination
    padding:0 1em;
 }
 
+.mmm-pagination-single{
+    display:flex;
+    justify-content:center;
+}
+
+.mmm-pagination-single a{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:40px;
+    width:100px;
+    font-weight:bold;
+    border-width:1px;
+    border-style:solid;
+    color:#FFF;
+    background-color:lightgray;
+}
+
+.mmm-pagination-single a + a{
+    margin-left:1rem;
+}
+
+.mmm-pagination-single .next{
+}
+
+.mmm-pagination-single .prev{
+}
+
 @media screen and (max-width:992px){
 
    .mmm-pagination ul li{
@@ -339,10 +367,12 @@ pagination
 
    .mmm-pagination ul li.prev{
        margin-right:auto;
+       margin-left:0;
    }
 
    .mmm-pagination ul li.next{
        margin-left:auto;
+       margin-right:0;
    }
 
 }

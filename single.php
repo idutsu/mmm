@@ -36,6 +36,7 @@
 				<div class="mmm-post-content">
 				    <?php the_content(); ?>
 				</div>
+				<?php mmm_pagination_single(); ?>
 				<?php mmm_related_posts( get_the_ID() ); ?>
 			</div>
 			<?php

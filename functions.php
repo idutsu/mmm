@@ -335,6 +335,21 @@ function mmm_pagination( $query = null, $prev_text = null, $next_text = null ){
     echo "</div>";
 }
 
+add_filter( 'previous_post_link', function($output){
+	return str_replace('<a href=', '<a class="prev" href=', $output);
+});
+
+add_filter( 'next_post_link', function($output){
+	return str_replace('<a href=', '<a class="next" href=', $output);
+});
+
+function mmm_pagination_single(){
+	echo "<div class='mmm-pagination-single'>";
+	previous_post_link('%link','前の記事');
+	next_post_link('%link','次の記事');
+	echo "</div>";
+}
+
 
 /*
 
@@ -445,6 +460,20 @@ function mmm_related_posts( $post_id ){
 	}
 
 }
+
+/*
+
+検索フォーム
+
+*/
+
+add_filter( 'get_search_form', function($form){
+	$form = '<form role="search" method="get" id="mmm-searchform" class="mmm-searchform" action="' . home_url( '/' ) . '" >
+	<input type="text" value="' . get_search_query() . '" name="s" id="s" />
+	<input type="submit" value="検索" />
+	</form>';
+	return $form;
+});
 
 /*
 
