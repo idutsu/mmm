@@ -21,6 +21,12 @@ html{
     font-size:16px;
 }
 
+@media screen and (max-width:768px){
+    html{
+        font-size:4vw;
+    }
+}
+
 body{
     height:100%;
     font-family: "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック体", "YuGothic", "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", "Meiryo", "verdana", sans-serif;
@@ -420,13 +426,10 @@ menu
 .mmm-menu{
 }
 
-.mmm-menu.mmm-menu--global{
-}
-
-.mmm-menu.mmm-menu--sidebar{
-}
-
-.mmm-menu.mmm-menu--footer{
+.mmm-menu a{
+    display:block;
+    line-height:1.2;
+    padding:.5rem;
 }
 
 .mmm-submenu{
@@ -436,12 +439,51 @@ menu
 .mmm-submenu-hover{
 }
 
-.mmm-submenu-click{
-    display:none;
+.mmm-submenu .mmm-submenu a{
+    padding-left:2rem;
 }
 
-.mmm-submenu-click:before{
-	content:"＋";
+.mmm-submenu .mmm-submenu .mmm-submenu a{
+    padding-left:3.5rem;
+}
+
+.mmm-submenu-click{
+	content:"";
+    display:inline-block;
+    width:.5em;
+    height:.5em;
+    border-right:1px solid;
+    border-bottom:1px solid;
+    transform:rotate(45deg) translateY(-.25em);
+    margin-left:.5rem;
+}
+
+.mmm-menu.mmm-menu--global{
+    display:flex;
+    justify-content:center;
+}
+
+.mmm-menu.mmm-menu--global .depth-0{
+    position:relative;
+}
+
+.mmm-menu.mmm-menu--global .depth-0 > .mmm-submenu{
+    position:absolute;
+    top:100%;
+    left:0;
+    width:250px;
+    color:#FFF;
+    background-color:rgba(0,0,0,.7);
+}
+
+.mmm-menu.mmm-menu--global .mmm-submenu a{
+    border-bottom:1px solid rgba(255,255,255,.7);
+}
+
+.mmm-menu.mmm-menu--sidebar{
+}
+
+.mmm-menu.mmm-menu--footer{
 }
 
 .hamburger{
@@ -452,7 +494,7 @@ menu
     right:0px;
     width:40px;
     height:40px;
-    background-color:lightgray;
+    background-color:rgba(0,0,0,.7);
     opacity:.7;
 }
 
@@ -478,6 +520,10 @@ menu
     bottom:10px;
 }
 
+.hamburger.active{
+    background-color:transparent;
+}
+
 .hamburger.active span:nth-of-type(1){
     -webkit-transform:translateY(9px) rotate(-45deg);
     transform:translateY(9px) rotate(-45deg);
@@ -494,16 +540,50 @@ menu
 
 @media screen and (max-width:768px){
 
-    .mmm-menu.mmm-menu--global{
-        display:none;
+    .mmm-menu{
+        font-size:5vw;
     }
 
-    .mmm-menu.mmm-menu--sidebar{
+    .mmm-menu a{
+        border-bottom:1px solid rgba(255,255,255,.7);
+        padding:.3em .6em;
+    }
+
+    .mmm-submenu a{
+    	padding-left:2em;
+    }
+
+    .mmm-submenu .mmm-submenu a{
+        padding-left:3em;
+    }
+
+    .mmm-submenu .mmm-submenu .mmm-submenu a{
+        padding-left:4em;
+    }
+
+    .mmm-menu.mmm-menu--global{
         display:none;
+        position:fixed;
+        top:0;
+        left:0;
+        width:100%;
+        height:100%;
+        color:#FFF;
+        background-color:rgba(0,0,0,.7);
+        padding-top:60px;
+        overflow-y:scroll;
+    }
+
+    .mmm-menu.mmm-menu--global .depth-0 > .mmm-submenu{
+        position:static;
+        width:100%;
+        background-color:transparent;
     }
 
     .mmm-submenu-click{
-        display:initial;
+        width:.9em;
+        height:.9em;
+        margin-left:1em;
     }
 
     .hamburger{
