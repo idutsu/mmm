@@ -266,28 +266,28 @@ pagination
 
 */
 
-.mmm-pagination{
+.mmm-pagination-archive{
     margin:1rem 0;
 }
 
-.mmm-pagination ul{
+.mmm-pagination-archive ul{
    width:100%;
    display:flex;
    justify-content:center;
 }
 
-.mmm-pagination ul li{
+.mmm-pagination-archive ul li{
    margin-right:5px;
    margin-left:5px;
 }
 
-.mmm-pagination ul li.dots{
+.mmm-pagination-archive ul li.dots{
    margin-left:0;
    margin-right:0;
 }
 
-.mmm-pagination ul li a,
-.mmm-pagination ul li span{
+.mmm-pagination-archive ul li a,
+.mmm-pagination-archive ul li span{
    display:flex;
    justify-content:center;
    align-items:center;
@@ -298,31 +298,31 @@ pagination
    border-style:solid;
 }
 
-.mmm-pagination ul li a{
+.mmm-pagination-archive ul li a{
     color:#FFF;
     border-color:lightgray;
     background-color:lightgray;
 }
 
-.mmm-pagination ul li span{
+.mmm-pagination-archive ul li span{
     color:lightgray;
     border-color:lightgray;
     background-color:#FFF;
 }
 
-.mmm-pagination ul li.dots span{
+.mmm-pagination-archive ul li.dots span{
     border-color:#FFF;
 }
 
-.mmm-pagination ul li a:hover{
+.mmm-pagination-archive ul li a:hover{
    color:lightgray;
    background-color:#FFF;
 }
 
-.mmm-pagination ul li.prev a,
-.mmm-pagination ul li.prev span,
-.mmm-pagination ul li.next a,
-.mmm-pagination ul li.next span{
+.mmm-pagination-archive ul li.prev a,
+.mmm-pagination-archive ul li.prev span,
+.mmm-pagination-archive ul li.next a,
+.mmm-pagination-archive ul li.next span{
    width:auto;
    padding:0 1em;
 }
@@ -363,21 +363,21 @@ pagination
 
 @media screen and (max-width:992px){
 
-   .mmm-pagination ul li{
+   .mmm-pagination-archive ul li{
        display: none;
    }
 
-   .mmm-pagination ul li.next,
-   .mmm-pagination ul li.prev{
+   .mmm-pagination-archive ul li.next,
+   .mmm-pagination-archive ul li.prev{
        display: initial;
    }
 
-   .mmm-pagination ul li.prev{
+   .mmm-pagination-archive ul li.prev{
        margin-right:auto;
        margin-left:0;
    }
 
-   .mmm-pagination ul li.next{
+   .mmm-pagination-archive ul li.next{
        margin-left:auto;
        margin-right:0;
    }

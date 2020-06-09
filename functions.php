@@ -302,7 +302,7 @@ $dashboard = new MMM_Dashboard();
 ページ送り
 
 */
-function mmm_pagination( $query = null, $prev_text = null, $next_text = null ){
+function mmm_pagination_archive( $query = null, $prev_text = null, $next_text = null ){
     global $wp_query;
     $current_query = $query ? $query : $wp_query ;
     $big = 999999999;
@@ -316,7 +316,7 @@ function mmm_pagination( $query = null, $prev_text = null, $next_text = null ){
     );
     $pager = paginate_links( $args );
     if( !$pager ) return;
-    echo "<div class='mmm-pagination'>";
+    echo "<div class='mmm-pagination-archive'>";
     echo "<ul>";
     foreach( $pager as $page ){
         if ( strpos( $page, 'next' ) != false ){
@@ -350,12 +350,12 @@ function mmm_pagination_single(){
 	echo "</div>";
 }
 
-
 /*
 
 テンプレート読み込み
 
 */
+
 class MMM_Template{
     private $template_dir;
     public function __construct( $template_dir ){
@@ -365,7 +365,6 @@ class MMM_Template{
         include $this->template_dir.$name.".php";
     }
 }
-
 
 /*
 
@@ -414,7 +413,6 @@ function mmm_related_pages( $post_id ){
 	}
 
 }
-
 
 function mmm_related_posts( $post_id ){
 

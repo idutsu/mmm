@@ -44,6 +44,6 @@
 		}
 	}
 ?>
-<?php mmm_pagination(); ?>
+<?php mmm_pagination_archive(); ?>
 <?php get_template_part( 'template/after-content' ); ?>
 <?php get_footer(); ?>
