@@ -345,8 +345,8 @@ add_filter( 'next_post_link', function($output){
 
 function mmm_pagination_single(){
 	echo "<div class='mmm-pagination-single'>";
-	previous_post_link('%link','前の記事');
-	next_post_link('%link','次の記事');
+	previous_post_link('%link','前のページ');
+	next_post_link('%link','次のページ');
 	echo "</div>";
 }
 

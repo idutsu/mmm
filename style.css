@@ -267,6 +267,7 @@ pagination
 */
 
 .mmm-pagination{
+    margin:1rem 0;
 }
 
 .mmm-pagination ul{
@@ -329,6 +330,7 @@ pagination
 .mmm-pagination-single{
     display:flex;
     justify-content:center;
+    margin:1rem 0;
 }
 
 .mmm-pagination-single a{
@@ -342,6 +344,11 @@ pagination
     border-style:solid;
     color:#FFF;
     background-color:lightgray;
+}
+
+.mmm-pagination-single a:hover{
+    color:lightgray;
+    background-color:#FFF;
 }
 
 .mmm-pagination-single a + a{
