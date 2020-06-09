@@ -455,7 +455,7 @@ menu
     border-right:1px solid;
     border-bottom:1px solid;
     transform:rotate(45deg) translateY(-.25em);
-    margin-left:.5rem;
+    margin-left:.25rem;
 }
 
 .mmm-menu.mmm-menu--global{
