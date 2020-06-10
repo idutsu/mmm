@@ -9,7 +9,6 @@ add_theme_support( 'post-thumbnails' );
 add_theme_support( 'menus' );
 remove_action( 'wp_head', 'wp_generator' );
 
-
 /*
 
 定数
@@ -17,7 +16,6 @@ remove_action( 'wp_head', 'wp_generator' );
 */
 define('THEME_URL', get_template_directory_uri());
 define('THEME_DIR', get_template_directory());
-
 
 /*
 
@@ -40,7 +38,6 @@ add_action( 'wp_enqueue_scripts', function(){
 	wp_enqueue_script( 'lazyload',THEME_URL.'/js/lazyload.js', array('intersection-observer'), filemtime(THEME_DIR.'/js/lazyload.js'), true );
 	wp_enqueue_script( 'objectfit',THEME_URL.'/js/ofi.min.js', array(), filemtime(THEME_DIR.'/js/ofi.min.js'), true );
 });
-
 
 /*
 
@@ -148,7 +145,6 @@ function mmm_get_the_terms( $post_id ){
 	return $data;
 
 }
-
 
 /*
 
@@ -273,7 +269,6 @@ class MMM_Breadcrumb {
 
 }
 
-
 /*
 
 ダッシュボード
@@ -295,7 +290,6 @@ class MMM_Dashboard{
     }
 }
 $dashboard = new MMM_Dashboard();
-
 
 /*
 
@@ -355,7 +349,6 @@ function mmm_pagination_single(){
 テンプレート読み込み
 
 */
-
 class MMM_Template{
     private $template_dir;
     public function __construct( $template_dir ){
@@ -464,7 +457,6 @@ function mmm_related_posts( $post_id ){
 検索フォーム
 
 */
-
 add_filter( 'get_search_form', function($form){
 	$form = '<form role="search" method="get" id="mmm-searchform" class="mmm-searchform" action="' . home_url( '/' ) . '" >
 	<input type="text" value="' . get_search_query() . '" name="s" id="s" />
@@ -478,7 +470,6 @@ add_filter( 'get_search_form', function($form){
 ショートコード
 
 */
-
 add_shortcode( 'themeurl', function(){
 	return get_template_directory_uri();
 });

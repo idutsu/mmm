@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <?php
 	$is_home = is_home() || is_front_page() ? true : false ;
-	$site_title = esc_html( get_bloginfo() );
+	$site_title = esc_html( get_bloginfo('name') );
 	$meta_title = "";
 	$meta_description = esc_html( get_bloginfo( 'description' ) );
 	$breadcrumb = new MMM_Breadcrumb();

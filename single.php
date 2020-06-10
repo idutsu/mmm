@@ -34,13 +34,21 @@
 					</div>
 				<?php } ?>
 				<div class="mmm-post-content">
-				    <?php the_content(); ?>
+					<?php if( get_the_content() === "" ){ ?>
+						<p>※現在準備中です</p>
+					<?php }else{ ?>
+						<?php the_content(); ?>
+					<?php } ?>
 				</div>
 				<?php mmm_pagination_single(); ?>
 				<?php mmm_related_posts( get_the_ID() ); ?>
 			</div>
 			<?php
 		}
+	}else{
+		?>
+		<p>記事がありません</p>
+		<?php
 	}
 ?>
 <?php get_template_part('template/after-content'); ?>

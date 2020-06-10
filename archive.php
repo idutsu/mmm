@@ -42,6 +42,10 @@
 			</a>
 			<?php
 		}
+	}else{
+		?>
+		<p>記事がありません</p>
+		<?php
 	}
 ?>
 <?php mmm_pagination_archive(); ?>

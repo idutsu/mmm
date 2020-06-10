@@ -49,7 +49,7 @@ ul{
     list-style-type: none;
 }
 
-section,header,footer,main,aside{
+section,header,footer,main,aside,article{
     display:block;
 }
 
@@ -110,6 +110,9 @@ a.mmm-post-tag:hover{
 .mmm-post--archive{
 }
 
+.mmm-post--archive .mmm-post-terms{
+}
+
 .mmm-post--archive .mmm-post-title{
 }
 
@@ -126,6 +129,9 @@ a.mmm-post-tag:hover{
 }
 
 .mmm-post--single{
+}
+
+.mmm-post--single .mmm-post-terms{
 }
 
 .mmm-post--single .mmm-post-title{
@@ -429,7 +435,6 @@ menu
 .mmm-menu a{
     display:block;
     line-height:1.2;
-    padding:.5rem;
 }
 
 .mmm-submenu{
@@ -471,13 +476,13 @@ menu
     position:absolute;
     top:100%;
     left:0;
-    width:250px;
+    width:150%;
     color:#FFF;
     background-color:rgba(0,0,0,.7);
 }
 
 .mmm-menu.mmm-menu--global .mmm-submenu a{
-    border-bottom:1px solid rgba(255,255,255,.7);
+    border-bottom:1px solid lightgray;
 }
 
 .mmm-menu.mmm-menu--sidebar{
@@ -545,7 +550,6 @@ menu
     }
 
     .mmm-menu a{
-        border-bottom:1px solid rgba(255,255,255,.7);
         padding:.3em .6em;
     }
 
@@ -574,6 +578,10 @@ menu
         overflow-y:scroll;
     }
 
+    .mmm-menu.mmm-menu--global a{
+        border-bottom:1px solid lightgray;
+    }
+
     .mmm-menu.mmm-menu--global .depth-0 > .mmm-submenu{
         position:static;
         width:100%;
@@ -590,4 +598,31 @@ menu
         display:initial;
     }
 
+}
+
+/*
+
+google map
+
+*/
+
+.mmm-googlemap {
+    position:relative;
+    height:0;
+    overflow:hidden;
+    padding-bottom:56.25%;
+}
+
+.mmm-googlemap iframe{
+    position: absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+}
+
+@media screen and (max-width:768px){
+    .mmm-googlemap {
+        padding-bottom:100%;
+    }
 }
