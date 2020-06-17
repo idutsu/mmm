@@ -453,14 +453,7 @@ menu
 }
 
 .mmm-submenu-click{
-	content:"";
-    display:inline-block;
-    width:.5em;
-    height:.5em;
-    border-right:1px solid;
-    border-bottom:1px solid;
-    transform:rotate(45deg) translateY(-.25em);
-    margin-left:.25rem;
+    display:none;
 }
 
 .mmm-menu.mmm-menu--global{
@@ -570,6 +563,7 @@ menu
         position:fixed;
         top:0;
         left:0;
+        z-index:9999;
         width:100%;
         height:100%;
         color:#FFF;
@@ -578,8 +572,18 @@ menu
         overflow-y:scroll;
     }
 
+    .mmm-menu.mmm-menu--sidebar{
+        /* position:relative;
+        z-index:9998; */
+    }
+
     .mmm-menu.mmm-menu--global a{
         border-bottom:1px solid lightgray;
+    }
+
+    .mmm-menu.mmm-menu--global a.mmm-submenu-hover,
+    .mmm-menu.mmm-menu--sidebar a.mmm-submenu-hover{
+        padding-right:50px;
     }
 
     .mmm-menu.mmm-menu--global .depth-0 > .mmm-submenu{
@@ -588,10 +592,23 @@ menu
         background-color:transparent;
     }
 
+    .mmm-submenu-hover{
+        position:relative;
+    }
+
     .mmm-submenu-click{
-        width:.9em;
-        height:.9em;
-        margin-left:1em;
+        position:absolute;
+        top:0;
+        right:0;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        width:50px;
+        height:100%;
+    }
+
+    .mmm-submenu-click:before{
+        content:"＋";
     }
 
     .hamburger{
@@ -625,4 +642,145 @@ google map
     .mmm-googlemap {
         padding-bottom:100%;
     }
+}
+
+/*
+
+お問い合わせフォーム
+
+*/
+
+.mmm-contactform{
+}
+
+.mmm-contactform p{
+    display:none;
+}
+
+.mmm-contactform-field{
+    display:flex;
+    margin-bottom:4px;
+}
+
+.mmm-contactform-label{
+    flex:none;
+    width:300px;
+    background-color:lightgray;
+    padding:15px 15px 50px;
+}
+
+.mmm-contactform-input{
+    flex:1;
+    padding-left:10px;
+}
+
+.mmm-contactform-label{
+	display:flex;
+    justify-content:space-between;
+}
+
+.mmm-contactform-require{
+    align-self:flex-start;
+    display:inline-block;
+    font-size:12px;
+    color:#FFF;
+    border-radius:2px;
+    background-color:red;
+    padding:4px 8px;
+}
+
+.mmm-contactform-title{
+	font-weight:bold;
+}
+
+.mmm-contactform input[type=text],
+.mmm-contactform input[type=tel],
+.mmm-contactform input[type=email],
+.mmm-contactform textarea{
+	display:block;
+	width:100%;
+    height:45px;
+	line-height:1.5;
+	font-size:16px;
+	border:1px solid lightgray;
+	padding:10px;
+	-webkit-appearance:none;
+    border-radius: 0;
+}
+
+.mmm-contactform textarea{
+    height:auto;
+}
+
+.mmm-contactform select{
+    height:45px;
+    font-size:16px;
+    border:1px solid lightgray;
+}
+
+.mmm-contactform .error{
+    display:block;
+    margin-top:4px;
+}
+
+.mmm-contactform-btns{
+    display:flex;
+    justify-content:center;
+    margin-top:30px;
+}
+
+.mmm-contactform input[type=submit],
+.mmm-contactform button[type=submit]{
+    flex:none;
+	width:150px;
+	color:#FFF;
+	padding:15px 0;
+	font-size:20px;
+	cursor: pointer;
+	-webkit-appearance:none;
+    border-radius:0;
+}
+
+.mmm-contactform .confirm{
+    background-color:gray;
+}
+
+.mmm-contactform .submit{
+    background-color:black;
+}
+
+.mmm-contactform .back{
+    background-color:gray;
+    margin-left:6px;
+}
+
+@media screen and (max-width:768px){
+
+    .mmm-contactform-field{
+        display:block;
+        margin-bottom:30px;
+    }
+
+    .mmm-contactform-label{
+        width:100%;
+        height:auto;
+        padding:10px;
+        margin-bottom:10px;
+    }
+
+    .mmm-contactform-input{
+        padding:0;
+    }
+
+    .mmm-contactform-btns{
+        justify-content:space-between;
+    }
+
+    .mmm-contactform input[type=submit],
+    .mmm-contactform button[type=submit]{
+        flex:1;
+        width:auto;
+    }
+
+
 }
