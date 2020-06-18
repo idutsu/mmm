@@ -14,6 +14,7 @@ remove_action( 'wp_head', 'wp_generator' );
 定数
 
 */
+define('CHILD_THEME_URL', get_stylesheet_directory_uri());
 define('THEME_URL', get_template_directory_uri());
 define('THEME_DIR', get_template_directory());
 
