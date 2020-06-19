@@ -1,10 +1,13 @@
 <?php get_header(); ?>
+<div class="mmm-slider">
+	<img src="<?php echo THEME_URL; ?>/images/slide1.jpg" />
+	<img src="<?php echo THEME_URL; ?>/images/slide2.jpg" />
+	<img src="<?php echo THEME_URL; ?>/images/slide3.jpg" />
+</div>
 <?php
 	if(have_posts()){
 		while(have_posts()){
 			the_post();
-			the_title();
-			the_content();
 		}
 	}
 ?>
