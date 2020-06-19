@@ -690,6 +690,11 @@ contact form
     padding-left:10px;
 }
 
+.mw_wp_form_confirm .mmm-contactform-input{
+    background-color:#f8f8f8;
+    padding:10px;
+}
+
 .mmm-contactform-label{
 	display:flex;
     justify-content:space-between;
