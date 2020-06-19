@@ -91,11 +91,6 @@ if( ! $menu_exists ){
     wp_create_nav_menu('sidebar');
 }
 
-$menu_exists = wp_get_nav_menu_object( 'footer' );
-if( ! $menu_exists ){
-    wp_create_nav_menu('footer');
-}
-
 /*
 
 記事取得関連
