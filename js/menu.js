@@ -1,6 +1,6 @@
 (function($){
 
-    var hamburger_btn  = $('.hamburger');
+    var hamburger_btn  = $('.mmm-hamburger');
     var hamburger_menu = $('.mmm-menu.mmm-menu--global');
 
     hamburger_btn.on('click', function() {
@@ -45,7 +45,6 @@
                     var submenu = $(this).find('.mmm-submenu');
                     SlideUp( submenu );
                 });
-
 
             }
 

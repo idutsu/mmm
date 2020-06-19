@@ -377,7 +377,7 @@ pagination
 @media screen and (max-width:992px){
 
    .mmm-pagination-archive ul li{
-       display: none;
+       display:none;
    }
 
    .mmm-pagination-archive ul li.next,
@@ -511,7 +511,7 @@ hamburger
 
 */
 
-.hamburger{
+.mmm-hamburger{
     display:none;
     position:fixed;
     z-index:9999;
@@ -523,7 +523,7 @@ hamburger
     opacity:.7;
 }
 
-.hamburger span{
+.mmm-hamburger span{
     position:absolute;
     left:6px;
     display:inline-block;
@@ -533,32 +533,32 @@ hamburger
     transition:all .4s;
 }
 
-.hamburger span:nth-of-type(1){
+.mmm-hamburger span:nth-of-type(1){
     top:10px;
 }
 
-.hamburger span:nth-of-type(2){
+.mmm-hamburger span:nth-of-type(2){
     top:19px;
 }
 
-.hamburger span:nth-of-type(3){
+.mmm-hamburger span:nth-of-type(3){
     bottom:10px;
 }
 
-.hamburger.active{
+.mmm-hamburger.active{
     background-color:transparent;
 }
 
-.hamburger.active span:nth-of-type(1){
+.mmm-hamburger.active span:nth-of-type(1){
     -webkit-transform:translateY(9px) rotate(-45deg);
     transform:translateY(9px) rotate(-45deg);
 }
 
-.hamburger.active span:nth-of-type(2){
+.mmm-hamburger.active span:nth-of-type(2){
     opacity: 0;
 }
 
-.hamburger.active span:nth-of-type(3){
+.mmm-hamburger.active span:nth-of-type(3){
     -webkit-transform: translateY(-9px) rotate(45deg);
     transform: translateY(-9px) rotate(45deg);
 }
@@ -623,7 +623,7 @@ hamburger
         padding-bottom:.3em;
     }
 
-    .hamburger{
+    .mmm-hamburger{
         display:initial;
     }
 
@@ -658,11 +658,14 @@ google map
 
 /*
 
-お問い合わせフォーム
+contact form
+- This is a plugin "MW WP Form".
+- Example html is at template/contactform.html.
 
 */
 
 .mmm-contactform{
+    margin:1rem 0;
 }
 
 .mmm-contactform p{
@@ -682,6 +685,7 @@ google map
 }
 
 .mmm-contactform-input{
+    position:relative;
     flex:1;
     padding-left:10px;
 }
@@ -724,10 +728,63 @@ google map
     height:auto;
 }
 
+.mmm-contactform-input--select{
+}
+
+.mmm-contactform-input--select:before{
+    content:"";
+    display:block;
+    position:absolute;
+    z-index:0;
+    top:20px;
+    right:10px;
+    border-left:6px solid transparent;
+    border-right:6px solid transparent;
+    border-top:8px solid lightgray;
+}
+
+.mw_wp_form_confirm .mmm-contactform-input--select:before{
+    content:none;
+}
+
 .mmm-contactform select{
+    position:relative;
+    z-index:1;
+    display:block;
+    width:100%;
     height:45px;
     font-size:16px;
     border:1px solid lightgray;
+    border-radius:0;
+    background-color:transparent;
+    -webkit-appearance:none;
+    cursor:pointer;
+    padding:10px;
+}
+
+.mmm-contactform input[type=radio],
+.mmm-contactform input[type=checkbox]{
+    display:none;
+}
+
+.mmm-contactform input[type=radio] + span:before,
+.mmm-contactform input[type=checkbox] + span:before{
+    content:"";
+    display:inline-block;
+    width:12px;
+    height:12px;
+    border:2px solid lightgray;
+    vertical-align:bottom;
+    margin-right:5px;
+}
+
+.mmm-contactform input[type=radio] + span:before{
+    border-radius:50%;
+}
+
+.mmm-contactform input[type=radio]:checked + span:before,
+.mmm-contactform input[type=checkbox]:checked + span:before{
+    background-color:#1E90FF;
 }
 
 .mmm-contactform .error{

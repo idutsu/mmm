@@ -61,7 +61,7 @@
 	<?php $h1 = $is_home ? "h1" : "p" ; ?>
 	<<?php echo $h1; ?> class="mmm-site-title"><a href="<?php echo home_url(); ?>"><?php echo $site_title; ?></a></<?php echo $h1; ?>>
 	<?php mmm_menu('global'); ?>
-	<div class="hamburger"><span></span><span></span><span></span></div>
+	<div class="mmm-hamburger"><span></span><span></span><span></span></div>
 <?php wp_head(); ?>
 </header>
 <main>
