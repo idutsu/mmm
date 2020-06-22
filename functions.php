@@ -253,12 +253,15 @@ class MMM_Breadcrumb {
         ));
     }
 
-    private function add_post_type( $post_type ){
-        if( $post_type && $post_type !== 'post' ){
-            $post_type_name = get_post_type_object( $post_type )->labels->singular_name;
-            $this->add( $post_type_name, esc_url( get_post_type_archive_link( $post_type ) ) );
-        }
-    }
+	private function add_post_type( $post_type ){
+	   if( $post_type && $post_type !== 'post' ){
+		   $pto = get_post_type_object( $post_type );
+		   if($pto->public && $pto->has_archive){
+			   $post_type_name = $pto->labels->singular_name;
+			   $this->add( $post_type_name, esc_url( get_post_type_archive_link( $post_type ) ) );
+		   }
+	   }
+   }
 
     private function get_ancestors( $term_id, $taxonomy_or_page ){
         $terms = get_ancestors( $term_id, $taxonomy_or_page );
