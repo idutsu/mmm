@@ -54,6 +54,11 @@
 <meta name="description" content="<?php echo $meta_description; ?>">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<!-- favicons -->
+<link rel="shortcut icon" href="">
+<link rel="apple-touch-icon" href="">
+<link rel="icon" type="image/png" href="">
+<!--  -->
 <?php wp_head(); ?>
 </head>
 <body>
