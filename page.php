@@ -6,7 +6,6 @@
 			?>
 			<div class="mmm-post mmm-post--single">
 				<h2 class="mmm-post-title"><?php the_title(); ?></h2>
-				<time class="mmm-post-date"><?php the_time('Y.m.d'); ?></time>
 				<?php if( has_post_thumbnail() ){ ?>
 					<div class="mmm-post-image">
 						<img src="<?php echo THEME_URL; ?>/images/dummy.png" data-src="<?php the_post_thumbnail_url('full'); ?>" class="lazy" alt="<?php the_title(); ?>"/>
