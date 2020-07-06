@@ -11,8 +11,8 @@ copyright
         autoplay:true,
         autoplaySpeed:5000,
         arrows:true,
-        prevArrow:"<span class='mmm-slider-arrow mmm-slider-arrow--prev'>",
-        nextArrow:"<span class='mmm-slider-arrow mmm-slider-arrow--next'>",
+        prevArrow:"<div class='mmm-slider-btn mmm-slider-btn--prev'><span class='mmm-slider-arrow mmm-slider-arrow--prev'></div>",
+        nextArrow:"<div class='mmm-slider-btn mmm-slider-btn--next'><span class='mmm-slider-arrow mmm-slider-arrow--next'></div>",
     });
 })(jQuery);
 </script>

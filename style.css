@@ -867,11 +867,28 @@ slick
 .mmm-slider{
 }
 
-.mmm-slider-arrow{
+.mmm-slider-btn{
     position:absolute;
-    top:calc(50% - 15px);
-    cursor:pointer;
+    top:0;
     z-index:9998;
+    width:50px;
+    height:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    cursor:pointer;
+}
+
+.mmm-slider-btn--prev{
+    left:0;
+}
+
+.mmm-slider-btn--next{
+    right:0;
+}
+
+.mmm-slider-arrow{
+    flex:none;
     display:block;
     width:30px;
     height:30px;
@@ -880,12 +897,10 @@ slick
 }
 
 .mmm-slider-arrow--prev{
-    left:30px;
     transform:rotate(-135deg);
 }
 
 .mmm-slider-arrow--next{
-    right:30px;
     transform:rotate(45deg);
 }
 
