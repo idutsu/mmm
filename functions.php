@@ -472,7 +472,7 @@ add_filter( 'get_search_form', function($form){
 
 */
 add_shortcode( 'themeurl', function(){
-	return get_template_directory_uri();
+	return get_stylesheet_directory_uri();
 });
 
 add_shortcode( 'homeurl', function(){
