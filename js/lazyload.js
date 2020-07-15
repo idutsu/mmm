@@ -8,11 +8,8 @@ document.addEventListener("DOMContentLoaded", function() {
           let lazyImage = entry.target;
           if (lazyImage.dataset.hasOwnProperty('src')) {
             lazyImage.src = lazyImage.dataset.src;
-            console.log(lazyImage.dataset.src);
-
             lazyImage.dataset.src = '';
             delete lazyImage.dataset.src;
-
           }
           if (lazyImage.dataset.hasOwnProperty('srcset')) {
             lazyImage.srcset = lazyImage.dataset.srcset;
