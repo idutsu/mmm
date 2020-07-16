@@ -156,7 +156,7 @@ a.mmm-post-tag:hover{
 }
 
 .mmm-post-content img.aligncenter{
-    display: block;
+    display:block;
     margin:1rem auto;
 }
 
@@ -234,7 +234,7 @@ a.mmm-post-tag:hover{
     .mmm-post-content img.alignleft,
     .mmm-post-content img.alignright{
         display:block;
-        width:100%;
+        width:100% !important;
         max-width:none;
         margin-left:0;
         margin-right:0;
