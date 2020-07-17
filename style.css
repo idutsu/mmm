@@ -152,6 +152,10 @@ a.mmm-post-tag:hover{
 .mmm-post--single .mmm-post-content p{
 }
 
+.mmm-post--single .mmm-post-content b{
+    font-weight:bold;
+}
+
 .mmm-post-content img{
 }
 
