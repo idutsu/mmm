@@ -1,0 +1,117 @@
+.mmm-post--single{
+}
+
+.mmm-post--single .mmm-post-terms{
+}
+
+.mmm-post--single .mmm-post-title{
+}
+
+.mmm-post--single .mmm-post-date{
+}
+
+.mmm-post--single .mmm-post-image{
+}
+
+.mmm-post--single .mmm-post-image img{
+}
+
+.mmm-post--single .mmm-post-content{
+}
+
+.mmm-post--single .mmm-post-content p{
+}
+
+.mmm-post--single .mmm-post-content b{
+    font-weight:bold;
+}
+
+.mmm-post--single .mmm-post-content img{
+}
+
+.mmm-post--single .mmm-post-content img.aligncenter{
+    display:block;
+    margin:1rem auto;
+}
+
+.mmm-post--single .mmm-post-content img.alignleft{
+    float:left;
+    margin-right:1rem;
+    margin-bottom:1rem;
+}
+
+.mmm-post--single .mmm-post-content img.alignright{
+    float:right;
+    margin-left:1rem;
+    margin-bottom:1rem;
+}
+
+.mmm-post--single .mmm-post-content h2,
+.mmm-post--single .mmm-post-content h3,
+.mmm-post--single .mmm-post-content h4,
+.mmm-post--single .mmm-post-content h5,
+.mmm-post--single .mmm-post-content h6{
+    clear:both;
+}
+
+.mmm-post--single .mmm-post-content h2{
+}
+
+.mmm-post--single .mmm-post-content h3{
+}
+
+.mmm-post--single .mmm-post-content h4{
+}
+
+.mmm-post--single .mmm-post-content h5{
+}
+
+.mmm-post--single .mmm-post-content h6{
+}
+
+.mmm-post--single .mmm-post-content strong{
+    font-weight:bold;
+}
+
+.mmm-post--single .mmm-post-content a{
+    text-decoration:underline;
+}
+
+.mmm-post--single .mmm-post-content small{
+}
+
+.mmm-post--single .mmm-post-content ul{
+}
+
+.mmm-post--single .mmm-post-content ul li{
+}
+
+.mmm-post--single .mmm-post-content table{
+    width:100%;
+    table-layout:fixed;
+    border-collapse:collapse;
+}
+
+.mmm-post--single .mmm-post-content table th,
+.mmm-post--single .mmm-post-content table td{
+    padding:1rem;
+    line-height:1.2;
+    border:1px solid lightgray;
+}
+
+.mmm-post--single .mmm-post-content table th{
+    font-weight:bold;
+}
+
+@media screen and (max-width:768px){
+    .mmm-post--single .mmm-post-content img.aligncenter,
+    .mmm-post--single .mmm-post-content img.alignleft,
+    .mmm-post--single .mmm-post-content img.alignright{
+        display:block;
+        width:100% !important;
+        max-width:none;
+        margin-left:0;
+        margin-right:0;
+        margin-bottom:1rem;
+    }
+}

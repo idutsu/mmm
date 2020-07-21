@@ -40,6 +40,15 @@ add_action( 'wp_enqueue_scripts', function(){
 	wp_enqueue_script( 'lazyload',THEME_URL.'/js/lazyload.js', array('intersection-observer'), filemtime(THEME_DIR.'/js/lazyload.js'), true );
 	wp_enqueue_script( 'objectfit',THEME_URL.'/js/ofi.min.js', array(), filemtime(THEME_DIR.'/js/ofi.min.js'), true );
 	wp_enqueue_script( 'slick','//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js', array('jquery'), false, true );
+
+	if(is_single() || is_page()){
+		wp_enqueue_style( 'single-page-style', THEME_URL.'/css/single.css',array('style'),filemtime(THEME_DIR.'/css/single.css') );
+	}
+
+	if(is_archive()){
+		wp_enqueue_style( 'archive-style', THEME_URL.'/css/archive.css',array('style'),filemtime(THEME_DIR.'/css/archive.css') );
+	}
+
 });
 
 /*
