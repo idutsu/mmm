@@ -41,6 +41,10 @@ add_action( 'wp_enqueue_scripts', function(){
 	wp_enqueue_script( 'objectfit',THEME_URL.'/js/ofi.min.js', array(), filemtime(THEME_DIR.'/js/ofi.min.js'), true );
 	wp_enqueue_script( 'slick','//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js', array('jquery'), false, true );
 
+	if(is_home() || is_front_page()){
+		wp_enqueue_style( 'top-style', THEME_URL.'/css/top.css',array('style'),filemtime(THEME_DIR.'/css/top.css') );
+	}
+
 	if(is_single() || is_page()){
 		wp_enqueue_style( 'single-page-style', THEME_URL.'/css/single.css',array('style'),filemtime(THEME_DIR.'/css/single.css') );
 	}
