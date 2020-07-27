@@ -39,7 +39,6 @@ section,header,footer,main,aside,article{
 }
 
 img{
-    width:auto;
     height:auto;
     max-width:100%;
 }
