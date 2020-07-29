@@ -713,6 +713,323 @@ add_filter( 'get_search_form', function($form){
 });
 
 
+//サイトマップ
+class MMM_Sitemap{
+
+    private $settings  = array();
+
+    public function __construct(){
+
+        if( $settings = get_option('mmm_sitemap') ){
+            $this->settings = $settings;
+        }
+
+        add_action( 'admin_menu', array( $this, 'admin_menu' ) );
+        add_action( 'admin_init', array( $this, 'admin_init' ) );
+        add_shortcode( 'sitemap', array( $this, 'generate_html' ) );
+    }
+
+    public function admin_menu(){
+
+        add_menu_page(
+            'サイトマップ',
+            'サイトマップ',
+            'manage_options',
+            'mmm_sitemap',
+            array( $this, 'render_mmm_page' )
+        );
+
+        add_submenu_page(
+            'mmm_sitemap',
+            'ダッシュボード',
+            'ダッシュボード',
+            'manage_options',
+            'mmm_sitemap',
+            array( $this, 'render_mmm_page' )
+        );
+
+    }
+
+    public function admin_init(){
+
+        register_setting(
+            'mmm_sitemap_group',
+            'mmm_sitemap',
+            array( $this, 'sanitize_info' )
+        );
+
+        add_settings_section(
+            'mmm_sitemap_section',
+            '',
+            '',
+            'mmm_sitemap'
+        );
+
+        add_settings_field(
+            'mmm_sitemap_field_page',
+            'HTMLサイトマップ',
+            function(){
+                $page_checked = isset( $this->settings['page']['post_type']['page'] ) && $this->settings['page']['post_type']['page'] ? 'checked' : '';
+                $post_checked = isset( $this->settings['page']['post_type']['post'] ) && $this->settings['page']['post_type']['post'] ? 'checked' : '';
+                ?>
+                <div class="mmm-sitemap-field">
+                    <div>
+                        <p><label><input type="checkbox" name="mmm_sitemap[page][post_type][page]" value = "page" <?php echo $page_checked; ?>/> 固定ページ</label></p>
+                        <div class="mmm-sitemap-post">
+                            <p><label><input type="checkbox" name="mmm_sitemap[page][post_type][post]" value = "post" <?php echo $post_checked; ?>/> 投稿</label></p>
+                            <?php
+                            $terms = get_terms( 'category', array( 'hide_empty' => false, 'parent' => 0 ) );
+                            if( $terms ){
+                                ?>
+                                <p class="mmm-sitemap-taxonomy">カテゴリー</p>
+                                <?php
+                                foreach( $terms as $term ){
+                                    $term_checked = isset( $this->settings['page']['term']['post'][$term->term_id] ) && $this->settings['page']['term']['post'][$term->term_id] ? 'checked' : '';
+                                    ?>
+                                    <p class="mmm-sitemap-term"><label><input type="checkbox" name="mmm_sitemap[page][term][post][<?php echo $term->term_id; ?>]" value="<?php echo $term->slug; ?>" <?php echo $term_checked; ?>/> <?php echo $term->name; ?></label></p>
+                                    <?php
+                                }
+                            }
+                            $terms = get_terms( 'post_tag', array( 'hide_empty' => false ) );
+                            if( $terms ){
+                                ?>
+                                <p class="mmm-sitemap-taxonomy">タグ</p>
+                                <?php
+                                foreach( $terms as $term ){
+                                    $term_checked = isset( $this->settings['page']['term']['post'][$term->term_id] ) && $this->settings['page']['term']['post'][$term->term_id] ? 'checked' : '';
+                                    ?>
+                                    <p class="mmm-sitemap-term"><label><input type="checkbox" name="mmm_sitemap[page][term][post][<?php echo $term->term_id; ?>]" value="<?php echo $term->slug; ?>" <?php echo $term_checked; ?>/> <?php echo $term->name; ?></label></p>
+                                    <?php
+                                }
+                            }
+                            $checked = isset( $this->settings['page']['other']['post'] ) && $this->settings['page']['other']['post'] ? 'checked' : '';
+                            ?>
+                            <p class="mmm-sitemap-other"><label><input type="checkbox" name="mmm_sitemap[page][other][post]" value = "post" <?php echo $checked; ?>/> その他</label></p>
+                        </div>
+                        <?php
+                            $post_types = get_post_types( array( '_builtin' => false, 'public' => true ), 'objects' );
+                            foreach( $post_types as $key => $value ){
+                                ?>
+                                <div class="mmm-sitemap-post">
+                                <?php
+                                $checked = isset( $this->settings['page']['post_type'][$key] ) && $this->settings['page']['post_type'][$key] ? 'checked' : '';
+                                ?>
+                                    <p><label><input type="checkbox" name="mmm_sitemap[page][post_type][<?php echo $key; ?>]" value = "<?php echo $value->name; ?>" <?php echo $checked; ?> /> <?php echo $value->labels->singular_name; ?></label></p>
+                                <?php
+                                foreach( get_object_taxonomies( $key, 'objects' ) as $taxonomy ){
+                                    $terms = get_terms( $taxonomy->name, array( 'hide_empty' => false, 'parent' => 0 ) );
+                                    if( $terms ){
+                                        ?>
+                                        <p class="mmm-sitemap-taxonomy"><?php echo $taxonomy->label; ?></p>
+                                        <?php
+                                        foreach( $terms as $term ){
+                                            $term_checked = isset( $this->settings['page']['term'][$key][$term->term_id] ) && $this->settings['page']['term'][$key][$term->term_id] ? 'checked' : '';
+                                            ?>
+                                            <p class="mmm-sitemap-term"><label><input type="checkbox" name="mmm_sitemap[page][term][<?php echo $key; ?>][<?php echo $term->term_id; ?>]" value="<?php echo $term->slug; ?>" <?php echo $term_checked; ?>/> <?php echo $term->name; ?></label></p>
+                                            <?php
+                                        }
+                                    }
+                                }
+                                $checked = isset( $this->settings['page']['other'][$key] ) && $this->settings['page']['other'][$key] ? 'checked' : '';
+                                ?>
+                                <p class="mmm-sitemap-other"><label><input type="checkbox" name="mmm_sitemap[page][other][<?php echo $key; ?>]" value = "<?php echo $key; ?>" <?php echo $checked; ?>/> その他</label></p>
+                                <?php
+                            }
+                            ?>
+                        </div>
+                    </div>
+                    <div>
+                        <?php
+                        $exclude = esc_attr( $this->settings['page']['exclude'] );
+                        ?>
+                        <p class="mmm-sitemap-exclude"><input type="text" name="mmm_sitemap[page][exclude]" value="<?php echo $exclude; ?>" class="widefat" placeholder="含めない記事ID" /></p>
+                    </div>
+                </div>
+                <?php
+            },
+            'mmm_sitemap',
+            'mmm_sitemap_section'
+        );
+
+    }
+
+    public function render_mmm_page(){
+        ?>
+        <div class="wrap" id="mmm-sitemap">
+            <h1 class="wp-heading-inline">サイトマップ設定</h1>
+            <form method="post" action="options.php">
+                <?php settings_fields( 'mmm_sitemap_group' ); ?>
+                <?php do_settings_sections( 'mmm_sitemap' ); ?>
+                <?php submit_button(); ?>
+            </form>
+        </div>
+        <style>
+            #mmm-sitemap .form-table th {
+                padding-top:0;
+            }
+
+            .mmm-sitemap-field{
+                margin-bottom:2rem;
+            }
+
+            .mmm-sitemap-field strong{
+                display:block;
+                margin-bottom:10px;
+            }
+
+            .mmm-sitemap-post{
+
+            }
+
+            .mmm-sitemap-taxonomy{
+                margin-left:1.5rem;
+            }
+
+            .mmm-sitemap-term{
+                margin-left:3rem;
+            }
+
+            .mmm-sitemap-other{
+                margin-left:1.5rem;
+            }
+
+            .mmm-sitemap-exclude{
+                padding-top:1rem;
+            }
+        </style>
+        <?php
+    }
+
+    public function generate_html(){
+
+        $sitemap = '<div class="mmm-sitemap">';
+        $sitemap .= '<ul>';
+
+        //page
+        if( isset( $this->settings['page']['post_type']['page'] ) && $this->settings['page']['post_type']['page'] ){
+            $args = array();
+            $args['post_type']      = 'page';
+            $args['post_status']    = 'publish';
+            $args['post_parent']    = 0;
+            $args['posts_per_page'] = -1;
+            $args['post__not_in']   = explode( ',', $this->settings['page']['exclude'] );
+            $query = new WP_Query( $args );
+            if( $query->posts ){
+                $sitemap .= '<li><h5 class="mmm-sitemap-title">固定ページ</h5></li>';
+                foreach( $query->posts as $post ){
+                    $this->get_child_pages( $post, $sitemap );
+                }
+            }
+        }
+
+        //single
+        if( isset( $this->settings['page']['post_type'] ) ){
+
+            foreach( $this->settings['page']['post_type'] as $post_type ){
+
+                if( $post_type === 'page' ) continue;
+
+                $post_type_obj = get_post_type_object( $post_type );
+                if( $post_type === 'post' ){
+                    $sitemap .= '<li><h5 class="mmm-sitemap-title">投稿</h5></li>';
+                }else{
+                    $sitemap .= '<li><h5 class="mmm-sitemap-title"><a href="'.get_post_type_archive_link( $post_type ).'">'.$post_type_obj->labels->singular_name.'</a></h5></li>';
+                }
+
+                $ignore_posts = array();
+                $ignore_tax_query = array();
+                $ignore_tax_query['relation'] = "AND";
+
+                //categorized
+                foreach( get_object_taxonomies( $post_type ) as $taxonomy ){
+
+                    if( $taxonomy === 'post_format' ) continue;
+
+                    $terms = get_terms( $taxonomy, array( 'hide_empty' => false, 'parent' => 0 ) );
+
+                    if( $terms ){
+                        $sitemap .= '<ul>';
+                        foreach( $terms as $term ){
+
+                            $ignore_tax_query[] = array(
+                                'taxonomy' => $taxonomy,
+                                'field'    => 'slug',
+                                'terms'    => $term->slug,
+                                'operator' => 'NOT IN'
+                            );
+
+                            if( isset( $this->settings['page']['term'][$post_type][$term->term_id] ) ){
+                                $args = array();
+                                $args['post_type']      = $post_type;
+                                $args['post_status']    = 'publish';
+                                $args['posts_per_page'] = -1;
+                                $args['post__not_in']   = explode( ',', $this->settings['page']['exclude'] );
+                                $args['tax_query']      = array(
+                                    array(
+                                        'taxonomy' => $taxonomy,
+                                        'field'    => 'slug',
+                                        'terms'    => $term->slug,
+                                    )
+                                );
+                                $query = new WP_Query( $args );
+                                if( $query->posts ){
+                                    $sitemap .= '<li><h6 class="mmm-sitemap-title"><a href="'.get_term_link( $term->slug, $taxonomy ).'">'.$term->name.'</a></h6></li>';
+                                    $sitemap .= '<ul>';
+                                    foreach( $query->posts as $post ){
+                                        $ignore_posts[] = $post->ID;
+                                        $sitemap .= '<li><a href="'.get_the_permalink( $post->ID ).'">'.$post->post_title.'</a></li>';
+                                    }
+                                    $sitemap .= '</ul>';
+                                }
+                            }
+                        }
+                        $sitemap .= '</ul>';
+                    }
+                }
+
+                //not categorized
+                if( isset( $this->settings['page']['other'][$post_type] ) ){
+                    $args['post_type']      = $post_type;
+                    $args['post_status']    = 'publish';
+                    $args['posts_per_page'] = -1;
+                    $args['post__not_in']   = $ignore_posts + explode( ',', $this->settings['page']['exclude'] );
+                    $args['tax_query']      = $ignore_tax_query;
+                    $query = new WP_Query( $args );
+                    if( $query->posts ){
+                        $sitemap .= '<ul>';
+                        foreach( $query->posts as $post ){
+                            $sitemap .= '<li><a href="'.get_the_permalink( $post->ID ).'">'.$post->post_title.'</a></li>';
+                        }
+                        $sitemap .= '</ul>';
+                    }
+                }
+            }
+        }
+
+        $sitemap .= '</ul>';
+        $sitemap .= '</div>';
+
+        return $sitemap;
+    }
+
+    private function get_child_pages( $post, &$sitemap ){
+        $sitemap .= '<li><a href="'.get_the_permalink( $post->ID ).'">'.$post->post_title.'</a></li>';
+        $children = get_children( array( 'post_parent' => $post->ID, 'post_type' => 'page' ) );
+        if( $children ){
+            foreach( $children as $child ){
+                $sitemap .= '<ul>';
+                $this->get_child_pages( $child, $sitemap );
+                $sitemap .= '</ul>';
+            }
+        }
+    }
+
+}
+
+$sitemap = new MMM_Sitemap();
+
+
+
 /*
 
 ショートコード
