@@ -465,6 +465,240 @@ function mmm_related_posts( $post_id ){
 
 }
 
+//基本情報
+class MMM_Info{
+
+    function __construct(){
+        add_action( 'admin_menu', array( $this, 'admin_menu' ) );
+        add_action( 'admin_init', array( $this, 'admin_init' ) );
+        add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_scripts' ) );
+    }
+
+    public function admin_enqueue_scripts(){
+        wp_enqueue_script( 'jquery-ui-sortable' );
+    }
+
+    public function admin_menu(){
+
+        add_menu_page(
+            '基本情報',
+            '基本情報',
+            'manage_options',
+            'mmm_info',
+            array( $this, 'render_info_page' )
+        );
+
+        add_submenu_page(
+            'mmm_info',
+            'ダッシュボード',
+            'ダッシュボード',
+            'manage_options',
+            'mmm_info',
+            array( $this, 'render_info_page' )
+        );
+
+    }
+
+    public function admin_init(){
+
+        register_setting(
+            'mmm_info_group',
+            'mmm_info',
+            array( $this, 'sanitize_info' )
+        );
+
+        add_settings_section(
+            'mmm_info_section',
+            '',
+            array( $this, 'render_info_section' ),
+            'mmm_info'
+        );
+
+        if( $info = get_option('mmm_info') ){
+            foreach( (array)$info as $key => $value ){
+                add_settings_field(
+                    'mmm_info_field_'.$key,
+                    $info[$key]['label'],
+                    array( $this, 'render_info_field' ),
+                    'mmm_info',
+                    'mmm_info_section',
+                    array( 'info' => array('key'=>$info[$key]['key'], 'label'=>$info[$key]['label'], 'value'=>$info[$key]['value']) )
+                );
+            }
+        }else{
+            add_settings_field(
+                'mmm_info_field',
+                '新しい情報',
+                array( $this, 'render_info_field' ),
+                'mmm_info',
+                'mmm_info_section'
+            );
+        }
+
+    }
+
+    public function render_info_page(){
+		?>
+		<div class="wrap" id="mmm_info">
+		    <h1 class="wp-heading-inline">基本情報</h1>
+		    <a href="#" id="mmm_info_add" class="page-title-action">新しい情報を追加</a>
+		    <form method="post" action="options.php">
+				<?php
+		        settings_fields( 'mmm_info_group' );
+		        do_settings_sections( 'mmm_info' );
+		        submit_button();
+				?>
+		    </form>
+		</div>
+
+		<style>
+
+		    .mmm_info_section strong{
+		        font-weight:bold;
+		        color:#ca4a1f;
+		    }
+
+		    .mmm_info_field label{
+		        display:inline-block;
+		        width:80px;
+		        color:gray;
+		    }
+
+		    .mmm_info_field input['type=text']{
+		        height:30px;
+		    }
+
+		    .mmm_info_field textarea{
+		        vertical-align:top;
+		    }
+
+		    .mmm_info_input_key{
+		        color:#007cba !important;
+		        font-weight:bold;
+		    }
+
+		    .mmm_info_delete{
+		        text-align:right;
+		    }
+
+		</style>
+
+		<script>
+		    (function($){
+
+		        window.onload = function(){
+		            $('#mmm_info .form-table tbody').sortable();
+		        };
+
+		        //新規作成ボタン
+		        $('#mmm_info_add').on('click',function(e){
+		            e.preventDefault();
+		            var fields = document.getElementsByClassName('mmm_info_field');
+		            var key = fields.length;
+		            $('#mmm_info .form-table > tbody').append( _renderField(key) );
+		        });
+
+		        //削除ボタン
+		        $(document).on('click','.mmm_info_delete_btn',function(e){
+		            e.preventDefault();
+		            var result = confirm('本当に削除しますか？');
+		            if(result) {
+		                $(this).parents('tr').remove();
+		            }
+		        });
+
+		        //入力イベント
+		        $(document).on('keyup',function(e){
+
+		            var target = e.target;
+		            var key = $(target).val();
+
+		            if( target.className.indexOf('mmm_info_input_key') != -1 ){
+		                var field = $(target).parent().parent();
+		                $(target).attr('name', 'mmm_info[' + key + '][key]');
+		                $(field).find('.mmm_info_input_label').attr('name', 'mmm_info[' + key + '][label]');
+		                $(field).find('.mmm_info_input_value').attr('name', 'mmm_info[' + key + '][value]');
+		            }else if( target.className.indexOf('mmm_info_input_label') != -1 ){
+		                $(target).parents('tr').find('th').text( key );
+		            }
+
+		        });
+
+		        //フィールド作成
+		        function _renderField(key){
+		            return '<tr><th scope="row">新しい情報</th><td><div class="mmm_info_field">'
+		                        + '<p><label>KEY</label><input type="text" name="mmm_info[' + key + '][key]" value="' + key + '" class="mmm_info_input_key" /></p>'
+		                        + '<p><label>LABEL</label><input type="text" name="mmm_info[' + key + '][label]" value="新しい情報" class="mmm_info_input_label regular-text" /></p>'
+		                        + '<p><label>VALUE</label><textarea name="mmm_info[' + key + '][value]" class="mmm_info_input_value regular-text" rows=3 /></textarea></p>'
+		                        + '<p class="mmm_info_delete"><a href="#" class="mmm_info_delete_btn">この情報を削除する</a></p>'
+		                    + '</div></td></tr>'
+		        }
+
+		    })(jQuery);
+
+		</script>
+		<?php
+    }
+
+    public function render_info_section(){
+		?>
+		<div class="mmm_info_section">
+		    <p>
+		    ▼同じ<strong>KEY</strong>を設定すると後の方の値で上書きされます<br/>
+		    ▼<strong>get_mmm_info( 'KEYの値' )</strong> で、VALUEの値を取得できます<br>
+		    ▼<strong>get_mmm_info( 'KEYの値', 'label' )</strong> で、LABELの値を取得できます
+		    </p>
+		</div>
+		<?php
+    }
+
+    public function render_info_field( $args ){
+		?>
+		<?php if($args['info']){
+			$info = $args['info'];
+		?>
+		<div class="mmm_info_field"">
+		    <p><label>KEY</label><input type="text" name="mmm_info[<?php echo $info['key'];?>][key]" value="<?php echo $info['key'];?>" class="mmm_info_input_key" /></p>
+		    <p><label>LABEL</label><input type="text" name="mmm_info[<?php echo $info['key'];?>][label]" value="<?php echo $info['label'];?>" class="mmm_info_input_label regular-text" /></p>
+		    <p><label>VALUE</label><textarea name="mmm_info[<?php echo $info['key'];?>][value]" class="mmm_info_input_value regular-text" rows=3><?php echo $info['value'];?></textarea></p>
+		    <p class="mmm_info_delete"><a href="#" class="mmm_info_delete_btn">この情報を削除する</a></p>
+		</div>
+		<?php }else{ ?>
+		<div class="mmm_info_field" data-key="0">
+		    <p><label>KEY</label><input type="text" name="mmm_info[0][key]" value="0" class="mmm_info_input_key" /></p>
+		    <p><label>LABEL</label><input type="text" name="mmm_info[0][label]" value="新しい情報" class="mmm_info_input_label regular-text" /></p>
+		    <p><label>VALUE</label><textarea name="mmm_info[0][value]" class="mmm_info_input_value regular-text" rows=3></textarea></p>
+		    <p class="mmm_info_delete"><a href="#" class="mmm_info_delete_btn">この情報を削除する</a></p>
+		</div>
+		<?php } ?>
+		<?php
+    }
+
+    public function sanitize_info( $input ){
+        foreach( $input as $key => $value ){
+            $input[$key]['key'] = esc_attr( $value['key'] );
+            $input[$key]['label'] = esc_attr( $value['label'] );
+            $input[$key]['value'] = strip_tags($value['value'], '<a><iframe>');
+        }
+        return $input;
+    }
+
+}
+
+$option = new MMM_Info();
+
+
+//template tag
+function get_mmm_info( $key, $label = null ){
+    $info = get_option( 'mmm_info' );
+    if( $label==='label' ){
+        $value = esc_html( $info[$key]['label'] );
+    }else{
+        $value = esc_html( $info[$key]['value'] );
+    }
+    return $value;
+}
+
 /*
 
 検索フォーム
@@ -477,6 +711,7 @@ add_filter( 'get_search_form', function($form){
 	</form>';
 	return $form;
 });
+
 
 /*
 
