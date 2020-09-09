@@ -114,7 +114,7 @@ if( ! $menu_exists ){
 function mmm_limit_post_content( $content, $length ){
 	if( !$content ) return false;
 	$content = wp_strip_all_tags( $content );
-	$content = str_replace(array("\r\n","\r","\n","&nbsp;","　","	"),'',$content);
+	$content = str_replace(array("\r\n","\r","\n","&nbsp;","　","\t"),'',$content);
 	if( mb_strlen( $content ) <= $length ){
 		return $content;
 	}else{
