@@ -654,8 +654,9 @@ class MMM_Info{
 
     public function render_info_field( $args ){
 		?>
-		<?php if($args['info']){
-			$info = $args['info'];
+		<?php
+			if($args['info']){
+				$info = $args['info'];
 		?>
 		<div class="mmm_info_field"">
 		    <p><label>KEY</label><input type="text" name="mmm_info[<?php echo $info['key'];?>][key]" value="<?php echo $info['key'];?>" class="mmm_info_input_key" /></p>
