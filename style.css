@@ -7,54 +7,54 @@ Version: 1.0.0
 */
 
 *{
-    margin:0;
-    padding:0;
-    line-height:1;
-    box-sizing:border-box;
-    letter-spacing:normal;
-    border:none;
-    outline:none;
+  margin:0;
+  padding:0;
+  line-height:1;
+  box-sizing:border-box;
+  letter-spacing:normal;
+  border:none;
+  outline:none;
 }
 
 html{
-    height:100%;
-    font-size:16px;
+  height:100%;
+  font-size:16px;
 }
 
 @media screen and (max-width:768px){
-    html{
-        font-size:4vw;
-    }
+  html{
+    font-size:4vw;
+  }
 }
 
 body{
-    height:100%;
-    font-family: "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック体", "YuGothic", "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", "Meiryo", "verdana", sans-serif;
-    font-size:1rem;
-    color:#222222;
+  height:100%;
+  font-family: "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック体", "YuGothic", "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", "Meiryo", "verdana", sans-serif;
+  font-size:1rem;
+  color:#222222;
 }
 
 section,header,footer,main,aside,article{
-    display:block;
+  display:block;
 }
 
 img{
-    height:auto;
-    max-width:100%;
+  height:auto;
+  max-width:100%;
 }
 
 a,a:visited,a:hover,a:active{
-    color:inherit;
-    text-decoration:none;
+  color:inherit;
+  text-decoration:none;
 }
 
 ul{
-    list-style-type: none;
+  list-style-type: none;
 }
 
 h1,h2,h3,h4,h5,h6{
-    font-size:1rem;
-    font-weight:normal;
+  font-size:1rem;
+  font-weight:normal;
 }
 
 .mmm-site-title{
@@ -117,8 +117,8 @@ breadcrumb
 }
 
 .mmm-breadcrumb ul{
-    display:flex;
-    flex-wrap:wrap;
+  display:flex;
+  flex-wrap:wrap;
 	list-style-type:none;
 }
 
@@ -126,15 +126,15 @@ breadcrumb
 }
 
 .mmm-breadcrumb ul li a{
-    text-decoration:underline;
+  text-decoration:underline;
 }
 
 .mmm-breadcrumb ul li span{
 }
 
-.mmm-breadcrumb ul .slash{
-    margin-left:5px;
-    margin-right:5px;
+.mmm-breadcrumb ul li span.slash{
+  margin-left:5px;
+  margin-right:5px;
 }
 
 /*
@@ -144,93 +144,93 @@ pagination
 */
 
 .mmm-pagination-archive{
-    margin:1rem 0;
+  margin:1rem 0;
 }
 
 .mmm-pagination-archive ul{
-   width:100%;
-   display:flex;
-   justify-content:center;
+  width:100%;
+  display:flex;
+  justify-content:center;
 }
 
 .mmm-pagination-archive ul li{
-   margin-right:5px;
-   margin-left:5px;
+  margin-right:5px;
+  margin-left:5px;
 }
 
 .mmm-pagination-archive ul li.dots{
-   margin-left:0;
-   margin-right:0;
+  margin-left:0;
+  margin-right:0;
 }
 
 .mmm-pagination-archive ul li a,
 .mmm-pagination-archive ul li span{
-   display:flex;
-   justify-content:center;
-   align-items:center;
-   height:40px;
-   width:40px;
-   font-weight:bold;
-   border-width:1px;
-   border-style:solid;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:40px;
+  width:40px;
+  font-weight:bold;
+  border-width:1px;
+  border-style:solid;
 }
 
 .mmm-pagination-archive ul li a{
-    color:#FFF;
-    border-color:lightgray;
-    background-color:lightgray;
+  color:#FFF;
+  border-color:lightgray;
+  background-color:lightgray;
 }
 
 .mmm-pagination-archive ul li span{
-    color:lightgray;
-    border-color:lightgray;
-    background-color:#FFF;
+  color:lightgray;
+  border-color:lightgray;
+  background-color:#FFF;
 }
 
 .mmm-pagination-archive ul li.dots span{
-    border-color:#FFF;
+  border-color:#FFF;
 }
 
 .mmm-pagination-archive ul li a:hover{
-   color:lightgray;
-   background-color:#FFF;
+  color:lightgray;
+  background-color:#FFF;
 }
 
 .mmm-pagination-archive ul li.prev a,
 .mmm-pagination-archive ul li.prev span,
 .mmm-pagination-archive ul li.next a,
 .mmm-pagination-archive ul li.next span{
-   width:auto;
-   padding:0 1em;
+  width:auto;
+  padding:0 1em;
 }
 
 .mmm-pagination-single{
-    display:flex;
-    justify-content:center;
-    margin:1rem 0;
+  display:flex;
+  justify-content:center;
+  margin:1rem 0;
 }
 
 .mmm-pagination-single a{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    height:40px;
-    width:auto;
-    font-weight:bold;
-    border-width:1px;
-    border-style:solid;
-    color:#FFF;
-    background-color:lightgray;
-    padding:0 1em;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:40px;
+  width:auto;
+  font-weight:bold;
+  border-width:1px;
+  border-style:solid;
+  color:#FFF;
+  background-color:lightgray;
+  padding:0 1em;
 }
 
 .mmm-pagination-single a:hover{
-    color:lightgray;
-    background-color:#FFF;
+  color:lightgray;
+  background-color:#FFF;
 }
 
 .mmm-pagination-single a + a{
-    margin-left:1rem;
+  margin-left:1rem;
 }
 
 .mmm-pagination-single .next{
@@ -241,24 +241,24 @@ pagination
 
 @media screen and (max-width:992px){
 
-   .mmm-pagination-archive ul li{
-       display:none;
-   }
+  .mmm-pagination-archive ul li{
+     display:none;
+  }
 
-   .mmm-pagination-archive ul li.next,
-   .mmm-pagination-archive ul li.prev{
-       display: initial;
-   }
+  .mmm-pagination-archive ul li.next,
+  .mmm-pagination-archive ul li.prev{
+     display: initial;
+  }
 
-   .mmm-pagination-archive ul li.prev{
-       margin-right:auto;
-       margin-left:0;
-   }
+  .mmm-pagination-archive ul li.prev{
+     margin-right:auto;
+     margin-left:0;
+  }
 
-   .mmm-pagination-archive ul li.next{
-       margin-left:auto;
-       margin-right:0;
-   }
+  .mmm-pagination-archive ul li.next{
+     margin-left:auto;
+     margin-right:0;
+  }
 
 }
 
@@ -286,8 +286,9 @@ related_posts
 }
 
 .mmm-related-posts li a strong{
-    font-weight:bold;
+  font-weight:bold;
 }
+
 
 /*
 
@@ -299,10 +300,10 @@ menu
 }
 
 .mmm-menu a{
-    display:block;
-    line-height:1.2;
-    padding-left:4px;
-    padding-right:4px;
+  display:block;
+  line-height:1.2;
+  padding-left:4px;
+  padding-right:4px;
 }
 
 .mmm-submenu{
@@ -310,23 +311,24 @@ menu
 }
 
 .mmm-menu .mmm-submenu a{
-    padding-left:1rem;
+  padding-left:1rem;
 }
 
 .mmm-menu .mmm-submenu .mmm-submenu a{
-    padding-left:2rem;
+  padding-left:2rem;
 }
 
 .mmm-menu .mmm-submenu .mmm-submenu .mmm-submenu a{
-    padding-left:3rem;
+  padding-left:3rem;
 }
 
 .mmm-submenu-hover{
 }
 
 .mmm-submenu-click{
-    display:none;
+  display:none;
 }
+
 
 /*
 
