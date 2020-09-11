@@ -20,7 +20,7 @@ define('THEME_DIR', get_template_directory());
 
 /*
 
-ファイル読み込み
+ファイルの読み込み
 
 */
 add_action( 'wp_enqueue_scripts', function(){
@@ -216,9 +216,11 @@ class MMM_Breadcrumb {
         $taxonomy_name = $this->qo->taxonomy;
         $taxonomy = get_taxonomy( $taxonomy_name );
         $registrated_post_types = $taxonomy->object_type;
+
         if( count( $registrated_post_types ) === 1 ){
             $this->add_post_type( $registrated_post_types[0] );
         }
+
         if( $is_category = $taxonomy->hierarchical ? true : false ){
             $terms = $this->get_ancestors( $this->qo->term_id, $taxonomy_name );
             foreach( $terms as $term ){
@@ -226,8 +228,11 @@ class MMM_Breadcrumb {
                 $this->add( $term->name, esc_url( get_term_link( $term->term_id ) ) );
             }
         }
+
         $this->add( $this->qo->name );
+
         return $this->breadcrumb;
+
     }
 
     public function page(){
