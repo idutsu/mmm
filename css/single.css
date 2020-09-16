@@ -6,27 +6,36 @@
 
 
 .mmm-post--single{
+    display:block;
 }
 
 .mmm-post--single .mmm-post-terms{
 }
 
 .mmm-post--single .mmm-post-title{
+    font-size:1.8rem;
 }
 
 .mmm-post--single .mmm-post-date{
 }
 
 .mmm-post--single .mmm-post-image{
+    width:100%;
+    text-align:center;
+    margin-bottom:1rem;
 }
 
 .mmm-post--single .mmm-post-image img{
+    width:auto;
+    max-width:100%;
 }
 
 .mmm-post--single .mmm-post-content{
+    margin-bottom:1rem;
 }
 
-.mmm-post--single .mmm-post-content p{
+.mmm-post--single .mmm-post-content *{
+    line-height:1.5;
 }
 
 .mmm-post--single .mmm-post-content b{

@@ -64,27 +64,34 @@
 			<header>
 				<?php $h1 = $is_home ? "h1" : "p" ; ?>
 				<<?php echo $h1; ?> class="mmm-site-title"><a href="<?php echo home_url(); ?>"><?php echo $site_title; ?></a></<?php echo $h1; ?>>
+				<div class="mmm-sp-fix">
+					<a href="tel:<?php echo get_mmm_info('tel'); ?>"><?php echo get_mmm_info('tel'); ?></a>
+					<a href="<?php echo home_url('/contact/'); ?>">お問い合わせ</a>
+				</div>
 				<?php mmm_menu('global'); ?>
 				<div class="mmm-hamburger"><span></span><span></span><span></span></div>
 				<?php wp_head(); ?>
 			</header>
 		</div>
-		<?php get_sidebar(); ?>
-		<div class="mmm-main">
-			<main>
-				<?php if( ! $is_home ){ ?>
-					<h1 class="mmm-page-title"><?php echo $meta_title; ?></h1>
-					<div class="mmm-breadcrumb">
-						<ul>
-						<?php
-							foreach( $breadcrumb->breadcrumb as $bc ){
-								if( $bc['link'] ){
-									echo '<li><a href="'.$bc['link'].'">'.$bc['text'].'</a></li><span class="slash">/</span>';
-								}else{
-									echo '<li><span>'.$bc['text'].'</span></li>';
+		<div class="mmm-wrapper">
+			<?php if( ! $is_home ){ 
+				get_sidebar();
+			} ?>
+			<div class="mmm-main">
+				<main>
+					<?php if( ! $is_home ){ ?>
+						<h1 class="mmm-page-title"><?php echo $breadcrumb->breadcrumb[1]['text']; ?></h1>
+						<div class="mmm-breadcrumb">
+							<ul>
+							<?php
+								foreach( $breadcrumb->breadcrumb as $bc ){
+									if( $bc['link'] ){
+										echo '<li><a href="'.$bc['link'].'">'.$bc['text'].'</a></li><span class="slash">/</span>';
+									}else{
+										echo '<li><span>'.$bc['text'].'</span></li>';
+									}
 								}
-							}
-						?>
-						</ul>
-					</div>
-				<?php } ?>
+							?>
+							</ul>
+						</div>
+					<?php } ?>

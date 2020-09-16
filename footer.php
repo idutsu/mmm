@@ -1,14 +1,29 @@
-            </main>
+                </main>
+            </div>
         </div>
         <div class="mmm-footer">
             <footer>
-                <p>copyright</p>
+                <div class="mmm-footer-menus">
+                    <div class="mmm-footer-menu">
+                        <?php mmm_menu('footer1','フッターメニュー１'); ?>
+                    </div>
+                    <div class="mmm-footer-menu">
+                        <?php mmm_menu('footer2','フッターメニュー２'); ?>
+                    </div>
+                    <div class="mmm-footer-menu">
+                        <?php mmm_menu('footer3','フッターメニュー３'); ?>
+                    </div>
+                    <div class="mmm-footer-menu">
+                        <?php mmm_menu('footer4','フッターメニュー４'); ?>
+                    </div>
+                </div>
+                <p class="mmm-footer-copyright">copyright</p>
             </footer>
         </div>
         <?php wp_footer(); ?>
         <script>objectFitImages();</script>
         <script>
-        //silideshow example
+        //スライドショー実行
         (function($){
             $('.mmm-slider').slick({
                 autoplay:true,

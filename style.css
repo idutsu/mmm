@@ -34,6 +34,24 @@ body{
   color:#222222;
 }
 
+@media screen and (max-width:1080px){
+  body{
+    width:1080px;
+  }
+}
+
+@media screen and (max-width:768px){
+  body{
+    width:100%;
+  }
+}
+
+@media all and (-ms-high-contrast:none){
+	body {
+    font-family: "メイリオ", "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック体", "YuGothic", "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "Meiryo", "verdana", sans-serif;
+	}
+}
+
 section,header,footer,main,aside,article{
   display:block;
 }
@@ -48,6 +66,10 @@ a,a:visited,a:hover,a:active{
   text-decoration:none;
 }
 
+a:hover{
+  opacity:.8;
+}
+
 ul{
   list-style-type: none;
 }
@@ -57,34 +79,131 @@ h1,h2,h3,h4,h5,h6{
   font-weight:normal;
 }
 
+.mmm-header{
+  margin-bottom:1rem;
+}
+
+.mmm-footer{
+  background-color:lightgray;
+}
+
+.mmm-footer-copyright{
+  padding-top:1em;
+  padding-bottom:1em;
+  text-align:center;
+  background-color:#FFF;
+}
+
+.mmm-wrapper{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:space-between;
+  width:1080px;
+  margin:0 auto;
+}
+
+.mmm-aside{
+  flex:none;
+  width:250px;
+}
+
+.mmm-main{
+  flex:none;
+  width:100%;
+}
+
+.mmm-aside + .mmm-main{
+  width:calc(100% - 275px);
+}
+
+@media screen and (max-width:768px){
+
+  .mmm-header{
+    padding-left:10px;
+    padding-right:10px;
+  }
+
+  .mmm-wrapper{
+    width:100%;
+    padding-left:10px;
+    padding-right:10px;
+  }
+  
+  .mmm-main{
+    width:100% !important;
+    order:1;
+  }
+  
+  .mmm-aside{
+    width:100%;
+    order:2;
+    margin-bottom:2rem;
+  }
+
+  .mmm-footer-copyright{
+    font-size:10px;
+  }
+
+}
+
 .mmm-site-title{
+  font-size:3rem;
+  font-weight:bold;
+  text-align:center;
+  margin-top:1em;
+  margin-bottom:1em;
 }
 
 .mmm-page-title{
+  font-size:2rem;
+  font-weight:bold;
+  text-align:center;
+  margin-top:1em;
+  margin-bottom:1em;
 }
 
 .mmm-post{
-}
-
-.mmm-post-title{
-}
-
-.mmm-post-date{
+  display:flex;
+  padding-top:1rem;
+  padding-bottom:1rem;
 }
 
 .mmm-post-image{
+  flex:none;
+  width:150px;
+  margin-right:.5rem;
 }
 
 .mmm-post-image img{
+  width:100%;
+  height:auto;
 }
 
-.mmm-post-content{
+.mmm-post-text{
+  flex:1;
+}
+
+.mmm-post-date{
+  font-size:.9rem;
+}
+
+.mmm-post-title{
+  font-size:1.2rem;
+  font-weight:bold;
+  line-height:1.5;
 }
 
 .mmm-post-terms{
+  display:flex;
+  flex-wrap:wrap;
 }
 
 .mmm-post-cat{
+  font-size:12px;
+  background-color:lightgray;
+  border-radius:2px;
+  padding:.4rem;
+  margin:0 2px 4px 2px;
 }
 
 a.mmm-post-cat{
@@ -93,7 +212,14 @@ a.mmm-post-cat{
 a.mmm-post-cat:hover{
 }
 
+.mmm-post-cat:before{
+	content:"";
+}
+
 .mmm-post-tag{
+  font-size:12px;
+  padding:.4rem .25rem;
+  margin:0 2px 4px 2px;
 }
 
 a.mmm-post-tag{
@@ -106,6 +232,23 @@ a.mmm-post-tag:hover{
 	content:"#";
 }
 
+.mmm-post-content{
+  line-height:1.5;
+}
+
+@media screen and (max-width:768px){
+  
+  .mmm-post{
+    display:block;
+  }
+
+  .mmm-post-image{
+    width:100%;
+    margin-right:0;
+    margin-bottom:.25rem;
+  }
+
+}
 
 /*
 
@@ -123,23 +266,23 @@ a.mmm-post-tag:hover{
 }
 
 .mmm-breadcrumb ul li{
+  font-size:.9rem;
+  color:gray;
+  margin:1px;
 }
 
 .mmm-breadcrumb ul li a{
   text-decoration:underline;
+  line-height:1.2;
 }
 
-.mmm-breadcrumb ul li span{
-}
-
-.mmm-breadcrumb ul li span.slash{
-  margin-left:5px;
-  margin-right:5px;
+.mmm-breadcrumb ul span{
+  line-height:1.2;
 }
 
 /*
 
-pagination
+ページネーション
 
 */
 
@@ -264,15 +407,23 @@ pagination
 
 /*
 
-related_posts
+関連記事
 
 */
 
 .mmm-related-posts{
   margin-bottom:1.5rem;
+  margin-bottom:2rem;
 }
 
 .mmm-related-posts-title{
+  font-size:1.5rem;
+  font-weight:bold;
+  line-height:1.2;
+  margin-bottom:1rem;
+}
+
+.mmm-related-posts ul{
 }
 
 .mmm-related-posts ul ul{
@@ -283,43 +434,52 @@ related_posts
 }
 
 .mmm-related-posts li a{
+  display:inline-block;
+  text-decoration:underline;
+  line-height:1.2;
+  margin-bottom:.5em;
 }
 
 .mmm-related-posts li a strong{
   font-weight:bold;
 }
 
+@media screen and (max-width:768px){
+  .mmm-related-posts{
+    font-size:5vw;
+  }
+  
+}
 
 /*
 
-menu
+メニュー
 
 */
+
+.mmm-menu-title{
+  font-weight:bold;
+  margin-bottom:.5rem;
+}
 
 .mmm-menu{
 }
 
+.mmm-menu li{
+  height:100%;
+}
+
 .mmm-menu a{
-  display:block;
+  display:flex;
+  align-items:center;
+  height:100%;
   line-height:1.2;
-  padding-left:4px;
-  padding-right:4px;
+  padding-left:10px;
+  padding-right:10px;
 }
 
 .mmm-submenu{
 	display:none;
-}
-
-.mmm-menu .mmm-submenu a{
-  padding-left:1rem;
-}
-
-.mmm-menu .mmm-submenu .mmm-submenu a{
-  padding-left:2rem;
-}
-
-.mmm-menu .mmm-submenu .mmm-submenu .mmm-submenu a{
-  padding-left:3rem;
 }
 
 .mmm-submenu-hover{
@@ -332,49 +492,152 @@ menu
 
 /*
 
-global menu
+グローバルメニュー
 
 */
 
-.mmm-menu.mmm-menu--global{
+.mmm-menu--global{
   display:flex;
   justify-content:center;
+  align-items:center;
+  width:100%;
+  height:50px;
+  background-color:lightgray;
 }
 
-.mmm-menu.mmm-menu--global .depth-0{
+.mmm-menu--global li{
   position:relative;
 }
 
-.mmm-menu.mmm-menu--global .depth-0 > .mmm-submenu{
+.mmm-menu--global li.depth-0 > .mmm-submenu{
   position:absolute;
   top:100%;
   left:0;
   z-index:9999;
   width:150%;
-  color:#FFF;
-  background-color:rgba(0,0,0,.7);
+  border-top:1px solid #FFF;
 }
 
-.mmm-menu.mmm-menu--global .mmm-submenu a{
-  border-bottom:1px solid lightgray;
+.mmm-menu--global a{
+  justify-content:center;
 }
+
+.mmm-menu--global .mmm-submenu{
+  background-color:lightgray;
+}
+
+.mmm-menu--global .mmm-submenu li{
+  height:40px;
+}
+
+.mmm-menu--global .mmm-submenu a{
+  border-bottom:1px solid #FFF;
+  justify-content:flex-start;
+}
+
+.mmm-menu--global .mmm-submenu .mmm-submenu a{
+  padding-left:1.5rem;
+}
+
+.mmm-menu--global .mmm-submenu .mmm-submenu .mmm-submenu a{
+  padding-left:2.5rem;
+}
+
 
 /*
 
-sidebar menu
+サイドメニュー
 
 */
 
-.mmm-menu.mmm-menu--sidebar{
+.mmm-menu--sidebar{
+  margin-bottom:2rem;
 }
 
-.mmm-menu.mmm-menu--sidebar a{
-  border-bottom:1px solid lightgray;
+.mmm-menu--sidebar li{
 }
+
+.mmm-menu--sidebar a{
+  position:relative;
+  border-bottom:1px solid lightgray;
+  padding-left:15px;
+  padding-top:.6rem;
+  padding-bottom:.6rem;
+}
+
+.mmm-menu--sidebar a:before{
+  content:"";
+  position:absolute;
+  top:calc(50% - 4px);
+  left:4px;
+  display:block;
+  border-top:6px solid transparent;
+  border-bottom:6px solid transparent;
+  border-left:8px solid lightgray;
+}
+
+.mmm-menu--sidebar .mmm-submenu{
+  background-color:lightgray;
+}
+
+.mmm-menu--sidebar .mmm-submenu a{
+  padding-left:calc(15px + 1rem);
+  border-bottom:1px solid #FFF;
+}
+
+.mmm-menu--sidebar .mmm-submenu a:before{
+  left:1rem;
+  border-left-color:#FFF;
+}
+
+.mmm-menu--sidebar .mmm-submenu .mmm-submenu a{
+  padding-left:calc(15px + 2rem);
+}
+
+.mmm-menu--sidebar .mmm-submenu .mmm-submenu a:before{
+  left:2rem;
+}
+
 
 /*
 
-hamburger
+フッターメニュー
+
+*/
+
+.mmm-footer-menus{
+  display:flex;
+  justify-content:center;
+  padding-top:3rem;
+  padding-bottom:3rem;
+}
+
+.mmm-footer-menu{
+}
+
+.mmm-footer-menu + .mmm-footer-menu{
+  margin-left:1.5rem;
+}
+
+[class*="mmm-menu--footer"] li{
+}
+
+[class*="mmm-menu--footer"] a{
+  padding:.25rem 0;
+}
+
+[class*="mmm-menu--footer"] .mmm-submenu a{
+  padding-left:1rem;
+}
+
+[class*="mmm-menu--footer"] .mmm-submenu .mmm-submenu a{
+  padding-left:2rem;
+}
+
+
+/*
+
+ハンバーガー
 
 */
 
@@ -432,8 +695,21 @@ hamburger
 
 @media screen and (max-width:768px){
 
+  .mmm-menu-title{
+    font-size:1.5rem;
+  }
+  
   .mmm-menu{
     font-size:5vw;
+  }
+
+  .mmm-menu li{
+    height:auto !important;
+  }
+
+  .mmm-menu a{
+    padding-top:.6em !important;
+    padding-bottom:.6em !important;
   }
 
   .mmm-menu a.mmm-submenu-hover{
@@ -474,20 +750,41 @@ hamburger
   }
 
   .mmm-menu.mmm-menu--global a{
+    justify-content:left;
     border-bottom:1px solid lightgray;
-    padding-top:.3em;
-    padding-bottom:.3em;
   }
 
-  .mmm-menu.mmm-menu--global .depth-0 > .mmm-submenu{
-    position:static;
-    width:100%;
+  .mmm-menu--global li.depth-0 > .mmm-submenu{
+    border-top:none;
+  }
+  
+  .mmm-menu--global .mmm-submenu a{
+    padding-left:1rem;
+  }
+  
+  .mmm-menu--global .mmm-submenu .mmm-submenu a{
+    padding-left:2rem;
+  }
+  
+  .mmm-menu--global .mmm-submenu .mmm-submenu .mmm-submenu a{
+    padding-left:3rem;
+  }
+  
+  .mmm-menu.mmm-menu--global .mmm-submenu{
+    position:static !important;
+    width:100% !important;
     background-color:transparent;
   }
 
-  .mmm-menu a{
-    padding-top:.3em;
-    padding-bottom:.3em;
+  .mmm-footer-menus{
+    display:block;
+    padding-right:10px;
+    padding-left:10px;
+  }
+
+  .mmm-footer-menu + .mmm-footer-menu{
+    margin-left:0;
+    margin-top:2rem;
   }
 
   .mmm-hamburger{
@@ -498,7 +795,7 @@ hamburger
 
 /*
 
-google map
+グーグルマップ
 
 */
 
@@ -523,11 +820,55 @@ google map
   }
 }
 
+/* 
+
+お問い合わせ固定メニュー
+
+*/
+
+.mmm-sp-fix{
+  display:none;
+}
+
+@media screen and (max-width:768px){
+
+  .mmm-sp-fix{
+    display:block;
+    position:fixed;
+    bottom:0;
+    left:0;
+    z-index:9999;
+    display:flex;
+    width:100%;
+    height:10vw;
+  }
+
+  .mmm-sp-fix a{
+    flex:none;
+    width:50%;
+    height:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:#FFF;
+    background-color:gray;
+  }
+
+  .mmm-sp-fix a:hover{
+    opacity:1;
+  }
+
+  .mmm-sp-fix a + a{
+    border-left:1px solid #FFF;
+  }
+  
+}
+
 /*
 
-contact form
-- This is a plugin "MW WP Form".
-- Example html is at template/contactform.html.
+コンタクトフォーム
+- プラグイン：MW WP Form
+- 実装例：template/contactform.html
 
 */
 
@@ -727,7 +1068,7 @@ contact form
 
 /*
 
-slick
+スライドショー
 
 */
 

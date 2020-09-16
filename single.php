@@ -5,8 +5,8 @@
 			the_post();
 			?>
 			<div class="mmm-post mmm-post--single">
-				<h2 class="mmm-post-title"><?php the_title(); ?></h2>
 				<time class="mmm-post-date"><?php the_time('Y.m.d'); ?></time>
+				<h2 class="mmm-post-title"><?php the_title(); ?></h2>			
 				<?php
 					$terms = mmm_get_the_terms( get_the_ID() );
 					if( $terms ){

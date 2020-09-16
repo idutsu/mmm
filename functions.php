@@ -46,11 +46,11 @@ add_action( 'wp_enqueue_scripts', function(){
 		wp_enqueue_style( 'index-style', THEME_URL.'/css/index.css',array('child-style'),filemtime(THEME_DIR.'/css/index.css') );
 	}
 
-	if(is_single() || is_page()){
+	if(is_single() || is_page() || is_404()){
 		wp_enqueue_style( 'single-style', THEME_URL.'/css/single.css',array('child-style'),filemtime(THEME_DIR.'/css/single.css') );
 	}
 
-	if(is_archive() || is_404() || is_search()){
+	if(is_archive() || is_search()){
 		wp_enqueue_style( 'archive-style', THEME_URL.'/css/archive.css',array('child-style'),filemtime(THEME_DIR.'/css/archive.css') );
 	}
 
@@ -86,8 +86,11 @@ class MMM_Walker_Nav_Menu extends Walker_Nav_Menu {
     }
 }
 
-function mmm_menu( $menu_name ){
+function mmm_menu( $menu_name, $title=null ){
 	if( wp_get_nav_menu_items( $menu_name ) ){
+        if( $title!=null ){
+            echo "<h4 class='mmm-menu-title'>".$title."</h4>";
+        }
 		wp_nav_menu( array(
 			'menu'       => $menu_name,
 			'container'  => '',
@@ -97,15 +100,31 @@ function mmm_menu( $menu_name ){
 	}
 }
 
-$menu_exists = wp_get_nav_menu_object( 'global' );
-if( ! $menu_exists ){
+if( ! wp_get_nav_menu_object('global') ){
     wp_create_nav_menu('global');
 }
 
-$menu_exists = wp_get_nav_menu_object( 'sidebar' );
-if( ! $menu_exists ){
+if( ! wp_get_nav_menu_object('sidebar') ){
     wp_create_nav_menu('sidebar');
 }
+
+if( ! wp_get_nav_menu_object('footer1') ){
+    wp_create_nav_menu('footer1');
+}
+
+if( ! wp_get_nav_menu_object('footer2') ){
+    wp_create_nav_menu('footer2');
+}
+
+if( ! wp_get_nav_menu_object('footer3') ){
+    wp_create_nav_menu('footer3');
+}
+
+if( ! wp_get_nav_menu_object('footer4') ){
+    wp_create_nav_menu('footer4');
+}
+
+
 
 /*
 
@@ -309,6 +328,7 @@ class MMM_Dashboard{
         //remove_menu_page( 'options-general.php' );
     }
 }
+
 $dashboard = new MMM_Dashboard();
 
 /*
@@ -664,19 +684,19 @@ class MMM_Info{
 			if($args['info']){
 				$info = $args['info'];
 		?>
-		<div class="mmm_info_field"">
-		    <p><label>KEY</label><input type="text" name="mmm_info[<?php echo $info['key'];?>][key]" value="<?php echo $info['key'];?>" class="mmm_info_input_key" /></p>
-		    <p><label>LABEL</label><input type="text" name="mmm_info[<?php echo $info['key'];?>][label]" value="<?php echo $info['label'];?>" class="mmm_info_input_label regular-text" /></p>
-		    <p><label>VALUE</label><textarea name="mmm_info[<?php echo $info['key'];?>][value]" class="mmm_info_input_value regular-text" rows=3><?php echo $info['value'];?></textarea></p>
-		    <p class="mmm_info_delete"><a href="#" class="mmm_info_delete_btn">この情報を削除する</a></p>
-		</div>
-		<?php }else{ ?>
-		<div class="mmm_info_field" data-key="0">
-		    <p><label>KEY</label><input type="text" name="mmm_info[0][key]" value="0" class="mmm_info_input_key" /></p>
-		    <p><label>LABEL</label><input type="text" name="mmm_info[0][label]" value="新しい情報" class="mmm_info_input_label regular-text" /></p>
-		    <p><label>VALUE</label><textarea name="mmm_info[0][value]" class="mmm_info_input_value regular-text" rows=3></textarea></p>
-		    <p class="mmm_info_delete"><a href="#" class="mmm_info_delete_btn">この情報を削除する</a></p>
-		</div>
+            <div class="mmm_info_field"">
+                <p><label>KEY</label><input type="text" name="mmm_info[<?php echo $info['key'];?>][key]" value="<?php echo $info['key'];?>" class="mmm_info_input_key" /></p>
+                <p><label>LABEL</label><input type="text" name="mmm_info[<?php echo $info['key'];?>][label]" value="<?php echo $info['label'];?>" class="mmm_info_input_label regular-text" /></p>
+                <p><label>VALUE</label><textarea name="mmm_info[<?php echo $info['key'];?>][value]" class="mmm_info_input_value regular-text" rows=3><?php echo $info['value'];?></textarea></p>
+                <p class="mmm_info_delete"><a href="#" class="mmm_info_delete_btn">この情報を削除する</a></p>
+            </div>
+            <?php }else{ ?>
+            <div class="mmm_info_field" data-key="0">
+                <p><label>KEY</label><input type="text" name="mmm_info[0][key]" value="0" class="mmm_info_input_key" /></p>
+                <p><label>LABEL</label><input type="text" name="mmm_info[0][label]" value="新しい情報" class="mmm_info_input_label regular-text" /></p>
+                <p><label>VALUE</label><textarea name="mmm_info[0][value]" class="mmm_info_input_value regular-text" rows=3></textarea></p>
+                <p class="mmm_info_delete"><a href="#" class="mmm_info_delete_btn">この情報を削除する</a></p>
+            </div>
 		<?php } ?>
 		<?php
     }
@@ -1049,3 +1069,19 @@ add_shortcode( 'themeurl', function(){
 add_shortcode( 'homeurl', function(){
 	return home_url();
 });
+
+
+/*
+
+トップページに表示する投稿設定
+
+*/  
+add_action('pre_get_posts', function($query){
+    if ( !is_admin() && $query->is_main_query() ) {
+        if ( is_home() || is_front_page() ) {
+            $query->set( 'posts_per_page', 5 );
+            //$query->set( 'post_type', array('post','case','media) );
+        }
+    }
+});
+

@@ -5,6 +5,7 @@
 */
 
 .mmm-post--archive{
+    margin-bottom:1.5rem;
 }
 
 .mmm-post--archive .mmm-post-terms{
@@ -20,6 +21,9 @@
 }
 
 .mmm-post--archive .mmm-post-image img{
+}
+
+.mmm-post--archive .mmm-post-text{
 }
 
 .mmm-post--archive .mmm-post-content{
