@@ -4,25 +4,6 @@
 
 */
 
-.mmm-section{
-    padding-top:2rem;
-    padding-bottom:2rem;
-}
-
-.mmm-section section{
-}
-
-.mmm-section-title{
-    font-size:2rem;
-    font-weight:bold;
-    text-align:center;
-    line-height:1.2;
-    margin-bottom:1em;
-}
-
-.mmm-section-content{
-}
-
 .mmm-post--index{
     border-bottom:1px solid lightgray;
 }

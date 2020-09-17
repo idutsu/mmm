@@ -65,11 +65,13 @@
 				<?php $h1 = $is_home ? "h1" : "p" ; ?>
 				<<?php echo $h1; ?> class="mmm-site-title"><a href="<?php echo home_url(); ?>"><?php echo $site_title; ?></a></<?php echo $h1; ?>>
 				<div class="mmm-sp-fix">
-					<a href="tel:<?php echo get_mmm_info('tel'); ?>"><?php echo get_mmm_info('tel'); ?></a>
-					<a href="<?php echo home_url('/contact/'); ?>">お問い合わせ</a>
+					<a href="tel:<?php echo get_mmm_info('tel'); ?>">電話で相談</a>
+					<a href="<?php echo home_url('/contact/'); ?>">メールで相談</a>
 				</div>
-				<?php mmm_menu('global'); ?>
-				<div class="mmm-hamburger"><span></span><span></span><span></span></div>
+				<?php if(wp_get_nav_menu_items('global')){ ?>
+					<?php mmm_menu('global'); ?>
+					<div class="mmm-hamburger"><span></span><span></span><span></span></div>
+				<?php } ?>
 				<?php wp_head(); ?>
 			</header>
 		</div>

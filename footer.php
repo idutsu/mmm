@@ -4,18 +4,26 @@
         <div class="mmm-footer">
             <footer>
                 <div class="mmm-footer-menus">
+                <?php if(wp_get_nav_menu_items('footer1')){ ?>
                     <div class="mmm-footer-menu">
                         <?php mmm_menu('footer1','フッターメニュー１'); ?>
                     </div>
+                <?php } ?>
+                <?php if(wp_get_nav_menu_items('footer2')){ ?>
                     <div class="mmm-footer-menu">
                         <?php mmm_menu('footer2','フッターメニュー２'); ?>
                     </div>
+                <?php } ?>
+                <?php if(wp_get_nav_menu_items('footer3')){ ?>
                     <div class="mmm-footer-menu">
                         <?php mmm_menu('footer3','フッターメニュー３'); ?>
                     </div>
+                <?php } ?>
+                <?php if(wp_get_nav_menu_items('footer4')){ ?>
                     <div class="mmm-footer-menu">
                         <?php mmm_menu('footer4','フッターメニュー４'); ?>
                     </div>
+                <?php } ?>
                 </div>
                 <p class="mmm-footer-copyright">copyright</p>
             </footer>
