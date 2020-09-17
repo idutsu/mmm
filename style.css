@@ -772,7 +772,7 @@ a.mmm-post-tag:hover{
   }
 
   .mmm-hamburger{
-    display:initial;
+    display:block;
   }
 
 }
