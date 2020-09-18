@@ -31,6 +31,7 @@
             submenu_open_area_by_click.on('click',function(e){
                 e.preventDefault();
                 var submenu =  $(this).parent().next('.mmm-submenu');
+                $(this).toggleClass('active');
                 SlideToggle( submenu );
             });
 

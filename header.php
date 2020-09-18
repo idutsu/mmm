@@ -59,7 +59,7 @@
 		<link rel="icon" type="image/png" href="">
 		<?php wp_head(); ?>
 	</head>
-	<body>
+	<body <?php body_class(); ?>>
 		<div class="mmm-header">
 			<header>
 				<?php $h1 = $is_home ? "h1" : "p" ; ?>
@@ -76,7 +76,7 @@
 			</header>
 		</div>
 		<div class="mmm-wrapper">
-			<?php if( ! $is_home ){ 
+			<?php if( ! $is_home ){
 				get_sidebar();
 			} ?>
 			<div class="mmm-main">

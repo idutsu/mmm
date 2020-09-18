@@ -15,6 +15,7 @@ remove_action( 'wp_head', 'wp_generator' );
 
 */
 define('CHILD_THEME_URL', get_stylesheet_directory_uri());
+define('CHILD_THEME_DIR', get_stylesheet_directory());
 define('THEME_URL', get_template_directory_uri());
 define('THEME_DIR', get_template_directory());
 
@@ -705,7 +706,7 @@ class MMM_Info{
         foreach( $input as $key => $value ){
             $input[$key]['key'] = esc_attr( $value['key'] );
             $input[$key]['label'] = esc_attr( $value['label'] );
-            $input[$key]['value'] = strip_tags($value['value'], '<a><iframe>');
+            $input[$key]['value'] = strip_tags($value['value'], '<br><a><iframe>');
         }
         return $input;
     }
@@ -721,7 +722,7 @@ function get_mmm_info( $key, $label = null ){
     if( $label==='label' ){
         $value = esc_html( $info[$key]['label'] );
     }else{
-        $value = esc_html( $info[$key]['value'] );
+        $value = $info[$key]['value'];
     }
     return $value;
 }
@@ -1075,7 +1076,7 @@ add_shortcode( 'homeurl', function(){
 
 トップページに表示する投稿設定
 
-*/  
+*/
 add_action('pre_get_posts', function($query){
     if ( !is_admin() && $query->is_main_query() ) {
         if ( is_home() || is_front_page() ) {
@@ -1084,4 +1085,3 @@ add_action('pre_get_posts', function($query){
         }
     }
 });
-

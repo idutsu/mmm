@@ -112,12 +112,12 @@ h1,h2,h3,h4,h5,h6{
     padding-left:10px;
     padding-right:10px;
   }
-  
+
   .mmm-main{
     width:100% !important;
     order:1;
   }
-  
+
   .mmm-aside{
     width:100%;
     order:2;
@@ -219,7 +219,7 @@ a.mmm-post-tag:hover{
 }
 
 @media screen and (max-width:768px){
-  
+
   .mmm-post{
     display:block;
   }
@@ -430,13 +430,6 @@ a.mmm-post-tag:hover{
   font-weight:bold;
 }
 
-@media screen and (max-width:768px){
-  .mmm-related-posts{
-    font-size:5vw;
-  }
-  
-}
-
 /*
 
 メニュー
@@ -562,13 +555,8 @@ a.mmm-post-tag:hover{
   border-left:8px solid lightgray;
 }
 
-.mmm-menu--sidebar .mmm-submenu{
-  background-color:lightgray;
-}
-
 .mmm-menu--sidebar .mmm-submenu a{
   padding-left:calc(15px + 1rem);
-  border-bottom:1px solid #FFF;
 }
 
 .mmm-menu--sidebar .mmm-submenu a:before{
@@ -682,10 +670,6 @@ a.mmm-post-tag:hover{
   .mmm-menu-title{
     font-size:1.5rem;
   }
-  
-  .mmm-menu{
-    font-size:5vw;
-  }
 
   .mmm-menu li{
     height:auto !important;
@@ -719,6 +703,10 @@ a.mmm-post-tag:hover{
     content:"＋";
   }
 
+  .mmm-submenu-click.active:before{
+      content:"−";
+  }
+
   .mmm-menu.mmm-menu--global{
     display:none;
     position:fixed;
@@ -741,19 +729,19 @@ a.mmm-post-tag:hover{
   .mmm-menu--global li.depth-0 > .mmm-submenu{
     border-top:none;
   }
-  
+
   .mmm-menu--global .mmm-submenu a{
     padding-left:1rem;
   }
-  
+
   .mmm-menu--global .mmm-submenu .mmm-submenu a{
     padding-left:2rem;
   }
-  
+
   .mmm-menu--global .mmm-submenu .mmm-submenu .mmm-submenu a{
     padding-left:3rem;
   }
-  
+
   .mmm-menu.mmm-menu--global .mmm-submenu{
     position:static !important;
     width:100% !important;
@@ -804,7 +792,7 @@ a.mmm-post-tag:hover{
   }
 }
 
-/* 
+/*
 
 お問い合わせ固定メニュー
 
@@ -845,7 +833,7 @@ a.mmm-post-tag:hover{
   .mmm-sp-fix a + a{
     border-left:1px solid #FFF;
   }
-  
+
 }
 
 /*
