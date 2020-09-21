@@ -1,6 +1,6 @@
 /*
 
-シングル、固定ページ
+シングルページ、固定ページ
 
 */
 
@@ -13,7 +13,6 @@
 }
 
 .mmm-post--single .mmm-post-title{
-    font-size:1.8rem;
 }
 
 .mmm-post--single .mmm-post-date{
@@ -31,7 +30,6 @@
 }
 
 .mmm-post--single .mmm-post-content{
-    margin-bottom:1rem;
 }
 
 .mmm-post--single .mmm-post-content *{
@@ -131,3 +129,81 @@
         margin-bottom:1rem;
     }
 }
+
+
+/*
+
+関連記事
+
+*/
+
+.mmm-related-posts{
+}
+  
+.mmm-related-posts-title{
+    line-height:1.2;
+}
+
+.mmm-related-posts ul{
+}
+
+.mmm-related-posts ul ul{
+    margin-left:1rem;
+}
+
+.mmm-related-posts li{
+}
+
+.mmm-related-posts li a{
+    display:inline-block;
+    text-decoration:underline;
+    line-height:1.2;
+    margin-bottom:1em;
+}
+
+.mmm-related-posts li a strong{
+    font-weight:bold;
+}
+  
+
+/* 
+
+ページネーション
+
+*/
+
+.mmm-pagination-single{
+    display:flex;
+    justify-content:center;
+    margin:1rem 0;
+}
+  
+.mmm-pagination-single a{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:40px;
+    width:auto;
+    font-weight:bold;
+    border-width:1px;
+    border-style:solid;
+    color:#FFF;
+    background-color:lightgray;
+    padding:0 1em;
+}
+  
+  .mmm-pagination-single a:hover{
+    color:lightgray;
+    background-color:#FFF;
+  }
+  
+  .mmm-pagination-single a + a{
+    margin-left:1rem;
+  }
+  
+  .mmm-pagination-single .next{
+  }
+  
+  .mmm-pagination-single .prev{
+  }
+

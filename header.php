@@ -9,23 +9,22 @@
 			$meta_description = esc_html( get_bloginfo( 'description' ) );
 			$breadcrumb = new MMM_Breadcrumb();
 			$qo = $breadcrumb->qo;
-			$text_after_archive_title = "一覧";
 			if( is_category() ){
 				$breadcrumb->tax();
-				$meta_title = $qo->name.$text_after_archive_title;
-				$meta_description = "[".$meta_title."]".$meta_description;
+				$meta_title = $qo->name;
+				$meta_description = $meta_title."。".$meta_description;
 			}else if( is_tag() ){
 				$breadcrumb->tax();
-				$meta_title = $qo->name.$text_after_archive_title;
-				$meta_description = "[".$meta_title."]".$meta_description;
+				$meta_title = $qo->name;
+				$meta_description = $meta_title."。".$meta_description;
 			}else if( is_tax() ){
 				$breadcrumb->tax();
-				$meta_title = $qo->name.$text_after_archive_title;
-				$meta_description = "[".$meta_title."]".$meta_description;
+				$meta_title = $qo->name;
+				$meta_description = $meta_title."。".$meta_description;
 			}else if( is_post_type_archive() ){
 				$breadcrumb->post_type_archive();
-				$meta_title = $qo->label.$text_after_archive_title;
-				$meta_description = "[".$meta_title."]".$meta_description;
+				$meta_title = $qo->label;
+				$meta_description = $meta_title."。".$meta_description;
 			}else if( is_single() ){
 				$breadcrumb->single();
 				$post_type_label = '';
@@ -65,7 +64,7 @@
 				<?php $h1 = $is_home ? "h1" : "p" ; ?>
 				<<?php echo $h1; ?> class="mmm-site-title"><a href="<?php echo home_url(); ?>"><?php echo $site_title; ?></a></<?php echo $h1; ?>>
 				<div class="mmm-sp-fix">
-					<a href="tel:<?php echo get_mmm_info('tel'); ?>">電話で相談</a>
+					<a href="tel:">電話で相談</a>
 					<a href="<?php echo home_url('/contact/'); ?>">メールで相談</a>
 				</div>
 				<?php if(wp_get_nav_menu_items('global')){ ?>
@@ -81,16 +80,18 @@
 			} ?>
 			<div class="mmm-main">
 				<main>
-					<?php if( ! $is_home ){ ?>
-						<h1 class="mmm-page-title"><?php echo $breadcrumb->breadcrumb[1]['text']; ?></h1>
+					<?php if( ! $is_home ){
+						$bc = $breadcrumb->breadcrumb; ?>
+						<h1 class="mmm-page-title"><?php echo $bc[1]['text']; ?></h1>
 						<div class="mmm-breadcrumb">
 							<ul>
 							<?php
-								foreach( $breadcrumb->breadcrumb as $bc ){
-									if( $bc['link'] ){
-										echo '<li><a href="'.$bc['link'].'">'.$bc['text'].'</a></li><span class="slash">/</span>';
+								$bc_length = count($bc);
+								for( $i=0; $i<$bc_length; $i++ ){
+									if( $i<$bc_length-1 ){
+										echo '<li><a href="'.$bc[$i]['link'].'">'.$bc[$i]['text'].'</a></li><span class="slash">/</span>';
 									}else{
-										echo '<li><span>'.$bc['text'].'</span></li>';
+										echo '<li><span>'.$bc[$i]['text'].'</span></li>';
 									}
 								}
 							?>

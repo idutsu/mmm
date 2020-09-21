@@ -1,0 +1,201 @@
+/*
+
+コンタクトフォーム
+- プラグイン：MW WP Form
+- 実装例：template/contactform.html
+
+*/
+
+.mmm-contactform{
+    margin:1rem 0;
+  }
+  
+  .mmm-contactform p{
+    display:none;
+  }
+  
+  .mmm-contactform-field{
+    display:flex;
+    margin-bottom:4px;
+  }
+  
+  .mmm-contactform-label{
+    flex:none;
+    width:300px;
+    background-color:lightgray;
+    padding:15px 15px 50px;
+  }
+  
+  .mmm-contactform-input{
+    position:relative;
+    flex:1;
+    padding-left:10px;
+  }
+  
+  .mw_wp_form_confirm .mmm-contactform-input{
+    background-color:#f8f8f8;
+    padding:10px;
+  }
+  
+  .mmm-contactform-label{
+      display:flex;
+    justify-content:space-between;
+  }
+  
+  .mmm-contactform-require{
+    align-self:flex-start;
+    display:inline-block;
+    font-size:12px;
+    color:#FFF;
+    border-radius:2px;
+    background-color:red;
+    padding:4px 8px;
+  }
+  
+  .mmm-contactform-title{
+      font-weight:bold;
+  }
+  
+  .mmm-contactform input[type=text],
+  .mmm-contactform input[type=tel],
+  .mmm-contactform input[type=email],
+  .mmm-contactform textarea{
+    display:block;
+      width:100%;
+    height:45px;
+      line-height:1.5;
+      font-size:16px;
+      border:1px solid lightgray;
+      padding:10px;
+      -webkit-appearance:none;
+    border-radius: 0;
+  }
+  
+  .mmm-contactform textarea{
+    height:auto;
+  }
+  
+  .mmm-contactform-input--select{
+  }
+  
+  .mmm-contactform-input--select:before{
+    content:"";
+    display:block;
+    position:absolute;
+    z-index:0;
+    top:20px;
+    right:10px;
+    border-left:6px solid transparent;
+    border-right:6px solid transparent;
+    border-top:8px solid lightgray;
+  }
+  
+  .mw_wp_form_confirm .mmm-contactform-input--select:before{
+    content:none;
+  }
+  
+  .mmm-contactform select{
+    position:relative;
+    z-index:1;
+    display:block;
+    width:100%;
+    height:45px;
+    font-size:16px;
+    border:1px solid lightgray;
+    border-radius:0;
+    background-color:transparent;
+    -webkit-appearance:none;
+    cursor:pointer;
+    padding:10px;
+  }
+  
+  .mmm-contactform input[type=radio],
+  .mmm-contactform input[type=checkbox]{
+    display:none;
+  }
+  
+  .mmm-contactform input[type=radio] + span:before,
+  .mmm-contactform input[type=checkbox] + span:before{
+    content:"";
+    display:inline-block;
+    width:12px;
+    height:12px;
+    border:2px solid lightgray;
+    vertical-align:bottom;
+    margin-right:5px;
+  }
+  
+  .mmm-contactform input[type=radio] + span:before{
+    border-radius:50%;
+  }
+  
+  .mmm-contactform input[type=radio]:checked + span:before,
+  .mmm-contactform input[type=checkbox]:checked + span:before{
+    background-color:#1E90FF;
+  }
+  
+  .mmm-contactform .error{
+    display:block;
+    margin-top:4px;
+  }
+  
+  .mmm-contactform-btns{
+    display:flex;
+    justify-content:center;
+    margin-top:30px;
+  }
+  
+  .mmm-contactform input[type=submit],
+  .mmm-contactform button[type=submit]{
+    flex:none;
+      width:150px;
+      color:#FFF;
+      padding:15px 0;
+      font-size:20px;
+      cursor: pointer;
+      -webkit-appearance:none;
+    border-radius:0;
+  }
+  
+  .mmm-contactform .confirm{
+    background-color:gray;
+  }
+  
+  .mmm-contactform .submit{
+    background-color:black;
+  }
+  
+  .mmm-contactform .back{
+    background-color:gray;
+    margin-left:6px;
+  }
+  
+  @media screen and (max-width:768px){
+  
+    .mmm-contactform-field{
+      display:block;
+      margin-bottom:30px;
+    }
+  
+    .mmm-contactform-label{
+      width:100%;
+      height:auto;
+      padding:10px;
+      margin-bottom:10px;
+    }
+  
+    .mmm-contactform-input{
+      padding:0;
+    }
+  
+    .mmm-contactform-btns{
+      justify-content:space-between;
+    }
+  
+    .mmm-contactform input[type=submit],
+    .mmm-contactform button[type=submit]{
+      flex:1;
+      width:auto;
+    }
+  
+  }

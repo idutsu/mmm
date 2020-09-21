@@ -1,10 +1,4 @@
 <?php get_header(); ?>
-<!-- スライドショー(javascriptはfooter.phpにあります) -->
-<div class="mmm-slider">
-	<img src="<?php echo THEME_URL; ?>/images/slide1.jpg" />
-	<img src="<?php echo THEME_URL; ?>/images/slide2.jpg" />
-	<img src="<?php echo THEME_URL; ?>/images/slide3.jpg" />
-</div>
 <?php if(have_posts()){ ?>
 	<section>
 		<?php while(have_posts()){ ?>

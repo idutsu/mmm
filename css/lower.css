@@ -1,0 +1,43 @@
+/* 
+
+下層ページ共通
+
+*/
+
+
+.mmm-page-title{
+}
+
+
+/*
+
+パンくずリスト
+
+*/
+
+.mmm-breadcrumb{
+}
+
+.mmm-breadcrumb ul{
+    display:flex;
+    flex-wrap:wrap;
+}
+
+.mmm-breadcrumb ul li{
+    margin:1px;
+}
+
+.mmm-breadcrumb ul a,
+.mmm-breadcrumb ul span{
+    line-height:1.2;
+    margin-left:1px;
+    margin-right:1px;
+}
+
+.mmm-breadcrumb ul a{
+    text-decoration:underline;
+}
+
+  
+  
+  
