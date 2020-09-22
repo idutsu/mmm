@@ -31,7 +31,7 @@
 				$post_type = $qo->post_type;
 				if( $post_type !== 'post' ){
 					$po = get_post_type_object( $qo->post_type );
-					$post_type_label = "[".$po->labels->singular_name."]";
+					$post_type_label = $po->labels->singular_name."。";
 				}
 				$meta_title = $post_type_label.$qo->post_title;
 				$meta_description = $post_type_label.mmm_limit_post_content( $qo->post_content, 90 );
@@ -41,11 +41,11 @@
 				$meta_description = mmm_limit_post_content( $qo->post_content, 90 );
 			}else if( is_search() ){
 				$breadcrumb->search();
-				$meta_title = end( $breadcrumb->breadcrumb )['text'];
+				$meta_title = end( $breadcrumb->breadcrumb )['name'];
 				$meta_description = $meta_title."。".$meta_description;
 			}else if( is_404() ){
 				$breadcrumb->notfound();
-				$meta_title = end( $breadcrumb->breadcrumb )['text'];
+				$meta_title = end( $breadcrumb->breadcrumb )['name'];
 				$meta_description = $meta_title."。".$meta_description;
 			}
 		?>
@@ -82,7 +82,7 @@
 				<main>
 					<?php if( ! $is_home ){
 						$bc = $breadcrumb->breadcrumb; ?>
-						<h1 class="mmm-page-title"><?php echo $bc[1]['text']; ?></h1>
+						<h1 class="mmm-page-title"><?php echo $bc[1]['name']; ?></h1>
 						<div class="mmm-breadcrumb">
 							<div class="mmm-breadcrumb-inner">
 							<?php
