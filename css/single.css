@@ -9,34 +9,34 @@
     display:block;
 }
 
-.mmm-post--single .mmm-post-terms{
+.mmm-post--single__terms{
 }
 
-.mmm-post--single .mmm-post-title{
+.mmm-post--single__title{
 }
 
-.mmm-post--single .mmm-post-date{
+.mmm-post--single__date{
 }
 
-.mmm-post--single .mmm-post-image{
+.mmm-post--single__image{
     width:100%;
     text-align:center;
     margin-bottom:1rem;
 }
 
-.mmm-post--single .mmm-post-image img{
+.mmm-post--single__image img{
     width:auto;
     max-width:100%;
 }
 
-.mmm-post--single .mmm-post-content{
+.mmm-post--single__content{
 }
 
-.mmm-post--single .mmm-post-content *{
+.mmm-post--single__content *{
     line-height:1.5;
 }
 
-.mmm-post--single .mmm-post-content b{
+.mmm-post--single__content b{
     font-weight:bold;
 }
 
@@ -47,21 +47,21 @@
 
 */
 
-.mmm-post--single .mmm-post-content img{
+.mmm-post--single__content img{
 }
 
-.mmm-post--single .mmm-post-content img.aligncenter{
+.mmm-post--single__content img.aligncenter{
     display:block;
     margin:1rem auto;
 }
 
-.mmm-post--single .mmm-post-content img.alignleft{
+.mmm-post--single__content img.alignleft{
     float:left;
     margin-right:1rem;
     margin-bottom:1rem;
 }
 
-.mmm-post--single .mmm-post-content img.alignright{
+.mmm-post--single__content img.alignright{
     float:right;
     margin-left:1rem;
     margin-bottom:1rem;
@@ -74,68 +74,68 @@
 
 */
 
-.mmm-post--single .mmm-post-content h2,
-.mmm-post--single .mmm-post-content h3,
-.mmm-post--single .mmm-post-content h4,
-.mmm-post--single .mmm-post-content h5,
-.mmm-post--single .mmm-post-content h6{
+.mmm-post--single__content h2,
+.mmm-post--single__content h3,
+.mmm-post--single__content h4,
+.mmm-post--single__content h5,
+.mmm-post--single__content h6{
     clear:both;
 }
 
-.mmm-post--single .mmm-post-content h2{
+.mmm-post--single__content h2{
 }
 
-.mmm-post--single .mmm-post-content h3{
+.mmm-post--single__content h3{
 }
 
-.mmm-post--single .mmm-post-content h4{
+.mmm-post--single__content h4{
 }
 
-.mmm-post--single .mmm-post-content h5{
+.mmm-post--single__content h5{
 }
 
-.mmm-post--single .mmm-post-content h6{
+.mmm-post--single__content h6{
 }
 
-.mmm-post--single .mmm-post-content strong{
+.mmm-post--single__content strong{
     font-weight:bold;
 }
 
-.mmm-post--single .mmm-post-content a{
+.mmm-post--single__content a{
     text-decoration:underline;
 }
 
-.mmm-post--single .mmm-post-content small{
+.mmm-post--single__content small{
 }
 
-.mmm-post--single .mmm-post-content ul{
+.mmm-post--single__content ul{
 }
 
-.mmm-post--single .mmm-post-content ul li{
+.mmm-post--single__content ul li{
 }
 
-.mmm-post--single .mmm-post-content table{
+.mmm-post--single__content table{
     width:100%;
     table-layout:fixed;
     border-collapse:collapse;
 }
 
-.mmm-post--single .mmm-post-content table th,
-.mmm-post--single .mmm-post-content table td{
+.mmm-post--single__content table th,
+.mmm-post--single__content table td{
     padding:1rem;
     line-height:1.2;
     border:1px solid lightgray;
 }
 
-.mmm-post--single .mmm-post-content table th{
+.mmm-post--single__content table th{
     font-weight:bold;
 }
 
 @media screen and (max-width:768px){
 
-    .mmm-post--single .mmm-post-content img.aligncenter,
-    .mmm-post--single .mmm-post-content img.alignleft,
-    .mmm-post--single .mmm-post-content img.alignright{
+    .mmm-post--single__content img.aligncenter,
+    .mmm-post--single__content img.alignleft,
+    .mmm-post--single__content img.alignright{
         display:block;
         width:100% !important;
         max-width:none;
@@ -156,70 +156,28 @@
 .mmm-related-posts{
 }
   
-.mmm-related-posts-title{
+.mmm-related-posts__title{
     line-height:1.2;
 }
 
-.mmm-related-posts ul{
+.mmm-related-posts__inner{
 }
 
-.mmm-related-posts ul ul{
+.mmm-related-posts__inner .mmm-related-posts_inner{
     margin-left:1rem;
 }
 
-.mmm-related-posts li{
+.mmm-related-posts__item{
 }
 
-.mmm-related-posts li a{
+.mmm-related-posts__link{
     display:inline-block;
     text-decoration:underline;
     line-height:1.2;
     margin-bottom:1em;
 }
 
-.mmm-related-posts li a strong{
+.mmm-related-posts__current{
     font-weight:bold;
 }
-  
-
-/* 
-
-ページネーション
-
-*/
-
-.mmm-pagination-single{
-    display:flex;
-    justify-content:center;
-    margin:1rem 0;
-}
-  
-.mmm-pagination-single a{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    height:40px;
-    width:auto;
-    font-weight:bold;
-    border-width:1px;
-    border-style:solid;
-    color:#FFF;
-    background-color:lightgray;
-    padding:0 1em;
-}
-  
-  .mmm-pagination-single a:hover{
-    color:lightgray;
-    background-color:#FFF;
-  }
-  
-  .mmm-pagination-single a + a{
-    margin-left:1em;
-  }
-  
-  .mmm-pagination-single .next{
-  }
-  
-  .mmm-pagination-single .prev{
-  }
 

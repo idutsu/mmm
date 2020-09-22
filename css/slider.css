@@ -1,5 +1,3 @@
-
-
 /*
 
 スライドショー
@@ -10,7 +8,10 @@
     position:relative;
 }
 
-.mmm-slider-btn{
+.mmm-slider__img{
+}
+
+.mmm-slider__btn{
   position:absolute;
   top:0;
   z-index:9998;
@@ -22,15 +23,15 @@
   cursor:pointer;
 }
 
-.mmm-slider-btn--prev{
+.mmm-slider__btn--prev{
   left:0;
 }
 
-.mmm-slider-btn--next{
+.mmm-slider__btn--next{
   right:0;
 }
 
-.mmm-slider-arrow{
+.mmm-slider__arrow{
   flex:none;
   display:block;
   width:30px;
@@ -39,16 +40,16 @@
   border-right:2px solid lightgray;
 }
 
-.mmm-slider-arrow--prev{
+.mmm-slider__arrow--prev{
   transform:rotate(-135deg);
 }
 
-.mmm-slider-arrow--next{
+.mmm-slider__arrow--next{
   transform:rotate(45deg);
 }
 
 @media screen and (max-width:768px){
-  .mmm-slider-arrow{
+  .mmm-slider__arrow{
     display:none !important;
   }
 }

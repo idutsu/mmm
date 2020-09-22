@@ -82,15 +82,15 @@ class MMM_Walker_Nav_Menu extends Walker_Nav_Menu {
     function start_lvl( &$output, $depth = 0, $args = Array() ){$output .= "";}
     function end_lvl( &$output, $depth = 0, $args = Array() ) {$output .= "";}
     function start_el( &$output, $item, $depth = 0, $args = Array(), $id = 0 ) {
-        $li_class = in_array('current-menu-item', $item->classes) ? "class='current depth-".$depth."'" : "class='depth-".$depth."'" ;
+        $li_class = in_array('current-menu-item', $item->classes) ? "class='mmm-menu__item mmm-menu__item--current'" : "class='mmm-menu__item'" ;
         if (in_array('menu-item-has-children', $item->classes)) {
             $indent = " ";
             $output .= "\n"."<li id='mmm-menu-".$item->ID."'".$li_class.">";
-            $output .= "<a href='".$item->url."' class='mmm-submenu-hover'>".$item->title."<span class='mmm-submenu-click'></span></a>";
+            $output .= "<a href='".$item->url."' class='mmm-menu__link mmm-submenu-hover'>".$item->title."<span class='mmm-submenu-click'></span></a>";
             $output .= "\n" . $indent . '<ul class="mmm-submenu">';
         } else {
-            $output .= "\n"."<li id='mmm-menu-".$item->ID."'".$li_class.">";
-            $output .= "<a href='".$item->url."'>".$item->title."</a>";
+            $output .= "\n"."<li ".$li_class.">";
+            $output .= "<a href='".$item->url."' class='mmm-menu__link'>".$item->title."</a>";
         }
     }
     function end_el( &$output, $item, $depth = 0, $args = Array() ) {
@@ -294,10 +294,10 @@ class MMM_Breadcrumb {
         return $this->breadcrumb;
     }
 
-    private function add( $text = '', $link = '' ){
+    private function add( $name = '', $url = '' ){
         array_push( $this->breadcrumb, array(
-            'text' => $text,
-            'link' => $link,
+            'name' => $name,
+            'url' => $url,
         ));
     }
 
@@ -365,37 +365,22 @@ function mmm_pagination_archive( $query = null, $prev_text = null, $next_text = 
     $pager = paginate_links( $args );
     if( !$pager ) return;
     echo "<div class='mmm-pagination-archive'>";
-    echo "<ul>";
+    echo "<ul class='mmm-pagination-archive__inner'>";
     foreach( $pager as $page ){
         if ( strpos( $page, 'next' ) != false ){
-            echo "<li class='next'>" . $page . "</li>";
+            echo "<li class='mmm-pagination-archive__item mmm-pagination-archive__item--next'>" . $page . "</li>";
         } elseif ( strpos( $page, 'prev' ) != false ){
-            echo "<li class='prev'>" . $page . "</li>";
+            echo "<li class='mmm-pagination-archive__item mmm-pagination-archive__item--prev'>" . $page . "</li>";
         } elseif ( strpos( $page, 'current' ) != false ){
-            echo "<li class='current'>" . $page . "</li>";
+            echo "<li class='mmm-pagination-archive__item mmm-pagination-archive__item--current'>" . $page . "</li>";
         } elseif ( strpos( $page, 'dots' ) != false ){
-            echo "<li class='dots'>" . $page . "</li>";
+            echo "<li class='mmm-pagination-archive__item mmm-pagination-archive__item--dots'>" . $page . "</li>";
         } else {
-            echo "<li>" . $page . "</li>";
+            echo "<li class='mmm-pagination-archive__item'>" . $page . "</li>";
         }
     }
     echo "</ul>";
     echo "</div>";
-}
-
-add_filter( 'previous_post_link', function($output){
-	return str_replace('<a href=', '<a class="prev" href=', $output);
-});
-
-add_filter( 'next_post_link', function($output){
-	return str_replace('<a href=', '<a class="next" href=', $output);
-});
-
-function mmm_pagination_single(){
-	echo "<div class='mmm-pagination-single'>";
-	previous_post_link('%link','前のページ');
-	next_post_link('%link','次のページ');
-	echo "</div>";
 }
 
 
@@ -415,10 +400,10 @@ class MMM_Walker_Page extends Walker_Page{
 		$link_before = '';
 		$link_after  = '';
         if ( !empty($current_page) && $current_page == $page->ID ) {
-            $link_before = '<strong>';
+            $link_before = '<strong class="mmm-related-posts__current">';
             $link_after  = '</strong>';
         }
-        $output .= $indent . '<li><a href="' . get_page_link($page->ID) . '">' . $link_before . apply_filters( 'the_title', $page->post_title, $page->ID ) . $link_after . '</a>';
+        $output .= $indent . '<li class="mmm-related-posts__inner"><a class="mmm-related-posts__link" href="' . get_page_link($page->ID) . '">' . $link_before . apply_filters( 'the_title', $page->post_title, $page->ID ) . $link_after . '</a>';
     }
 }
 
@@ -437,8 +422,8 @@ function mmm_related_pages( $post_id ){
 	}
 	if( get_children( array('post_parent'=>$child_of,'post_type'=>'page','post_status' => 'publish' ) ) ){
 		echo "<div class='mmm-related-posts'>";
-		echo "<ul>";
-		echo "<p class='mmm-related-posts-title'>「<a href='".esc_url(get_the_permalink($child_of))."'>".$title_li."</a>」の関連記事</li>";
+		echo "<ul class='mmm-related-posts__inner'>";
+		echo "<p class='mmm-related-posts__title'>「<a href='".esc_url(get_the_permalink($child_of))."'>".$title_li."</a>」の関連記事</li>";
 		$walker = new MMM_Walker_Page();
 		wp_list_pages( array('title_li' => '', 'child_of' => $child_of, 'walker' => $walker ) );
 		echo "</ul>";
@@ -475,10 +460,10 @@ function mmm_related_posts( $post_id ){
 
 				if( $posts = get_posts( $args ) ){
 					echo '<div class="mmm-related-posts">';
-					echo '<p class="mmm-related-posts-title">「'.$term['name'].'」の関連記事</p>';
-					echo '<ul>';
+					echo '<p class="mmm-related-posts__title">「'.$term['name'].'」の関連記事</p>';
+					echo '<ul class="mmm-related-posts__inner">';
 					foreach( $posts as $post ){
-						echo '<li><a href="'.esc_url( get_the_permalink( $post->ID ) ).'">'.esc_html( get_the_title( $post->ID ) ).'</a></li>';
+						echo '<li class="mmm-related-posts__item"><a class="mmm-related-posts__link" href="'.esc_url( get_the_permalink( $post->ID ) ).'">'.esc_html( get_the_title( $post->ID ) ).'</a></li>';
 					}
 					echo '</ul>';
 					echo '</div>';
@@ -563,7 +548,7 @@ function mmm_slider( $id, $images ){
             $count = 1;
             foreach( $images as $image ){
                 ?>
-                    <img src="<?php echo $image['src'] ? $image['src'] : ''; ?>" alt="<?php echo $image['alt'] ? $image['alt'] : '画像'.$count; ?>" />
+                    <img class="mmm-slider__img" src="<?php echo $image['src'] ? $image['src'] : ''; ?>" alt="<?php echo $image['alt'] ? $image['alt'] : '画像'.$count; ?>" />
                 <?php
                 $count ++;
             }
@@ -575,8 +560,8 @@ function mmm_slider( $id, $images ){
                 autoplay:true,
                 autoplaySpeed:5000,
                 arrows:true,
-                prevArrow:"<div class='mmm-slider-btn mmm-slider-btn--prev'><span class='mmm-slider-arrow mmm-slider-arrow--prev'></div>",
-                nextArrow:"<div class='mmm-slider-btn mmm-slider-btn--next'><span class='mmm-slider-arrow mmm-slider-arrow--next'></div>",
+                prevArrow:"<div class='mmm-slider__btn mmm-slider__btn--prev'><span class='mmm-slider__arrow mmm-slider__arrow--prev'></div>",
+                nextArrow:"<div class='mmm-slider__btn mmm-slider__btn--next'><span class='mmm-slider__arrow mmm-slider__arrow--next'></div>",
             });
         })(jQuery);
     </script>

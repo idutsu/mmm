@@ -18,24 +18,26 @@
 .mmm-breadcrumb{
 }
 
-.mmm-breadcrumb ul{
+.mmm-breadcrumb-inner{
     display:flex;
     flex-wrap:wrap;
 }
 
-.mmm-breadcrumb ul li{
-    margin:1px;
+.mmm-breadcrumb-item{
+    flex:none;
+    line-height:1.5;
 }
 
-.mmm-breadcrumb ul a,
-.mmm-breadcrumb ul span{
-    line-height:1.2;
-    margin-left:1px;
-    margin-right:1px;
-}
-
-.mmm-breadcrumb ul a{
+.mmm-breadcrumb-item--link{
     text-decoration:underline;
+}
+
+.mmm-breadcrumb-item--slash{
+    margin-left:.25em;
+    margin-right:.25em;
+}
+
+.mmm-breadcrumb-item--text{
 }
 
   
