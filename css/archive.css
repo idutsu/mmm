@@ -97,14 +97,18 @@
 }
 
 @media screen and (max-width:992px){
-  
+
+    .mmm-pagination-archive__inner{
+        justify-content:flex-start;
+    }
+    
     .mmm-pagination-archive__item{
       display:none;
     }
   
     .mmm-pagination-archive__item--next,
     .mmm-pagination-archive__item--prev{
-      display: initial;
+      display:inline-block;
     }
   
     .mmm-pagination-archive__item--prev{

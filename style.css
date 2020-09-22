@@ -307,7 +307,7 @@ a.mmm-post__tag:hover{
 .mmm-menu--sidebar .mmm-menu__link:before{
   content:"";
   position:absolute;
-  top:calc(50% - 4px);
+  top:calc(50% - 6px);
   left:5px;
   display:block;
   border-top:6px solid transparent;
@@ -422,6 +422,8 @@ a.mmm-post__tag:hover{
 
   .mmm-submenu-click:before{
     content:"＋";
+    font-weight:bold;
+    color:lightgray;
   }
 
   .mmm-submenu-click.active:before{
