@@ -122,6 +122,13 @@ h1,h2,h3,h4,h5,h6{
 .mmm-site-title{
 }
 
+
+/* 
+
+記事
+
+*/
+
 .mmm-post{
   display:flex;
 }
@@ -279,7 +286,6 @@ a.mmm-post__tag:hover{
 }
 
 
-
 /*
 
 サイドメニュー
@@ -321,9 +327,6 @@ a.mmm-post__tag:hover{
 }
 
 
-
-
-
 /*
 
 フッターメニュー
@@ -339,8 +342,6 @@ a.mmm-post__tag:hover{
 
 .mmm-menu--footer .mmm-menu__link{
 }
-
-
 
 
 /*
@@ -459,6 +460,8 @@ a.mmm-post__tag:hover{
     border-top:none;
     margin-left:1rem;
   }
+
+  /* ハンバーガー */
 
   .mmm-hamburger{
     display:block;

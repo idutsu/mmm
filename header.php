@@ -84,14 +84,14 @@
 						$bc = $breadcrumb->breadcrumb; ?>
 						<h1 class="mmm-page-title"><?php echo $bc[1]['name']; ?></h1>
 						<div class="mmm-breadcrumb">
-							<div class="mmm-breadcrumb-inner">
+							<div class="mmm-breadcrumb__inner">
 							<?php
 								$bc_length = count($bc);
 								for( $i=0; $i<$bc_length; $i++ ){
 									if( $i<$bc_length-1 ){
-										echo '<a href="'.$bc[$i]['url'].'" class="mmm-breadcrumb-item mmm-breadcrumb-item--link">'.$bc[$i]['name'].'</a><span class="mmm-breadcrumb-item mmm-breadcrumb-item--slash">/</span>';
+										echo '<a href="'.$bc[$i]['url'].'" class="mmm-breadcrumb__item mmm-breadcrumb__item--link">'.$bc[$i]['name'].'</a><span class="mmm-breadcrumb__item mmm-breadcrumb__item--slash">/</span>';
 									}else{
-										echo '<span class="mmm-breadcrumb-item mmm-breadcrumb-item--text">'.$bc[$i]['name'].'</span>';
+										echo '<span class="mmm-breadcrumb__item mmm-breadcrumb__item--text">'.$bc[$i]['name'].'</span>';
 									}
 								}
 							?>

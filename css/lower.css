@@ -18,26 +18,26 @@
 .mmm-breadcrumb{
 }
 
-.mmm-breadcrumb-inner{
+.mmm-breadcrumb__inner{
     display:flex;
     flex-wrap:wrap;
 }
 
-.mmm-breadcrumb-item{
+.mmm-breadcrumb__item{
     flex:none;
     line-height:1.5;
 }
 
-.mmm-breadcrumb-item--link{
+.mmm-breadcrumb__item--link{
     text-decoration:underline;
 }
 
-.mmm-breadcrumb-item--slash{
+.mmm-breadcrumb__item--slash{
     margin-left:.25em;
     margin-right:.25em;
 }
 
-.mmm-breadcrumb-item--text{
+.mmm-breadcrumb__item--text{
 }
 
   
