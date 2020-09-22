@@ -267,7 +267,7 @@ a.mmm-post__tag:hover{
   display:block;
   width:200%;
   height:1px;
-  background-color:#FFF;
+  background-color:rgba(255,255,255,.5);
 }
 
 .mmm-menu--global .mmm-submenu .mmm-menu__link:after{
