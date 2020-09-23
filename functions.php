@@ -33,6 +33,7 @@ define('THEME_DIR', get_template_directory());
 add_action( 'wp_enqueue_scripts', function(){
     
     wp_enqueue_style( 'base-style', THEME_URL.'/style.css',array(),filemtime(THEME_DIR.'/style.css') );
+    wp_enqueue_style( 'common-style', THEME_URL.'/css/common.css',array('base-style'),filemtime(THEME_DIR.'/css/common.css') );
     wp_enqueue_style( 'slick', '//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css', array(),filemtime(THEME_DIR.'/style.css') );
     wp_enqueue_style( 'slider-style', THEME_URL.'/css/slider.css',array('base-style','slick'),filemtime(THEME_DIR.'/css/slider.css') );
     
@@ -53,11 +54,11 @@ add_action( 'wp_enqueue_scripts', function(){
 
 	if(is_home() || is_front_page()){
 
-		wp_enqueue_style( 'index-style', THEME_URL.'/css/index.css',array('base-style'),filemtime(THEME_DIR.'/css/index.css') );
+		wp_enqueue_style( 'index-style', THEME_URL.'/css/index.css',array('common-style'),filemtime(THEME_DIR.'/css/index.css') );
     
     }else{
         
-        wp_enqueue_style( 'lower-style', THEME_URL.'/css/lower.css',array('base-style'),filemtime(THEME_DIR.'/css/lower.css') );
+        wp_enqueue_style( 'lower-style', THEME_URL.'/css/lower.css',array('common-style'),filemtime(THEME_DIR.'/css/lower.css') );
 
         if(is_single() || is_page() || is_404()){
             wp_enqueue_style( 'single-style', THEME_URL.'/css/single.css',array('lower-style'),filemtime(THEME_DIR.'/css/single.css') );

@@ -28,5 +28,5 @@
 		<?php
 	}
 ?>
-<?php get_template_part('template/after-content'); ?>
+<?php get_template_part('templates/after-content'); ?>
 <?php get_footer(); ?>
