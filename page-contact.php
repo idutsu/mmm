@@ -1,34 +1,30 @@
 <?php get_header(); ?>
 <style>
-
     .mmm-form{
-        font-size:1.5rem;
-    }
-
-    .mmm-form legend{
-        display:flex;
-        font-weight:bold;
-        margin-bottom:.25em;
-    }
-
-    .mmm-form__require{
-        position:relative;
-        display:inline-block;
-        color:#FFF;
-        background-color:red;
-        height:1em;
-    }
-
-    .mmm-form__require:before{
-        content:"必須";
-        display:block;
-        font-size:.5em;
-        height:100%;
-        line-height:1em;
+        font-size:2rem;
     }
 
     .mmm-form fieldset{
-        margin-bottom:1em;
+        margin-bottom:1.5em;
+    }
+
+    .mmm-form legend{
+        margin-bottom:.5em;
+    }
+
+    .mmm-form__title{
+        font-weight:bold;
+    }
+
+    .mmm-form__require{
+        display:inline-block;
+        font-size:.5em;
+        color:#FFF;
+        text-align:center;
+        vertical-align:top;
+        background-color:#cc0000;
+        padding:.5em;
+        margin-left:.5em;
     }
 
     .mmm-form input[type=text],
@@ -38,6 +34,7 @@
     .mmm-form select{
         border:1px solid lightgray;
         width:100%;
+        height:2em;
         padding:.25em;
     }
 
@@ -79,6 +76,7 @@
     .mmm-form__btns input[type='submit'],
     .mmm-form__btns input[type='button'],
     .mmm-form__btns button{
+        height:2em;
         border:1px solid lightgray;
         padding:.25em 1em;
         margin-right:.5em;
@@ -103,11 +101,11 @@
     <div class="mmm-post__content">
         <div class="mmm-form">
             <fieldset>
-                <legend><span class="mmm-form__require"></span>名前</legend>
+                <legend><span class="mmm-form__title">名前</span><span class="mmm-form__require">必須</span></legend>
                 <input type="text" name="name" />
             </fieldset>
             <fieldset>
-                <legend><span class="mmm-form__require"></span>メールアドレス</legend>
+                <legend><span class="mmm-form__title">メールアドレス</span><span class="mmm-form__require">必須</span></legend>
                 <input type="email" name="email" />
             </fieldset>
             <fieldset>
