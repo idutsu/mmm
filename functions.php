@@ -102,7 +102,7 @@ class MMM_Walker_Nav_Menu extends Walker_Nav_Menu {
     }
 }
 
-function mmm_menu( $menu_name, $class=null, $title=null ){
+function mmm_menu( $menu_name, $title=null ){
 	if( wp_get_nav_menu_items( $menu_name ) ){
         if( $title!=null ){
             echo "<h4 class='mmm-menu-title'>".$title."</h4>";
@@ -110,7 +110,7 @@ function mmm_menu( $menu_name, $class=null, $title=null ){
 		wp_nav_menu( array(
 			'menu'       => $menu_name,
 			'container'  => '',
-			'items_wrap' => '<ul class="mmm-menu mmm-menu--'.$menu_name.' '.$class.'">%3$s</ul>',
+			'items_wrap' => '<ul class="mmm-menu mmm-menu--'.$menu_name.'">%3$s</ul>',
 			'walker'     => new MMM_Walker_Nav_Menu
 		));
 	}
