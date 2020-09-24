@@ -34,8 +34,6 @@ add_action( 'wp_enqueue_scripts', function(){
     
     wp_enqueue_style( 'base-style', THEME_URL.'/style.css',array(),filemtime(THEME_DIR.'/style.css') );
     wp_enqueue_style( 'common-style', THEME_URL.'/css/common.css',array('base-style'),filemtime(THEME_DIR.'/css/common.css') );
-    wp_enqueue_style( 'slick', '//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css', array(),filemtime(THEME_DIR.'/style.css') );
-    wp_enqueue_style( 'slider-style', THEME_URL.'/css/slider.css',array('base-style','slick'),filemtime(THEME_DIR.'/css/slider.css') );
     
     global $wp_scripts;
 	$jquery = $wp_scripts->registered['jquery-core'];
@@ -45,12 +43,12 @@ add_action( 'wp_enqueue_scripts', function(){
 	wp_deregister_script( 'jquery-core' );
 	wp_register_script( 'jquery', false, array('jquery-core'), $jq_ver );
 	wp_register_script( 'jquery-core', $jq_src, array(), $jq_ver );
-	wp_enqueue_script( 'menu',THEME_URL.'/js/menu.js', array('jquery'), filemtime(THEME_DIR.'/js/menu.js'), true );
-	wp_enqueue_script( 'anchorlink',THEME_URL.'/js/anchorlink.js', array('jquery'), filemtime(THEME_DIR.'/js/anchorlink.js'), true );
-	wp_enqueue_script( 'intersection-observer',THEME_URL.'/js/intersection-observer.js', array(), filemtime(THEME_DIR.'/js/intersection-observer.js'), true );
-	wp_enqueue_script( 'lazyload',THEME_URL.'/js/lazyload.js', array('intersection-observer'), filemtime(THEME_DIR.'/js/lazyload.js'), true );
-	wp_enqueue_script( 'objectfit',THEME_URL.'/js/ofi.min.js', array(), filemtime(THEME_DIR.'/js/ofi.min.js'), true );
-	wp_enqueue_script( 'slick','//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js', array('jquery'), false );
+	wp_enqueue_script( 'menu-js',THEME_URL.'/js/menu.js', array('jquery'), filemtime(THEME_DIR.'/js/menu.js'), true );
+	wp_enqueue_script( 'anchorlink-js',THEME_URL.'/js/anchorlink.js', array('jquery'), filemtime(THEME_DIR.'/js/anchorlink.js'), true );
+	wp_enqueue_script( 'intersection-observer-js',THEME_URL.'/js/intersection-observer.js', array(), filemtime(THEME_DIR.'/js/intersection-observer.js'), true );
+	wp_enqueue_script( 'lazyload-js',THEME_URL.'/js/lazyload.js', array('intersection-observer-js'), filemtime(THEME_DIR.'/js/lazyload.js'), true );
+	wp_enqueue_script( 'objectfit-js',THEME_URL.'/js/ofi.min.js', array(), filemtime(THEME_DIR.'/js/ofi.min.js'), true );
+	wp_enqueue_script( 'slick-js','//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js', array('jquery'), false );
 
 	if(is_home() || is_front_page()){
 
@@ -525,49 +523,5 @@ add_action('pre_get_posts', function($query){
 });
 
 
-/*
 
-スライダー出力
-引数１：スライダーID
-引数２：画像配列 array(array('src'=> '画像URL', 'alt' => '画像名'), array('src'=> '画像URL', 'alt' => '画像名') ...)
-実装例：
-    $id = 'slideshow-1;
-    $images = array(
-        array( 'src' => THEME_URL.'/images/slide1.jpg', 'alt' => 'スライド１'  ),
-        array( 'src' => THEME_URL.'/images/slide2.jpg', 'alt' => 'スライド２'  ),
-        array( 'src' => THEME_URL.'/images/slide3.jpg', 'alt' => 'スライド３' )
-    );
-    mmm_slider( $id, $images );
-
-*/
-
-function mmm_slider( $id, $images ){
-    ob_start();
-    ?>
-    <div id="<?php echo $id; ?>" class="mmm-slider">
-        <?php
-            $count = 1;
-            foreach( $images as $image ){
-                ?>
-                    <img class="mmm-slider__img" src="<?php echo $image['src'] ? $image['src'] : ''; ?>" alt="<?php echo $image['alt'] ? $image['alt'] : '画像'.$count; ?>" />
-                <?php
-                $count ++;
-            }
-        ?>
-    </div>
-    <script>
-        (function($){
-            $("#<?php echo $id; ?>").slick({
-                autoplay:true,
-                autoplaySpeed:5000,
-                arrows:true,
-                prevArrow:"<div class='mmm-slider__btn mmm-slider__btn--prev'><span class='mmm-slider__arrow mmm-slider__arrow--prev'></div>",
-                nextArrow:"<div class='mmm-slider__btn mmm-slider__btn--next'><span class='mmm-slider__arrow mmm-slider__arrow--next'></div>",
-            });
-        })(jQuery);
-    </script>
-    <?php    
-        $data = ob_get_contents();
-        ob_end_clean();
-        echo $data;
-}
+require_once('mmm-slider/functions.php');
