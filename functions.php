@@ -197,19 +197,21 @@ class MMM_Breadcrumb {
     public $meta_description;
     
     function __construct(){
-        $this->qo = get_queried_object();
         $this->init();
     }
 
     public function init(){
 
+        $this->qo = get_queried_object();
+        $qo = $this->qo;
+
         $this->add( 'HOME', home_url() );
 
         $this->is_home = is_home() || is_front_page() ? true : false ;
+
         $meta_title = '';
         $meta_description = esc_html( get_bloginfo( 'description' ) );
-        $qo = $this->qo;
-
+        
         if( is_category() ){
             $this->tax();
             $meta_title = $qo->name;
