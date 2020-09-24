@@ -1,3 +1,2 @@
-mmm-slider(https://github.com/idutsu/mmm-slider.git)
-
-mmm-form(https://github.com/idutsu/mmm-form.git)
+##　スライダーを使用する場合は git clone https://github.com/idutsu/mmm-slider.git
+## フォームを使用する場合は git clone https://github.com/idutsu/mmm-form.git
