@@ -523,5 +523,7 @@ add_action('pre_get_posts', function($query){
 });
 
 
-
-require_once('mmm-slider/functions.php');
+//スライダー関連
+require_once('libs/mmm-slider/functions.php');
+//フォーム関連
+require_once('libs/mmm-form/functions.php');
