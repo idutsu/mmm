@@ -33,7 +33,7 @@ define('THEME_DIR', get_template_directory());
 add_action( 'wp_enqueue_scripts', function(){
 
     wp_enqueue_style( 'base-style', THEME_URL.'/style.css',array(),filemtime(THEME_DIR.'/style.css') );
-    wp_enqueue_style( 'common-style', THEME_URL.'/css/common.css',array('base-style'),filemtime(THEME_DIR.'/css/common.css') );
+    wp_enqueue_style( 'theme-style', THEME_URL.'/css/style.css',array('base-style'),filemtime(THEME_DIR.'/css/style.css') );
 
     global $wp_scripts;
 	$jquery = $wp_scripts->registered['jquery-core'];
@@ -52,11 +52,11 @@ add_action( 'wp_enqueue_scripts', function(){
 
 	if(is_home() || is_front_page()){
 
-		wp_enqueue_style( 'index-style', THEME_URL.'/css/index.css',array('common-style'),filemtime(THEME_DIR.'/css/index.css') );
+		wp_enqueue_style( 'index-style', THEME_URL.'/css/index.css',array('theme-style'),filemtime(THEME_DIR.'/css/index.css') );
 
     }else{
 
-        wp_enqueue_style( 'lower-style', THEME_URL.'/css/lower.css',array('common-style'),filemtime(THEME_DIR.'/css/lower.css') );
+        wp_enqueue_style( 'lower-style', THEME_URL.'/css/lower.css',array('theme-style'),filemtime(THEME_DIR.'/css/lower.css') );
 
         if(is_single() || is_page() || is_404()){
             wp_enqueue_style( 'single-style', THEME_URL.'/css/single.css',array('lower-style'),filemtime(THEME_DIR.'/css/single.css') );
@@ -102,7 +102,7 @@ class MMM_Walker_Nav_Menu extends Walker_Nav_Menu {
     }
 }
 
-function mmm_menu( $menu_name, $title=null ){
+function mmm_menu( $menu_name, $class=null, $title=null ){
 	if( wp_get_nav_menu_items( $menu_name ) ){
         if( $title!=null ){
             echo "<h4 class='mmm-menu-title'>".$title."</h4>";
@@ -110,7 +110,7 @@ function mmm_menu( $menu_name, $title=null ){
 		wp_nav_menu( array(
 			'menu'       => $menu_name,
 			'container'  => '',
-			'items_wrap' => ' <ul class="mmm-menu mmm-menu--'.$menu_name.'">%3$s</ul>',
+			'items_wrap' => '<ul class="mmm-menu mmm-menu--'.$menu_name.' '.$class.'">%3$s</ul>',
 			'walker'     => new MMM_Walker_Nav_Menu
 		));
 	}
