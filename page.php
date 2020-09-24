@@ -18,7 +18,6 @@
  					   <?php the_content(); ?>
  				   <?php } ?>
 				</div>
-				<?php mmm_related_pages( get_the_ID() ); ?>
 			</div>
 			<?php
 		}
@@ -28,5 +27,6 @@
 		<?php
 	}
 ?>
+<?php mmm_related_pages( get_the_ID() ); ?>
 <?php get_template_part('templates/after-content'); ?>
 <?php get_footer(); ?>

@@ -572,9 +572,9 @@ function mmm_related_posts( $post_id ){
 */
 
 add_filter( 'get_search_form', function($form){
-	$form = '<form role="search" method="get" id="mmm-searchform" class="mmm-searchform" action="' . home_url( '/' ) . '" >
+	$form = '<form role="search" method="get" class="mmm-form mmm-form--search" action="' . home_url( '/' ) . '" >
 	<input type="text" value="' . get_search_query() . '" name="s" id="s" />
-	<input type="submit" value="検索" />
+	<input class="mmm-form__btn" type="submit" value="検索" />
 	</form>';
 	return $form;
 });
