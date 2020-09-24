@@ -1,1 +1,1 @@
-# テーマファイル内で https://github.com/idutsu/mmm.git をgit cloneしてください。
+## テーマファイル内でgit cloneしてください。
