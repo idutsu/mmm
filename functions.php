@@ -524,6 +524,7 @@ add_action('pre_get_posts', function($query){
 
 
 //スライダー関連
-require_once('libs/mmm-slider/functions.php');
+include_once('libs/mmm-slider/functions.php');
+
 //フォーム関連
-require_once('libs/mmm-form/functions.php');
+include_once('libs/mmm-form/functions.php');
