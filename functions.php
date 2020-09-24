@@ -31,10 +31,10 @@ define('THEME_DIR', get_template_directory());
 */
 
 add_action( 'wp_enqueue_scripts', function(){
-    
+
     wp_enqueue_style( 'base-style', THEME_URL.'/style.css',array(),filemtime(THEME_DIR.'/style.css') );
     wp_enqueue_style( 'common-style', THEME_URL.'/css/common.css',array('base-style'),filemtime(THEME_DIR.'/css/common.css') );
-    
+
     global $wp_scripts;
 	$jquery = $wp_scripts->registered['jquery-core'];
 	$jq_ver = $jquery->ver;
@@ -53,15 +53,15 @@ add_action( 'wp_enqueue_scripts', function(){
 	if(is_home() || is_front_page()){
 
 		wp_enqueue_style( 'index-style', THEME_URL.'/css/index.css',array('common-style'),filemtime(THEME_DIR.'/css/index.css') );
-    
+
     }else{
-        
+
         wp_enqueue_style( 'lower-style', THEME_URL.'/css/lower.css',array('common-style'),filemtime(THEME_DIR.'/css/lower.css') );
 
         if(is_single() || is_page() || is_404()){
             wp_enqueue_style( 'single-style', THEME_URL.'/css/single.css',array('lower-style'),filemtime(THEME_DIR.'/css/single.css') );
         }
-    
+
         if(is_archive() || is_search()){
             wp_enqueue_style( 'archive-style', THEME_URL.'/css/archive.css',array('lower-style'),filemtime(THEME_DIR.'/css/archive.css') );
         }
@@ -195,7 +195,7 @@ class MMM_Breadcrumb {
     public $is_home;
     public $meta_title;
     public $meta_description;
-    
+
     function __construct(){
         $this->init();
     }
@@ -211,7 +211,7 @@ class MMM_Breadcrumb {
 
         $meta_title = '';
         $meta_description = esc_html( get_bloginfo( 'description' ) );
-        
+
         if( is_category() ){
             $this->tax();
             $meta_title = $qo->name;
@@ -358,7 +358,7 @@ class MMM_Breadcrumb {
         }
 
         $this->add($this->qo->post_title);
-        
+
         return $this->breadcrumb;
     }
 
@@ -480,7 +480,7 @@ function mmm_pagination_archive( $query = null, $prev_text = null, $next_text = 
 class MMM_Walker_Page extends Walker_Page{
     function start_lvl( &$output, $depth=0, $args=array() ) {
         $indent = str_repeat("\t", $depth);
-        $output .= "\n$indent<ul>\n";
+        $output .= "\n$indent<ul class='mmm-related-posts__inner'>\n";
     }
     function start_el( &$output, $page, $depth=0, $args=array(), $current_page=0 ){
 		$indent = $depth ? str_repeat("\t", $depth) : '';
@@ -490,7 +490,7 @@ class MMM_Walker_Page extends Walker_Page{
             $link_before = '<strong class="mmm-related-posts__current">';
             $link_after  = '</strong>';
         }
-        $output .= $indent . '<li class="mmm-related-posts__inner"><a class="mmm-related-posts__link" href="' . get_page_link($page->ID) . '">' . $link_before . apply_filters( 'the_title', $page->post_title, $page->ID ) . $link_after . '</a>';
+        $output .= $indent . '<li class="mmm-related-posts__item"><a class="mmm-related-posts__link" href="' . get_page_link($page->ID) . '">' . $link_before . apply_filters( 'the_title', $page->post_title, $page->ID ) . $link_after . '</a>';
     }
 }
 

@@ -21,13 +21,13 @@
 	<body <?php body_class(); ?>>
 		<div class="mmm-header">
 			<header>
-				<?php $h1 = $is_home ? "h1" : "p" ; ?>
-				<<?php echo $h1; ?> class="mmm-site-title"><a href="<?php echo home_url(); ?>"><?php echo $site_title; ?></a></<?php echo $h1; ?>>
+				<?php $site_title_tag = $is_home ? "h1" : "p" ; ?>
+				<<?php echo $site_title_tag; ?> class="mmm-site-title"><a href="<?php echo home_url(); ?>"><?php echo $site_title; ?></a></<?php echo $site_title_tag; ?>>
 				<div class="mmm-sp-fix">
 					<a href="tel:">電話で相談</a>
 					<a href="<?php echo home_url('/contact/'); ?>">メールで相談</a>
 				</div>
-				<?php if(wp_get_nav_menu_items('global')){ ?>
+				<?php if( wp_get_nav_menu_items('global') ){ ?>
 					<?php mmm_menu('global'); ?>
 					<div class="mmm-hamburger"><span></span><span></span><span></span></div>
 				<?php } ?>

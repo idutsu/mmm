@@ -33,15 +33,9 @@
 }
 
 .mmm-post--single__content *{
-    line-height:1.5;
 }
 
-.mmm-post--single__content b{
-    font-weight:bold;
-}
-
-
-/* 
+/*
 
 記事内：画像
 
@@ -68,7 +62,7 @@
 }
 
 
-/* 
+/*
 
 記事内：タグ
 
@@ -101,6 +95,10 @@
     font-weight:bold;
 }
 
+.mmm-post--single__content b{
+    font-weight:bold;
+}
+
 .mmm-post--single__content a{
     text-decoration:underline;
 }
@@ -129,6 +127,7 @@
 
 .mmm-post--single__content table th{
     font-weight:bold;
+    background-color:lightgray;
 }
 
 @media screen and (max-width:768px){
@@ -143,7 +142,7 @@
         margin-right:0;
         margin-bottom:1rem;
     }
-        
+
 }
 
 
@@ -155,7 +154,7 @@
 
 .mmm-related-posts{
 }
-  
+
 .mmm-related-posts__title{
     line-height:1.2;
 }
@@ -163,7 +162,7 @@
 .mmm-related-posts__inner{
 }
 
-.mmm-related-posts__inner .mmm-related-posts_inner{
+.mmm-related-posts__inner .mmm-related-posts__inner{
     margin-left:1rem;
 }
 
@@ -173,11 +172,8 @@
 .mmm-related-posts__link{
     display:inline-block;
     text-decoration:underline;
-    line-height:1.2;
-    margin-bottom:1em;
 }
 
 .mmm-related-posts__current{
     font-weight:bold;
 }
-

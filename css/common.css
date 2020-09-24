@@ -1,31 +1,32 @@
-/* 
+/*
 
 共通
 
 */
 
 
+
+
+/*
+
+レイアウト
+
+*/
+
 .mmm-header{
 }
 
 .mmm-wrapper{
   display:flex;
-  flex-wrap:wrap;
-  justify-content:space-between;
 }
 
 .mmm-aside{
-  flex:none;
-  width:250px;
+    flex:none;
+    width:250px;
 }
 
 .mmm-main{
-  flex:none;
-  width:100%;
-}
-
-.mmm-aside + .mmm-main{
-  width:calc(100% - 250px);
+    flex:1;
 }
 
 .mmm-footer{
@@ -38,18 +39,18 @@
   }
 
   .mmm-wrapper{
-    width:100%;
+      flex-wrap:wrap;
+      width:100%;
   }
 
   .mmm-main{
-    width:100% !important;
-    order:1;
+      width:100%;
+      order:1;
   }
 
   .mmm-aside{
-    width:100%;
-    order:2;
-    margin-bottom:2rem;
+      width:100%;
+      order:2;
   }
 
   .mmm-footer{
@@ -57,11 +58,12 @@
 
 }
 
+
 .mmm-site-title{
 }
 
 
-/* 
+/*
 
 記事
 
@@ -78,8 +80,6 @@
 }
 
 .mmm-post__image img{
-  width:100%;
-  height:auto;
 }
 
 .mmm-post__text{
@@ -90,7 +90,6 @@
 }
 
 .mmm-post__title{
-  line-height:1.5;
 }
 
 .mmm-post__terms{
@@ -125,7 +124,6 @@ a.mmm-post__tag:hover{
 }
 
 .mmm-post__content{
-  line-height:1.5;
 }
 
 @media screen and (max-width:768px){
@@ -137,7 +135,6 @@ a.mmm-post__tag:hover{
   .mmm-post__image{
     width:100%;
     margin-right:0;
-    margin-bottom:.25rem;
   }
 
 }
@@ -163,8 +160,6 @@ a.mmm-post__tag:hover{
   display:flex;
   align-items:center;
   height:100%;
-  line-height:1.2;
-  padding:.6em;
 }
 
 .mmm-submenu{
@@ -302,24 +297,24 @@ a.mmm-post__tag:hover{
 
 .mmm-hamburger span{
   position:absolute;
-  left:8px;
+  left:15%;
   display:inline-block;
-  width:35px;
+  width:70%;
   height:2px;
   background-color:#FFF;
   transition:all .4s;
 }
 
 .mmm-hamburger span:nth-of-type(1){
-  top:13px;
+  top:calc(28% - 1px);
 }
 
 .mmm-hamburger span:nth-of-type(2){
-  top:24px;
+  top:calc(50% - 1px);
 }
 
 .mmm-hamburger span:nth-of-type(3){
-  bottom:13px;
+  top:calc(72% - 1px);
 }
 
 .mmm-hamburger.active{
@@ -470,10 +465,6 @@ a.mmm-post__tag:hover{
     align-items:center;
     color:#FFF;
     background-color:lightgray;
-  }
-
-  .mmm-sp-fix a:hover{
-    opacity:1;
   }
 
   .mmm-sp-fix a + a{

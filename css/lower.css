@@ -1,4 +1,4 @@
-/* 
+/*
 
 下層ページ共通
 
@@ -25,7 +25,6 @@
 
 .mmm-breadcrumb__item{
     flex:none;
-    line-height:1.5;
 }
 
 .mmm-breadcrumb__item--link{
@@ -39,7 +38,3 @@
 
 .mmm-breadcrumb__item--text{
 }
-
-  
-  
-  
