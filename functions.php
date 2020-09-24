@@ -84,7 +84,7 @@ class MMM_Walker_Nav_Menu extends Walker_Nav_Menu {
         $li_class = in_array('current-menu-item', $item->classes) ? "class='mmm-menu__item mmm-menu__item--current'" : "class='mmm-menu__item'" ;
         if (in_array('menu-item-has-children', $item->classes)) {
             $indent = " ";
-            $output .= "\n"."<li id='mmm-menu-".$item->ID."'".$li_class.">";
+            $output .= "\n"."<li id='mmm-menu-".$item->ID."' ".$li_class.">";
             $output .= "<a href='".$item->url."' class='mmm-menu__link mmm-submenu-hover'>".$item->title."<span class='mmm-submenu-click'></span></a>";
             $output .= "\n" . $indent . '<ul class="mmm-submenu">';
         } else {
@@ -94,7 +94,7 @@ class MMM_Walker_Nav_Menu extends Walker_Nav_Menu {
     }
     function end_el( &$output, $item, $depth = 0, $args = Array() ) {
         if (in_array('menu-item-has-children', $item->classes)) {
-            $output .= "\n".'</li></ul></li>';
+            $output .= "\n".'</ul></li>';
         }
         else {
             $output .= "\n".'</li>';
