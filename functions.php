@@ -190,10 +190,96 @@ function mmm_get_the_terms( $post_id ){
 
 class MMM_Breadcrumb {
 
+    public $qo;
+    public $breadcrumb = array();
+    public $is_home;
+    public $meta_title;
+    public $meta_description;
+    
     function __construct(){
         $this->qo = get_queried_object();
-        $this->breadcrumb = array();
+        $this->init();
+    }
+
+    public function init(){
+
         $this->add( 'HOME', home_url() );
+
+        $this->is_home = is_home() || is_front_page() ? true : false ;
+        $meta_title = '';
+        $meta_description = esc_html( get_bloginfo( 'description' ) );
+        $qo = $this->qo;
+
+        if( is_category() ){
+            $this->tax();
+            $meta_title = $qo->name;
+            $meta_description = $meta_title."。".$meta_description;
+        }else if( is_tag() ){
+            $this->tax();
+            $meta_title = $qo->name;
+            $meta_description = $meta_title."。".$meta_description;
+        }else if( is_tax() ){
+            $this->tax();
+            $meta_title = $qo->name;
+            $meta_description = $meta_title."。".$meta_description;
+        }else if( is_post_type_archive() ){
+            $this->post_type_archive();
+            $meta_title = $qo->label;
+            $meta_description = $meta_title."。".$meta_description;
+        }else if( is_single() ){
+            $this->single();
+            $post_type_label = '';
+            $post_type = $qo->post_type;
+            if( $post_type !== 'post' ){
+                $po = get_post_type_object( $qo->post_type );
+                $post_type_label = $po->labels->singular_name."。";
+            }
+            $meta_title = $post_type_label.$qo->post_title;
+            $meta_description = $post_type_label.mmm_limit_post_content( $qo->post_content, 90 );
+        }else if( is_page() ){
+            $this->page();
+            $meta_title = $qo->post_title;
+            $meta_description = mmm_limit_post_content( $qo->post_content, 90 );
+        }else if( is_search() ){
+            $this->search();
+            $meta_title = end( $this->breadcrumb )['name'];
+            $meta_description = $meta_title."。".$meta_description;
+        }else if( is_404() ){
+            $this->notfound();
+            $meta_title = end( $this->breadcrumb )['name'];
+            $meta_description = $meta_title."。".$meta_description;
+        }
+
+        $this->meta_title = $meta_title;
+        $this->meta_description = $meta_description;
+
+    }
+
+    public function echo(){
+        ob_start();
+        ?>
+        <div class="mmm-breadcrumb">
+            <div class="mmm-breadcrumb__inner">
+                <?php
+                    $bc = $this->breadcrumb;
+                    $bc_length = count($bc);
+                    for( $i=0; $i<$bc_length; $i++ ){
+                        if( $i<$bc_length-1 ){
+                ?>
+                            <a href="<?php echo $bc[$i]['url']; ?>" class="mmm-breadcrumb__item mmm-breadcrumb__item--link"><?php echo $bc[$i]['name']; ?></a><span class="mmm-breadcrumb__item mmm-breadcrumb__item--slash">/</span>
+                <?php
+                        }else{ ?>
+                            <span class="mmm-breadcrumb__item mmm-breadcrumb__item--text"><?php echo $bc[$i]['name']; ?></span>
+                <?php
+                        }
+                    }
+                ?>
+            </div>
+        </div>
+        <?php
+        $data = ob_get_contents();
+        ob_end_clean();
+        echo $data;
     }
 
     public function post_type_archive(){
