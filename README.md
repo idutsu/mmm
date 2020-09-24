@@ -1,1 +1,2 @@
-## テーマファイル内でgit cloneしてください。
+## このテーマを使用する場合
+git clone https://github.com/idutsu/mmm.git
