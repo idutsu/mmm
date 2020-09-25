@@ -405,6 +405,10 @@ a.mmm-post__tag:hover{
 
 @media screen and (max-width:768px){
 
+  .mmm-menu__item{
+    height:auto;
+  }
+
   .mmm-submenu-hover{
     position:relative;
     padding-right:50px;
