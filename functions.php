@@ -92,7 +92,7 @@ class MMM_Walker_Nav_Menu extends Walker_Nav_Menu {
             $output .= "\n" . $indent . '<ul class="mmm-submenu'.$ul_class.'">';
         } else {
             $output .= "\n"."<li class='mmm-menu__item".$li_class."'>";
-            $output .= "<a href='".$item->url."' class='mmm-menu__link'>".$item->title."</a>";
+            $output .= "<a href='".$item->url."' class='mmm-menu__link".$a_class."'>".$item->title."</a>";
         }
     }
     function end_el( &$output, $item, $depth = 0, $args = Array() ) {
