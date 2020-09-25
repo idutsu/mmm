@@ -286,6 +286,12 @@ a.mmm-post__tag:hover{
   margin-left:0;
 }
 
+@media screen and (max-width:768px){
+  .mmm-menu--global > .mmm-menu__item > .mmm-submenu{
+    overflow:visible;
+  }  
+}
+
 
 /*
 
@@ -325,10 +331,6 @@ a.mmm-post__tag:hover{
   width:200%;
   height:1px;
   background-color: lightgray;
-}
-
-.mmm-menu--global > .mmm-menu__item > .mmm-submenu{
-  overflow:visible;
 }
 
 /*
