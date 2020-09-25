@@ -81,14 +81,17 @@ class MMM_Walker_Nav_Menu extends Walker_Nav_Menu {
     function start_lvl( &$output, $depth = 0, $args = Array() ){$output .= "";}
     function end_lvl( &$output, $depth = 0, $args = Array() ) {$output .= "";}
     function start_el( &$output, $item, $depth = 0, $args = Array(), $id = 0 ) {
-        $li_class = in_array('current-menu-item', $item->classes) ? "class='mmm-menu__item mmm-menu__item--current'" : "class='mmm-menu__item'" ;
+        $li_class  = in_array('current-menu-item', $item->classes) ? " mmm-menu__item--current" : "" ;
+        $li_class .= ($depth==0) ? " mmm-menu__item--first" : "" ;
+        $a_class   = ($depth==0) ? " mmm-menu__link--first" : "" ;
+        $ul_class  = ($depth==0) ? " mmm-submenu--first" : "" ;
         if (in_array('menu-item-has-children', $item->classes)) {
             $indent = " ";
-            $output .= "\n"."<li id='mmm-menu-".$item->ID."' ".$li_class.">";
-            $output .= "<a href='".$item->url."' class='mmm-menu__link mmm-submenu-hover'>".$item->title."<span class='mmm-submenu-click'></span></a>";
-            $output .= "\n" . $indent . '<ul class="mmm-submenu'.( $depth==0 ? ' mmm-submenu--first' : '').'">';
+            $output .= "\n"."<li id='mmm-menu-".$item->ID."' class='mmm-menu__item".$li_class."'>";
+            $output .= "<a href='".$item->url."' class='mmm-menu__link".$a_class." mmm-submenu-hover'>".$item->title."<span class='mmm-submenu-click'></span></a>";
+            $output .= "\n" . $indent . '<ul class="mmm-submenu'.$ul_class.'">';
         } else {
-            $output .= "\n"."<li ".$li_class.">";
+            $output .= "\n"."<li class='mmm-menu__item".$li_class."'>";
             $output .= "<a href='".$item->url."' class='mmm-menu__link'>".$item->title."</a>";
         }
     }
