@@ -227,6 +227,7 @@ a.mmm-post__tag:hover{
   display:flex;
   align-items:center;
   height:100%;
+  overflow:hidden;
 }
 
 .mmm-submenu{
