@@ -227,7 +227,6 @@ a.mmm-post__tag:hover{
   display:flex;
   align-items:center;
   height:100%;
-  overflow:hidden;
 }
 
 .mmm-submenu{
@@ -276,6 +275,7 @@ a.mmm-post__tag:hover{
 }
 
 .mmm-menu--global > .mmm-menu__item > .mmm-submenu{
+  overflow:hidden;
   position:absolute;
   top:100%;
   left:0;
@@ -327,6 +327,9 @@ a.mmm-post__tag:hover{
   background-color: lightgray;
 }
 
+.mmm-menu--global > .mmm-menu__item > .mmm-submenu{
+  overflow:visible;
+}
 
 /*
 
