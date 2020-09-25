@@ -286,12 +286,6 @@ a.mmm-post__tag:hover{
   margin-left:0;
 }
 
-@media screen and (max-width:768px){
-  .mmm-menu--global > .mmm-menu__item > .mmm-submenu{
-    overflow:visible;
-  }  
-}
-
 
 /*
 
@@ -467,6 +461,7 @@ a.mmm-post__tag:hover{
     background-color:transparent;
     border-top:none;
     margin-left:1rem;
+    overflow:visible;
   }
 
   /* ハンバーガー */
