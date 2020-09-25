@@ -86,7 +86,7 @@ class MMM_Walker_Nav_Menu extends Walker_Nav_Menu {
             $indent = " ";
             $output .= "\n"."<li id='mmm-menu-".$item->ID."' ".$li_class.">";
             $output .= "<a href='".$item->url."' class='mmm-menu__link mmm-submenu-hover'>".$item->title."<span class='mmm-submenu-click'></span></a>";
-            $output .= "\n" . $indent . '<ul class="mmm-submenu">';
+            $output .= "\n" . $indent . '<ul class="mmm-submenu'.( $depth==0 ? ' mmm-submenu--first' : '').'">';
         } else {
             $output .= "\n"."<li ".$li_class.">";
             $output .= "<a href='".$item->url."' class='mmm-menu__link'>".$item->title."</a>";

@@ -274,7 +274,7 @@ a.mmm-post__tag:hover{
   content:"";
 }
 
-.mmm-menu--global > .mmm-menu__item > .mmm-submenu{
+.mmm-menu--global .mmm-submenu--first{
   overflow:hidden;
   position:absolute;
   top:100%;
@@ -461,7 +461,7 @@ a.mmm-post__tag:hover{
     content:"";
   }
 
-  .mmm-menu--global > .mmm-menu__item > .mmm-submenu{
+  .mmm-menu--global .mmm-submenu--first{
     position:relative;
     width:calc(100% - 1rem);
     background-color:transparent;
