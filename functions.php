@@ -32,8 +32,7 @@ define('THEME_DIR', get_template_directory());
 
 add_action( 'wp_enqueue_scripts', function(){
 
-    wp_enqueue_style( 'base-style', THEME_URL.'/style.css',array(),filemtime(THEME_DIR.'/style.css') );
-    wp_enqueue_style( 'theme-style', THEME_URL.'/css/style.css',array('base-style'),filemtime(THEME_DIR.'/css/style.css') );
+    wp_enqueue_style( 'theme-style', THEME_URL.'/css/style.css',array(),filemtime(THEME_DIR.'/css/style.css') );
 
     global $wp_scripts;
 	$jquery = $wp_scripts->registered['jquery-core'];

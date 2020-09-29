@@ -27,7 +27,7 @@
     flex:none;
 }
 
-.mmm-breadcrumb__item--link{
+a.mmm-breadcrumb__item--link{
     text-decoration:underline;
 }
 
