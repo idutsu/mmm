@@ -31,7 +31,6 @@
 					<?php mmm_menu('global'); ?>
 					<div class="mmm-hamburger"><span></span><span></span><span></span></div>
 				<?php } ?>
-				<?php wp_head(); ?>
 			</header>
 		</div>
 		<div class="mmm-wrapper">
