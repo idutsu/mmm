@@ -25,6 +25,7 @@
 
 .mmm-breadcrumb__item{
     flex:none;
+    line-height:1.2;
 }
 
 a.mmm-breadcrumb__item--link{
