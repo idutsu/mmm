@@ -4,7 +4,6 @@
 
 */
 
-
 .mmm-post--single{
     display:block;
 }
@@ -61,19 +60,22 @@
     margin-bottom:1rem;
 }
 
-
 /*
 
 記事内：タグ
 
 */
 
+.mmm-post--single__content h1,
 .mmm-post--single__content h2,
 .mmm-post--single__content h3,
 .mmm-post--single__content h4,
 .mmm-post--single__content h5,
 .mmm-post--single__content h6{
     clear:both;
+}
+
+.mmm-post--single__content h1{
 }
 
 .mmm-post--single__content h2{
@@ -145,7 +147,6 @@
 
 }
 
-
 /*
 
 関連記事
@@ -169,11 +170,11 @@
 .mmm-related-posts__item{
 }
 
-.mmm-related-posts__link{
+a.mmm-related-posts__link{
     display:inline-block;
     text-decoration:underline;
 }
 
-.mmm-related-posts__current{
+a.mmm-related-posts__current{
     font-weight:bold;
 }

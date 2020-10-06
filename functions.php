@@ -105,17 +105,15 @@ class MMM_Walker_Nav_Menu extends Walker_Nav_Menu {
 }
 
 function mmm_menu( $menu_name, $title=null ){
-	if( wp_get_nav_menu_items( $menu_name ) ){
-        if( $title!=null ){
-            echo "<h4 class='mmm-menu-title'>".$title."</h4>";
-        }
-		wp_nav_menu( array(
-			'menu'       => $menu_name,
-			'container'  => '',
-			'items_wrap' => '<ul class="mmm-menu mmm-menu--'.$menu_name.'">%3$s</ul>',
-			'walker'     => new MMM_Walker_Nav_Menu
-		));
-	}
+    if( $title!=null ){
+        echo "<h4 class='mmm-menu-title'>".$title."</h4>";
+    }
+	wp_nav_menu( array(
+		'menu'       => $menu_name,
+		'container'  => '',
+		'items_wrap' => '<ul class="mmm-menu mmm-menu--'.$menu_name.'">%3$s</ul>',
+		'walker'     => new MMM_Walker_Nav_Menu
+	));
 }
 
 if( ! wp_get_nav_menu_object('global') ){
@@ -617,4 +615,4 @@ add_action('pre_get_posts', function($query){
 //include_once('libs/mmm-slider/functions.php');
 
 //フォーム関連
-//include_once('libs/mmm-form/functions.php');
+include_once('libs/mmm-form/functions.php');

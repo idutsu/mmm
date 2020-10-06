@@ -4,7 +4,6 @@
 
 */
 
-
 *{
   margin:0;
   padding:0;
@@ -66,7 +65,6 @@ h1,h2,h3,h4,h5,h6{
   font-weight:normal;
 }
 
-
 /*
 
 レイアウト
@@ -117,17 +115,6 @@ h1,h2,h3,h4,h5,h6{
   }
 
 }
-
-
-/*
-
-サイトタイトル
-
-*/
-
-.mmm-site-title{
-}
-
 
 /*
 
@@ -206,7 +193,6 @@ a.mmm-post__tag:hover{
 
 }
 
-
 /*
 
 メニュー
@@ -265,7 +251,7 @@ a.mmm-post__tag:hover{
   }
 
   .mmm-submenu-click:before{
-    content:"＋";
+    content:"+";
     font-weight:bold;
     color:lightgray;
   }
@@ -275,7 +261,6 @@ a.mmm-post__tag:hover{
   }
 
 }
-
 
 /*
 
@@ -317,7 +302,6 @@ a.mmm-post__tag:hover{
   z-index:9999;
   width:150%;
   background-color:lightgray;
-  border-top:1px solid #FFF;
   margin-left:0;
 }
 
@@ -347,16 +331,14 @@ a.mmm-post__tag:hover{
     }
 
     .mmm-menu--global .mmm-submenu--first{
-      position:relative;
-      width:calc(100% - 1rem);
+      position:static;
+      width:auto;
       background-color:transparent;
-      border-top:none;
       margin-left:1rem;
       overflow:visible;
     }
 
 }
-
 
 /*
 
@@ -395,7 +377,7 @@ a.mmm-post__tag:hover{
   display:block;
   width:200%;
   height:1px;
-  background-color: lightgray;
+  background-color:lightgray;
 }
 
 /*
@@ -413,7 +395,6 @@ a.mmm-post__tag:hover{
 
 .mmm-menu--footer .mmm-menu__link{
 }
-
 
 /*
 
@@ -481,7 +462,6 @@ a.mmm-post__tag:hover{
 
 }
 
-
 /*
 
 グーグルマップ
@@ -507,45 +487,4 @@ a.mmm-post__tag:hover{
   .mmm-googlemap {
     padding-bottom:100%;
   }
-}
-
-
-/*
-
-スマホ固定メニュー
-
-*/
-
-.mmm-sp-fix{
-  display:none;
-}
-
-@media screen and (max-width:768px){
-
-  .mmm-sp-fix{
-    display:block;
-    position:fixed;
-    bottom:0;
-    left:0;
-    z-index:9999;
-    display:flex;
-    width:100%;
-    height:10vw;
-  }
-
-  .mmm-sp-fix a{
-    flex:none;
-    width:50%;
-    height:100%;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    color:#FFF;
-    background-color:lightgray;
-  }
-
-  .mmm-sp-fix a + a{
-    border-left:1px solid #FFF;
-  }
-
 }

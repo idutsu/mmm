@@ -22,11 +22,7 @@
 		<div class="mmm-header">
 			<header>
 				<?php $site_title_tag = $is_home ? "h1" : "p" ; ?>
-				<<?php echo $site_title_tag; ?> class="mmm-site-title"><a href="<?php echo home_url(); ?>"><?php echo $site_title; ?></a></<?php echo $site_title_tag; ?>>
-				<div class="mmm-sp-fix">
-					<a href="tel:">電話</a>
-					<a href="<?php echo home_url('/contact/'); ?>">メール</a>
-				</div>
+				<<?php echo $site_title_tag; ?>><a href="<?php echo home_url(); ?>"><?php echo $site_title; ?></a></<?php echo $site_title_tag; ?>>
 				<?php if( wp_get_nav_menu_items('global') ){ ?>
 					<?php mmm_menu('global'); ?>
 					<div class="mmm-hamburger"><span></span><span></span><span></span></div>
@@ -38,6 +34,5 @@
 			<div class="mmm-main">
 				<main>
 					<?php if( !$is_home ){ ?>
-						<h1 class="mmm-page-title"><?php echo $breadcrumb->breadcrumb[1]['name']; ?></h1>
 						<?php $breadcrumb->echo(); ?>
 					<?php } ?>
