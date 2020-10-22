@@ -19,22 +19,22 @@
 							<?php if( $terms['category'] ){ ?>
 								<?php foreach( $terms['category'] as $tax => $categories ){ ?>
 									<?php foreach( $categories as $category ){ ?>
-										<a href="<?php echo $category['link']; ?>" class="mmm-post__cat mmm-post--archive__cat mmm-post__cat--<?php echo $tax; ?> mmm-post--archive__cat--<?php echo $tax; ?>"><?php echo $category['name']; ?></a>
+										<span class="mmm-post__cat mmm-post--archive__cat mmm-post__cat--<?php echo $tax; ?> mmm-post--archive__cat--<?php echo $tax; ?>"><?php echo $category['name']; ?></span>
 									<?php } ?>
 								<?php } ?>
 							<?php } ?>
 							<?php if( $terms['tag'] ){ ?>
 								<?php foreach( $terms['tag'] as $tax => $tags ){ ?>
 									<?php foreach( $tags as $tag ){ ?>
-										<a href="<?php echo $tag['link']; ?>" class="mmm-post__tag mmm-post--archive__tag mmm-post__tag--<?php echo $tax; ?> mmm-post--archive__tag--<?php echo $tax; ?>"><?php echo $tag['name']; ?></a>
+										<span href="<?php echo $tag['link']; ?>" class="mmm-post__tag mmm-post--archive__tag mmm-post__tag--<?php echo $tax; ?> mmm-post--archive__tag--<?php echo $tax; ?>"><?php echo $tag['name']; ?></span>
 									<?php } ?>
 								<?php } ?>
 							<?php } ?>
 						</div>
 					<?php } ?>
-					<time class="mmm-post__date mmm-post--single__date"><?php the_time('Y.m.d'); ?></time>
-					<h3 class="mmm-post__title mmm-post--single__title"><?php the_title(); ?></h3>
-					<div class="mmm-post__content mmm-post--single__content">
+					<time class="mmm-post__date mmm-post--archiev__date"><?php the_time('Y.m.d'); ?></time>
+					<h3 class="mmm-post__title mmm-post--archive__title"><?php the_title(); ?></h3>
+					<div class="mmm-post__content mmm-post--archive__content">
 						<?php
 							$content = get_the_content();
 							echo mmm_limit_post_content( $content, 90 );
