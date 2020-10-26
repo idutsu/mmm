@@ -17,7 +17,7 @@
 					?>
 						<div class="mmm-post__terms mmm-post--archive__terms">
 							<?php if( $terms['category'] ){ ?>
-								<?php foreach( $terms['category'] as $tax => $categories ){ ?>
+								<?php foreach( $terms['§category'] as $tax => $categories ){ ?>
 									<?php foreach( $categories as $category ){ ?>
 										<span class="mmm-post__cat mmm-post--archive__cat mmm-post__cat--<?php echo $tax; ?> mmm-post--archive__cat--<?php echo $tax; ?>"><?php echo $category['name']; ?></span>
 									<?php } ?>
