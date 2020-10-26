@@ -138,10 +138,10 @@
     .mmm-post--single__content img.alignleft,
     .mmm-post--single__content img.alignright{
         display:block;
-        width:100% !important;
-        max-width:none;
-        margin-left:0;
-        margin-right:0;
+        width:auto;
+        max-width:100%;
+        margin-left:auto;
+        margin-right:auto;
         margin-bottom:1rem;
     }
 
