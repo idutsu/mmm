@@ -37,7 +37,7 @@
                 SlideToggle( submenu );
             });
 
-            if( window.innerWidth > 768 ){
+            if( window.innerWidth > 768 && window.innerWidth <= 768 ){
 
                 submenu_open_area_by_mouseover.on('mouseover', function(){
                     var submenu = $(this).next('.mmm-submenu');
