@@ -128,7 +128,6 @@ if( ! wp_get_nav_menu_object('footer') ){
     wp_create_nav_menu('footer');
 }
 
-
 /*
 
 記事取得関連

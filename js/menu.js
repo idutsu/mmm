@@ -1,5 +1,7 @@
 (function($){
 
+    var w = $(window);
+
     var hamburger_btn  = $('.mmm-hamburger');
     var hamburger_menu = $('.mmm-menu.mmm-menu--global');
 
@@ -18,9 +20,9 @@
 
     var timer = false;
 
-    $(window).on('load resize', function(){
+    w.on('load resize', function(){
 
-        if (timer !== false) clearTimeout(timer);
+        if(timer !== false) clearTimeout(timer);
 
         timer = setTimeout(function() {
 
@@ -53,16 +55,36 @@
 
     });
 
+    w.on('scroll', function(){
+
+        if(timer !== false) clearTimeout(timer);
+
+        timer = setTimeout(function() {
+
+            if(w.scrollTop() > 50){
+                hamburger_btn.show();
+            }else{
+                hamburger_btn.hide();
+            }
+
+        }, 200);
+
+    });
+
     function SlideDown(submenu){
-        submenu.slideDown('fast');
+        submenu.show();
     };
 
     function SlideUp(submenu){
-        submenu.slideUp('fast');
+        submenu.hide();
     };
 
     function SlideToggle(submenu){
-        submenu.slideToggle('fast');
+        if (submenu.is(':visible')) {
+            submenu.hide();
+        } else {
+            submenu.show();
+        }
     };
 
 })(jQuery);

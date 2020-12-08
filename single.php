@@ -6,8 +6,8 @@
 			?>
 			<div class="mmm-post mmm-post--single">
 				<div class="mmm-post__content mmm-post--single__content">
-					<time class="mmm-post__date mmm-post--single__date"><?php the_time('Y.m.d'); ?></time>
 					<h1 class="mmm-post__title mmm-post--single__title"><?php the_title(); ?></h1>
+					<time class="mmm-post__date mmm-post--single__date"><?php the_time('Y.m.d'); ?></time>
 					<?php
 						$terms = mmm_get_the_terms( get_the_ID() );
 						if( $terms ){
@@ -34,7 +34,6 @@
 							<img src="<?php echo THEME_URL; ?>/images/dummy.png" data-src="<?php the_post_thumbnail_url('full'); ?>" class="lazy" alt="<?php the_title(); ?>"/>
 						</div>
 					<?php } ?>
-
 					<?php if( get_the_content() === "" ){ ?>
 						<p>※現在準備中です</p>
 					<?php }else{ ?>

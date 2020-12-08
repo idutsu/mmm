@@ -15,6 +15,7 @@
 }
 
 .mmm-post--single__date{
+    text-align:right;
 }
 
 .mmm-post--single__image{
@@ -32,7 +33,9 @@
 }
 
 .mmm-post--single__content *{
+    line-height:1.5;
 }
+
 
 /*
 
@@ -154,10 +157,12 @@
 */
 
 .mmm-related-posts{
+    margin-top:2rem;
 }
 
 .mmm-related-posts__title{
     line-height:1.2;
+    margin-bottom:1rem;
 }
 
 .mmm-related-posts__inner{
@@ -172,7 +177,9 @@
 
 a.mmm-related-posts__link{
     display:inline-block;
+    line-height:1.2;
     text-decoration:underline;
+    margin-bottom:.5rem;
 }
 
 a.mmm-related-posts__current{

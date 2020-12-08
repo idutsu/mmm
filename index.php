@@ -23,7 +23,7 @@
 					</div>
 				<?php } ?>
 				<div class="mmm-post__text mmm-post--index__text">
-					<div class="mmm-post__terms mmm-post--index__terms"><p class="mmm-post-cat mmm-post--index__cat"><?php echo $category; ?></p></div>
+					<div class="mmm-post__terms mmm-post--index__terms"><p class="mmm-post__cat mmm-post--index__cat"><?php echo $category; ?></p></div>
 					<time class="mmm-post__date mmm-post--index__date"><?php the_time('Y.m.d'); ?></time>
 					<h3 class="mmm-post__title mmm-post--index__title"><?php the_title(); ?></h3>
 				</div>

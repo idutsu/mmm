@@ -5,15 +5,21 @@
 */
 
 .mmm-post--archive{
+    border-top:1px solid lightgray;
+    padding-top:1rem;
+    padding-bottom:1rem;
 }
 
 .mmm-post--archive__terms{
 }
 
 .mmm-post--archive__title{
+    font-size:1.5rem;
+    line-height:1.2;
 }
 
 .mmm-post--archive__date{
+    font-size:.8rem;
 }
 
 .mmm-post--archive__image{
@@ -26,6 +32,7 @@
 }
 
 .mmm-post--archive__content{
+    line-height:1.2;
 }
 
 
