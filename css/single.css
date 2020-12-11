@@ -44,6 +44,8 @@
 */
 
 .mmm-post--single__content img{
+    width:auto;
+    max-width:100%;
 }
 
 .mmm-post--single__content img.aligncenter{
