@@ -61,7 +61,7 @@
 
         timer = setTimeout(function() {
 
-            if(w.scrollTop() > 50){
+            if(w.scrollTop() > 50 && window.innerWidth <= 768){
                 hamburger_btn.show();
             }else{
                 hamburger_btn.hide();
