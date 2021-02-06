@@ -48,6 +48,8 @@
                     var submenu = $(this).find('.mmm-submenu');
                     SlideUp( submenu );
                 });
+                
+                hamburger_menu.show();
 
             }
 
