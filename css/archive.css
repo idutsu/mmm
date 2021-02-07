@@ -10,6 +10,10 @@
     padding-bottom:1rem;
 }
 
+.mmm-main .mmm-post--archive:first-of-type{
+    border-top:none;
+}
+
 .mmm-post--archive__terms{
 }
 
